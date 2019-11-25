@@ -88,6 +88,16 @@ public class FXMLDocumentController implements Initializable {
 //            System.out.printLn("does not work properly");
 //            ex.printStackTrace();
 //        }
+       /* try 
+        {
+            songModel = new SongModel();
+            txt_songs.setItems(songModel.getAllSongs());
+            
+            setSongSelection();
+        } catch (Exception ex) {
+            System.out.printLn("does not work properly");
+            ex.printStackTrace();
+        } */
     }
     
     /*private void setSongSelection()

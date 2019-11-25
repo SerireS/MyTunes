@@ -22,12 +22,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <image>
-                  <Image url="@../Image/close.png" />
+                  <Image url="@Image/close.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="915.0" layoutY="20.0" onMouseClicked="#minimize_app" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/minus-symbol.png" />
+                  <Image url="@Image/minus-symbol.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -38,7 +38,7 @@
             </ImageView>
             <ImageView fx:id="btn_window_mode" fitHeight="15.0" fitWidth="19.0" layoutX="942.0" layoutY="18.0" onMouseClicked="#window_mode" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/maximize%20(3).png" />
+                  <Image url="@Image/maximize%20(3).png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -54,7 +54,7 @@
             </Label>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="526.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/spotify%20(2).png" />
+                  <Image url="@Image/spotify%20(2).png" />
                </image>
             </ImageView>
          </children>
@@ -63,7 +63,7 @@
          <children>
             <ImageView fx:id="btn_playpause" fitHeight="47.0" fitWidth="44.0" layoutX="157.0" layoutY="5.0" onMouseClicked="#play_pause" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/play-button%20(2).png" />
+                  <Image url="@Image/play-button%20(2).png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -71,7 +71,7 @@
             </ImageView>
             <ImageView fx:id="button_next" fitHeight="25.0" fitWidth="25.0" layoutX="221.0" layoutY="15.0" onMouseClicked="#nextSong" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/next%20(2).png" />
+                  <Image url="@Image/next%20(2).png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -79,7 +79,7 @@
             </ImageView>
             <ImageView fx:id="btn_previous" fitHeight="25.0" fitWidth="25.0" layoutX="111.0" layoutY="15.0" onMouseClicked="#previousSong" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/back.png" />
+                  <Image url="@Image/back.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -87,7 +87,7 @@
             </ImageView>
             <ImageView fx:id="btn_shuffle" fitHeight="18.0" fitWidth="20.0" layoutX="51.0" layoutY="21.0" onMouseClicked="#shuffle_music" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/shuffle%20(1).png" />
+                  <Image url="@Image/shuffle%20(1).png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -98,7 +98,7 @@
             </ImageView>
             <ImageView fx:id="btn_stop" fitHeight="15.0" fitWidth="20.0" layoutX="79.0" layoutY="22.0" onMouseClicked="#stop_music" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/stop.png" />
+                  <Image url="@Image/stop.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -109,7 +109,7 @@
             </ImageView>
             <ImageView fx:id="btn_replay" fitHeight="20.0" fitWidth="20.0" layoutX="24.0" layoutY="20.0" onMouseClicked="#replay_music" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/replay.png" />
+                  <Image url="@Image/replay.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -126,7 +126,7 @@
             <TextArea fx:id="txt_songs" layoutX="549.0" layoutY="14.0" prefHeight="358.0" prefWidth="401.0" style="-fx-background-color: #1f1f1f;" />
             <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="494.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/left-black-arrow.png" />
+                  <Image url="@Image/left-black-arrow.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -178,7 +178,7 @@
                </cursor></Button>
             <ImageView fx:id="btn_move_up" fitHeight="25.0" fitWidth="25.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/up-arrow.png" />
+                  <Image url="@Image/up-arrow.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -186,7 +186,7 @@
             </ImageView>
             <ImageView fx:id="btn_move_down" fitHeight="25.0" fitWidth="25.0" layoutX="34.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/down-arrow.png" />
+                  <Image url="@Image/down-arrow.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -229,7 +229,7 @@
       <Slider fx:id="slider_volume" layoutX="77.0" layoutY="150.0" opacity="0.75" prefHeight="14.0" prefWidth="134.0" style="-fx-background-color: #1f1f1f;" />
       <ImageView fitHeight="25.0" fitWidth="34.0" layoutX="219.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Image/speaker%20(5).png" />
+            <Image url="@Image/speaker%20(5).png" />
          </image>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
@@ -240,7 +240,7 @@
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="50.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Image/speaker%20(3).png" />
+            <Image url="@Image/speaker%20(3).png" />
          </image>
          <cursor>
             <Cursor fx:constant="DEFAULT" />

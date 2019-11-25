@@ -13,13 +13,31 @@ public class Song implements Serializable
     
     private final int id;
     private String title;
-    private int lenght;
+    private int length;
+    private String artist;
 
-    public Song(int id, String title, int year)
+    public Song(int id, String title, int year, String artist)
     {
         this.id = id;
         this.title = title;
-        this.lenght = lenght;
+        this.length = length;
+        this.artist = artist;
+    }
+    
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
     /**
@@ -29,7 +47,7 @@ public class Song implements Serializable
      */
     public int getYear()
     {
-        return lenght;
+        return length;
     }
 
     /**
@@ -37,9 +55,9 @@ public class Song implements Serializable
      *
      * @param year new value of year
      */
-    public void setYear(int lenght)
+    public void setYear(int length)
     {
-        this.lenght = lenght;
+        this.length = length;
     }
 
     /**
@@ -75,7 +93,7 @@ public class Song implements Serializable
     @Override
     public String toString()
     {
-        return title + " (" + lenght + ")";
+        return title + " (" + length + ")";
     }
 
     @Override

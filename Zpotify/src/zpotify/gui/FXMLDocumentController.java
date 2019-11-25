@@ -5,25 +5,20 @@
  */
 package zpotify.gui;
 
-import java.awt.event.MouseEvent;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import zpotify.gui.model.SongModel;
 
+
 /**
- *
  * @author Peder
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable
+{
 
     private SongModel songModel;
     @FXML
@@ -71,12 +66,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField txt_search;
 
-    private void handleButtonAction(MouseEvent event) {
+    private void handleButtonAction(MouseEvent event)
+    {
 
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) 
+    public void initialize(URL url, ResourceBundle rb)
     {
 //        try 
 //        {
@@ -97,53 +93,62 @@ public class FXMLDocumentController implements Initializable {
         {
             
         })*/
-    
+
 
     @FXML
     //closes the app
-    private void close_app(javafx.scene.input.MouseEvent event) {
+    private void close_app(javafx.scene.input.MouseEvent event)
+    {
         System.exit(0);
     }
 
     @FXML
     //minimizes the app
-    private void minimize_app(javafx.scene.input.MouseEvent event) {
+    private void minimize_app(javafx.scene.input.MouseEvent event)
+    {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
-    private void window_mode(javafx.scene.input.MouseEvent event) {
+    private void window_mode(javafx.scene.input.MouseEvent event)
+    {
     }
 
     @FXML
     //pause the music
-    private void play_pause(javafx.scene.input.MouseEvent event) {
+    private void play_pause(javafx.scene.input.MouseEvent event)
+    {
     }
 
     @FXML
     //skip to next song
-    private void nextSong(javafx.scene.input.MouseEvent event) {
+    private void nextSong(javafx.scene.input.MouseEvent event)
+    {
     }
 
     @FXML
     //play previous song
-    private void previousSong(javafx.scene.input.MouseEvent event) {
+    private void previousSong(javafx.scene.input.MouseEvent event)
+    {
     }
 
     @FXML
     //shuffle the songs
-    private void shuffle_music(javafx.scene.input.MouseEvent event) {
+    private void shuffle_music(javafx.scene.input.MouseEvent event)
+    {
     }
 
     @FXML
     //stop music
-    private void stop_music(javafx.scene.input.MouseEvent event) {
+    private void stop_music(javafx.scene.input.MouseEvent event)
+    {
     }
 
     @FXML
     //replay the song
-    private void replay_music(javafx.scene.input.MouseEvent event) {
+    private void replay_music(javafx.scene.input.MouseEvent event)
+    {
     }
 
 }

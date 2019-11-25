@@ -5,26 +5,28 @@
  */
 package zpotify.bll;
 
-import java.util.List;
 import zpotify.be.Song;
 import zpotify.dal.SongDAO;
 
+import java.util.List;
+
 /**
- *
  * @author jigzi
  */
-public class SongManager {
+public class SongManager
+{
     private SongDAO songDao;
 
-    public SongManager() {
+    public SongManager()
+    {
         songDao = new SongDAO();
     }
-    
+
     public List<Song> getAllSongs()
     {
         return songDao.getAllSongs();
     }
-    
+
     public void updateSong(Song song)
     {
         songDao.updateSong(song);

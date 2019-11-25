@@ -11,20 +11,20 @@ import zpotify.be.Song;
 import zpotify.bll.SongManager;
 
 /**
- *
  * @author jigzi
  */
-public class SongModel {
+public class SongModel
+{
     private ObservableList<Song> allSongs;
     private SongManager songManager;
-    
+
     public SongModel()
     {
         songManager = new SongManager();
         allSongs = FXCollections.observableArrayList();
         allSongs.addAll(songManager.getAllSongs());
     }
-    
+
     public ObservableList<Song> getAllSongs()
     {
         return allSongs;

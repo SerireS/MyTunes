@@ -5,31 +5,33 @@
  */
 package zpotify.dal;
 
+import zpotify.be.Song;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import zpotify.be.Song;
 
 /**
- *
  * @author Jonas
  */
-public class SongDAO {
+public class SongDAO
+{
 
-    public List<Song> getAllSongs() {
+    public List<Song> getAllSongs()
+    {
         return new ArrayList<>();
     }
 
 
-public void deleteSong(Song song) throws IOException
-{
-List<Song> allSongs = getAllSongs();
+    public void deleteSong(Song song) throws IOException
+    {
+        List<Song> allSongs = getAllSongs();
 
-}
+    }
 
-public void updateSong(Song song)
-{
-    List<Song> allSongs = getAllSongs();
-}
+    public void updateSong(Song song)
+    {
+        List<Song> allSongs = getAllSongs();
+    }
 }
 

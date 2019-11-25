@@ -15,7 +15,7 @@ public class Song implements Serializable
     private int length;
     private String artist;
 
-    public Song(int id, String title, int year, String artist)
+    public Song(int id, String title, int length, String artist)
     {
         this.id = id;
         this.title = title;
@@ -68,7 +68,7 @@ public class Song implements Serializable
      *
      * @return the value of id
      */
-    public int getId()
+    private int getId()
     {
         return id;
     }

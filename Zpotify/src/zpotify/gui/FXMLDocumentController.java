@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import zpotify.gui.model.SongModel;
 
+import java.awt.event.MouseEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * @author Peder

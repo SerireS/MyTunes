@@ -41,26 +41,6 @@ public class Song implements Serializable
     }
 
     /**
-     * Get the value of year
-     *
-     * @return the value of year
-     */
-    public int getYear()
-    {
-        return length;
-    }
-
-    /**
-     * Set the value of year
-     *
-     * @param year new value of year
-     */
-    public void setYear(int length)
-    {
-        this.length = length;
-    }
-
-    /**
      * Get the value of title
      *
      * @return the value of title

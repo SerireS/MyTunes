@@ -81,7 +81,7 @@ public class FXMLDocumentController implements Initializable {
         try 
         {
             songModel = new SongModel();
-            txt_songs.setItems(songModel.getAllMovies());
+            txt_songs.setItems(songModel.getAllSongs());
             
             setSongSelection();
         } catch (Exception ex) {

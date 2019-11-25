@@ -78,16 +78,16 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        try 
-        {
-            songModel = new SongModel();
-            txt_songs.setItems(songModel.getAllMovies());
-            
-            setSongSelection();
-        } catch (Exception ex) {
-            System.out.printLn("does not work properly");
-            ex.printStackTrace();
-        }
+//        try 
+//        {
+//            songModel = new SongModel();
+//            txt_songs.setItems(songModel.getAllMovies());
+//            
+//            setSongSelection();
+//        } catch (Exception ex) {
+//            System.out.printLn("does not work properly");
+//            ex.printStackTrace();
+//        }
     }
     
     /*private void setSongSelection()

@@ -5,11 +5,19 @@
  */
 package zpotify.dal;
 
+import java.util.ArrayList;
+import java.util.List;
+import zpotify.be.Song;
+
 /**
  *
  * @author Jonas
  */
 public class SongDAO
 {
-    
+    public List<Song> getAllSongs()
+    {
+        List<Song> allSongs = new ArrayList<>();
+        return allSongs;
+    }
 }

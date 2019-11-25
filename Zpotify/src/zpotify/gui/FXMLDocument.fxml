@@ -18,12 +18,12 @@
       <Pane layoutX="-8.0" layoutY="-5.0" prefHeight="47.0" prefWidth="1016.0" style="-fx-border-color: #999999;">
          <children>
             <ImageView fx:id="btn_close" fitHeight="18.0" fitWidth="15.0" layoutX="970.0" layoutY="17.0" onMouseClicked="#close_app" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/close.png" />
-               </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <image>
+                  <Image url="@../Image/close.png" />
+               </image>
             </ImageView>
             <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="915.0" layoutY="20.0" onMouseClicked="#minimize_app" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -17,8 +17,7 @@ import zpotify.be.Song;
 public class SongDAO {
 
     public List<Song> getAllSongs() {
-        List<Song> allSongs = new ArrayList<>();
-        return allSongs;
+        return new ArrayList<>();
     }
 
 

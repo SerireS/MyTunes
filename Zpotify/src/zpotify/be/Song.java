@@ -4,13 +4,12 @@ package zpotify.be;
 import java.io.Serializable;
 
 /**
- *
  * @author Jonas
  */
 public class Song implements Serializable
 {
-    
-    
+
+
     private final int id;
     private String title;
     private int length;
@@ -23,20 +22,24 @@ public class Song implements Serializable
         this.length = length;
         this.artist = artist;
     }
-    
-    public int getLength() {
+
+    public int getLength()
+    {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(int length)
+    {
         this.length = length;
     }
 
-    public String getArtist() {
+    public String getArtist()
+    {
         return artist;
     }
 
-    public void setArtist(String artist) {
+    public void setArtist(String artist)
+    {
         this.artist = artist;
     }
 
@@ -90,5 +93,5 @@ public class Song implements Serializable
             return super.equals(obj);
         }
     }
- 
+
 }

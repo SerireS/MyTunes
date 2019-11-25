@@ -78,7 +78,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        try 
+       /* try 
         {
             songModel = new SongModel();
             txt_songs.setItems(songModel.getAllSongs());
@@ -87,7 +87,7 @@ public class FXMLDocumentController implements Initializable {
         } catch (Exception ex) {
             System.out.printLn("does not work properly");
             ex.printStackTrace();
-        }
+        } */
     }
     
     /*private void setSongSelection()

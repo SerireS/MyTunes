@@ -12,13 +12,16 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import zpotify.gui.model.SongModel;
+import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
-
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import zpotify.be.Song;
 
 /**
  * @author Peder
@@ -48,7 +51,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private TextArea txt_song_playlist;
     @FXML
-    private TextArea txt_songs;
+    private ListView<Song> txt_songs;
     @FXML
     private ImageView btn_move_song;
     @FXML
@@ -87,7 +90,7 @@ public class FXMLDocumentController implements Initializable
             
             setSongSelection();
         } catch (Exception ex) {
-            System.out.printLn("does not work properly");
+            System.out.println("does not work properly");
             ex.printStackTrace();
         }
     }
@@ -95,17 +98,26 @@ public class FXMLDocumentController implements Initializable
     private void setSongSelection()
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
-        {
+        /*txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
+                {
             @Override
             public void changed(ObservableValue<? extends Song> arg0, Song oldValue, Song newValue)
             {
                 if (newValue != null)
                 {
-                     + "");
+                    txtSelectedMovieTitle.setText(newValue.getTitle());
+                    txtSelectedMovieYear.setText(newValue.getYear() + "");
                 }
             }
-        });
+                });*/
+    }
+    
+    @FXML
+    private void handleDeleteMovie(ActionEvent event) throws IOException
+    {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
     }
 
     @FXML

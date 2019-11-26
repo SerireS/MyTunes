@@ -11,11 +11,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1F1f1f;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLDocumentController">
     <children>
-        <Pane layoutX="-8.0" layoutY="-5.0" prefHeight="47.0" prefWidth="1016.0" style="-fx-border-color: #999999;">
+        <Pane layoutX="-8.0" layoutY="-5.0" prefHeight="47.0" prefWidth="1016.0">
             <children>
                 <ImageView fx:id="btn_close" fitHeight="18.0" fitWidth="15.0" layoutX="970.0" layoutY="17.0" onMouseClicked="#close_app" pickOnBounds="true" preserveRatio="true">
                     <cursor>
@@ -256,5 +257,6 @@
                 <ColorAdjust brightness="0.21" />
             </effect>
         </ImageView>
+      <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="WHITE" />
     </children>
 </AnchorPane>

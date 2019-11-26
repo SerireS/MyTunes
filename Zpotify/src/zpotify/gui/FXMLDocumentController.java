@@ -17,6 +17,10 @@ import zpotify.gui.model.SongModel;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
+=======
+import zpotify.be.Song;
+>>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
 
 /**
  * @author Peder
@@ -31,8 +35,6 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView btn_playpause;
     @FXML
-    private ImageView button_next;
-    @FXML
     private ImageView btn_previous;
     @FXML
     private ImageView btn_shuffle;
@@ -41,11 +43,9 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView btn_replay;
     @FXML
-    private ImageView btn_window_mode;
+    private ListView<?> txt_playlist;
     @FXML
-    private TextArea txt_playlist;
-    @FXML
-    private TextArea txt_song_playlist;
+    private ListView<?> txt_song_playlist;
     @FXML
     private ListView<Song> txt_songs;
     @FXML
@@ -70,6 +70,13 @@ public class FXMLDocumentController implements Initializable
     private Button btn_delete_song;
     @FXML
     private TextField txt_search;
+    @FXML
+    private Slider slider_volume;
+    @FXML
+    private ImageView btn_max;
+    @FXML
+    private ImageView btn_next;
+    
 
     private void handleButtonAction(MouseEvent event)
     {
@@ -116,7 +123,19 @@ public class FXMLDocumentController implements Initializable
             }
                 });*/
     }
+<<<<<<< HEAD
 
+=======
+    
+    /*@FXML
+    private void handleDeleteMovie(ActionEvent event) throws IOException
+    {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
+    }*/
+    
+>>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -146,8 +165,14 @@ public class FXMLDocumentController implements Initializable
             windowsState = true;
         }
     }
+<<<<<<< HEAD
 
     @FXML
+=======
+}
+
+@FXML
+>>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {

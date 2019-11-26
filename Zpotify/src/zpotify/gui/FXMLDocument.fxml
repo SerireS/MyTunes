@@ -199,7 +199,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="553.0" layoutY="623.0" prefHeight="34.0" prefWidth="401.0">
+        <Pane layoutX="570.0" layoutY="623.0" prefHeight="34.0" prefWidth="401.0">
             <children>
                 <Button fx:id="btn_new_song" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="New..." textFill="WHITE">
                     <cursor>

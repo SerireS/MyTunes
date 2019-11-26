@@ -31,8 +31,6 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView btn_playpause;
     @FXML
-    private ImageView button_next;
-    @FXML
     private ImageView btn_previous;
     @FXML
     private ImageView btn_shuffle;
@@ -72,6 +70,8 @@ public class FXMLDocumentController implements Initializable
     private Slider slider_volume;
     @FXML
     private ImageView btn_max;
+    @FXML
+    private ImageView btn_next;
     
 
     private void handleButtonAction(MouseEvent event)

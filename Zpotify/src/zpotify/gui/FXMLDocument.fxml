@@ -70,7 +70,7 @@
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </ImageView>
-                <ImageView fx:id="button_next" fitHeight="25.0" fitWidth="25.0" layoutX="221.0" layoutY="15.0" onMouseClicked="#nextSong" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="btn_next" fitHeight="25.0" fitWidth="25.0" layoutX="221.0" layoutY="15.0" onMouseClicked="#nextSong" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/next%20(2).png" />
                     </image>

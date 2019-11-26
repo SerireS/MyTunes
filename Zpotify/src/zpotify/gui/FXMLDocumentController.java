@@ -7,19 +7,20 @@ package zpotify.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
+import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
+=======
 import zpotify.be.Song;
+>>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
 
 /**
  * @author Peder
@@ -27,6 +28,7 @@ import zpotify.be.Song;
 public class FXMLDocumentController implements Initializable
 {
 
+    private boolean windowsState = true;
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -84,18 +86,27 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        try 
+        try
         {
             songModel = new SongModel();
             txt_songs.setItems(songModel.getAllSongs());
-            
+
             setSongSelection();
-        } catch (Exception ex) {
+        } catch (Exception ex)
+        {
             System.out.println("does not work properly");
             ex.printStackTrace();
         }
     }
     
+    /*@FXML
+    private void handleDeleteMovie(ActionEvent event) throws IOException
+    {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
+    }*/
+
     private void setSongSelection()
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -112,6 +123,9 @@ public class FXMLDocumentController implements Initializable
             }
                 });*/
     }
+<<<<<<< HEAD
+
+=======
     
     /*@FXML
     private void handleDeleteMovie(ActionEvent event) throws IOException
@@ -121,6 +135,7 @@ public class FXMLDocumentController implements Initializable
         songModel.deleteSong(selectedSong);
     }*/
     
+>>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -137,22 +152,27 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    private boolean window_mode(javafx.scene.input.MouseEvent event)
+    private void windowMode(javafx.scene.input.MouseEvent event)
     {
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    if (true)
-    {
-        stage.setFullScreen(true);
-        return false;
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        if (windowsState)
+        {
+            stage.setFullScreen(true);
+            windowsState = false;
+        } else
+        {
+            stage.setFullScreen(false);
+            windowsState = true;
+        }
     }
-    else
-    {
-        stage.setFullScreen(false);
-        return true;
-    }
+<<<<<<< HEAD
+
+    @FXML
+=======
 }
 
 @FXML
+>>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {

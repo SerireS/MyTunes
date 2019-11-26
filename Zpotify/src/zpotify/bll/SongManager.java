@@ -5,6 +5,7 @@
  */
 package zpotify.bll;
 
+import java.io.IOException;
 import zpotify.be.Song;
 import zpotify.dal.SongDAO;
 
@@ -30,5 +31,10 @@ public class SongManager
     public void updateSong(Song song)
     {
         songDao.updateSong(song);
+    }
+    
+    public void deleteSong(Song song) throws IOException
+    {
+        songDao.deleteSong(song);
     }
 }

@@ -22,16 +22,14 @@ public class SongDAO
         return new ArrayList<>();
     }
 
-
-    public void deleteSong(Song song) throws IOException
-    {
-        List<Song> allSongs = getAllSongs();
-
-    }
-
     public void updateSong(Song song)
     {
         List<Song> allSongs = getAllSongs();
+    }
+    
+    public void deleteSong(Song song) throws IOException
+    {
+        //to be continued
     }
 }
 

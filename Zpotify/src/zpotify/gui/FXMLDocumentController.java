@@ -12,10 +12,13 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import zpotify.gui.model.SongModel;
+import javafx.scene.control.SelectionMode;
 
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * @author Peder
@@ -77,26 +80,33 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-//        try 
-//        {
-//            songModel = new SongModel();
-//            txt_songs.setItems(songModel.getAllMovies());
-//            
-//            setSongSelection();
-//        } catch (Exception ex) {
-//            System.out.printLn("does not work properly");
-//            ex.printStackTrace();
-//        }
+        try 
+        {
+            songModel = new SongModel();
+            txt_songs.setItems(songModel.getAllSongs());
+            
+            setSongSelection();
+        } catch (Exception ex) {
+            System.out.printLn("does not work properly");
+            ex.printStackTrace();
+        }
     }
     
-    /*private void setSongSelection()
+    private void setSongSelection()
     {
-        txt_songs.getSelectionModel().setSlectionMode(SelectionMode.SINGLE);
-        txt_songs.getSelectedText().selectedItemProperty().addListener(new ChangeListener<Song>()
+        txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
         {
-            
-        })*/
-
+            @Override
+            public void changed(ObservableValue<? extends Song> arg0, Song oldValue, Song newValue)
+            {
+                if (newValue != null)
+                {
+                     + "");
+                }
+            }
+        });
+    }
 
     @FXML
     //closes the app

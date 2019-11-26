@@ -112,13 +112,13 @@ public class FXMLDocumentController implements Initializable
                 });*/
     }
     
-    @FXML
+    /*@FXML
     private void handleDeleteMovie(ActionEvent event) throws IOException
     {
         Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
         txt_songs.getItems().remove(selectedSong);
         songModel.deleteSong(selectedSong);
-    }
+    }*/
 
     @FXML
     //closes the app

@@ -119,7 +119,7 @@ public class FXMLDocumentController implements Initializable
         txt_songs.getItems().remove(selectedSong);
         songModel.deleteSong(selectedSong);
     }*/
-
+    
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)

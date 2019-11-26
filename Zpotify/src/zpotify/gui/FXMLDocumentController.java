@@ -11,16 +11,12 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
 
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-<<<<<<< HEAD
-=======
 import zpotify.be.Song;
->>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
 
 /**
  * @author Peder
@@ -122,11 +118,7 @@ public class FXMLDocumentController implements Initializable
                 }
             }
                 });*/
-    }
-<<<<<<< HEAD
-
-=======
-    
+    } 
     /*@FXML
     private void handleDeleteMovie(ActionEvent event) throws IOException
     {
@@ -134,8 +126,7 @@ public class FXMLDocumentController implements Initializable
         txt_songs.getItems().remove(selectedSong);
         songModel.deleteSong(selectedSong);
     }*/
-    
->>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
+
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -165,14 +156,12 @@ public class FXMLDocumentController implements Initializable
             windowsState = true;
         }
     }
-<<<<<<< HEAD
 
     @FXML
-=======
-}
+
 
 @FXML
->>>>>>> dd7abf10038a04101a2fddf644cbb743ada7388c
+
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {

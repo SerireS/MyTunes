@@ -15,12 +15,8 @@ import zpotify.gui.model.SongModel;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import zpotify.be.Song;
 
 /**
@@ -45,11 +41,9 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView btn_replay;
     @FXML
-    private ImageView btn_window_mode;
+    private ListView<?> txt_playlist;
     @FXML
-    private TextArea txt_playlist;
-    @FXML
-    private TextArea txt_song_playlist;
+    private ListView<?> txt_song_playlist;
     @FXML
     private ListView<Song> txt_songs;
     @FXML
@@ -74,6 +68,11 @@ public class FXMLDocumentController implements Initializable
     private Button btn_delete_song;
     @FXML
     private TextField txt_search;
+    @FXML
+    private Slider slider_volume;
+    @FXML
+    private ImageView btn_max;
+    
 
     private void handleButtonAction(MouseEvent event)
     {
@@ -138,6 +137,8 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private void window_mode(javafx.scene.input.MouseEvent event)
     {
+        
+
     }
 
     @FXML

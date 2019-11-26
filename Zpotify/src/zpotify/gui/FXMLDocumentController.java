@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -96,6 +97,17 @@ public class FXMLDocumentController implements Initializable
         }
     }
     
+<<<<<<< HEAD
+=======
+    /*@FXML
+    private void handleDeleteSong(ActionEvent event) throws IOException
+    {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
+    }*/
+
+>>>>>>> 486a87fbbfe63ed71c1396e0e9bc15fd9c7cf32a
     private void setSongSelection()
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -113,6 +125,7 @@ public class FXMLDocumentController implements Initializable
                 });*/
     }
     
+<<<<<<< HEAD
     /*@FXML
     private void handleDeleteMovie(ActionEvent event) throws IOException
     {
@@ -121,6 +134,8 @@ public class FXMLDocumentController implements Initializable
         songModel.deleteSong(selectedSong);
     }*/
     
+=======
+>>>>>>> 486a87fbbfe63ed71c1396e0e9bc15fd9c7cf32a
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -145,6 +160,7 @@ public class FXMLDocumentController implements Initializable
         stage.setFullScreen(true);
         return false;
     }
+<<<<<<< HEAD
     else
     {
         stage.setFullScreen(false);
@@ -152,6 +168,9 @@ public class FXMLDocumentController implements Initializable
     }
 }
 
+=======
+    
+>>>>>>> 486a87fbbfe63ed71c1396e0e9bc15fd9c7cf32a
 @FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)

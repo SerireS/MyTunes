@@ -7,9 +7,11 @@ package zpotify.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import zpotify.gui.model.SongModel;
 import javafx.scene.control.ListView;
@@ -136,14 +138,27 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    private void window_mode(javafx.scene.input.MouseEvent event)
+    private boolean window_mode(javafx.scene.input.MouseEvent event)
     {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    if (true)
+    {
+        stage.setFullScreen(true);
+        return false;
+    }
+    else
+    {
+        stage.setFullScreen(false);
+        return true;
     }
 
-    @FXML
+}
+
+@FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
+
     }
 
     @FXML

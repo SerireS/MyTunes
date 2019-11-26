@@ -211,7 +211,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btn_delete_song" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
+                <Button fx:id="btn_delete_song" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

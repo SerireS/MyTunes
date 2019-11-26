@@ -7,23 +7,16 @@ package zpotify.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
+import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import zpotify.be.Song;
 
 /**
  * @author Peder
@@ -31,6 +24,7 @@ import zpotify.be.Song;
 public class FXMLDocumentController implements Initializable
 {
 
+    private boolean windowsState = true;
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -85,18 +79,27 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        try 
+        try
         {
             songModel = new SongModel();
             txt_songs.setItems(songModel.getAllSongs());
-            
+
             setSongSelection();
-        } catch (Exception ex) {
+        } catch (Exception ex)
+        {
             System.out.println("does not work properly");
             ex.printStackTrace();
         }
     }
     
+    /*@FXML
+    private void handleDeleteMovie(ActionEvent event) throws IOException
+    {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
+    }*/
+
     private void setSongSelection()
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -113,14 +116,6 @@ public class FXMLDocumentController implements Initializable
             }
                 });*/
     }
-    
-    /*@FXML
-    private void handleDeleteMovie(ActionEvent event) throws IOException
-    {
-        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
-        txt_songs.getItems().remove(selectedSong);
-        songModel.deleteSong(selectedSong);
-    }*/
 
     @FXML
     //closes the app
@@ -138,23 +133,21 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    private boolean window_mode(javafx.scene.input.MouseEvent event)
+    private void windowMode(javafx.scene.input.MouseEvent event)
     {
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    if (true)
-    {
-        stage.setFullScreen(true);
-        return false;
-    }
-    else
-    {
-        stage.setFullScreen(false);
-        return true;
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        if (windowsState)
+        {
+            stage.setFullScreen(true);
+            windowsState = false;
+        } else
+        {
+            stage.setFullScreen(false);
+            windowsState = true;
+        }
     }
 
-}
-
-@FXML
+    @FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {

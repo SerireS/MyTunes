@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -37,7 +36,7 @@
                         <ColorAdjust brightness="0.21" />
                     </effect>
                 </ImageView>
-                <ImageView fx:id="btn_window_mode" fitHeight="15.0" fitWidth="19.0" layoutX="942.0" layoutY="18.0" onMouseClicked="#window_mode" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="btn_window_mode" fitHeight="15.0" fitWidth="19.0" layoutX="942.0" layoutY="18.0" onMouseClicked="#windowMode" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/maximize%20(3).png" />
                     </image>
@@ -123,7 +122,7 @@
         </Pane>
         <Pane layoutX="18.0" layoutY="240.0" prefHeight="389.0" prefWidth="964.0">
             <children>
-                <TextArea fx:id="txt_song_playlist" layoutX="269.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" style="-fx-background-color: #1f1f1f;" />
+            <ListView fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
                 <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="494.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/left-black-arrow.png" />
@@ -132,7 +131,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
-                <TextArea fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" style="-fx-background-color: #1f1f1f;" />
+            <ListView fx:id="txt_song_playlist" layoutX="269.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
             <ListView fx:id="txt_songs" layoutX="535.0" layoutY="14.0" prefHeight="358.0" prefWidth="415.0" />
             </children>
         </Pane>

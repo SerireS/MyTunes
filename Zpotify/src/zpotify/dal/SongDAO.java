@@ -21,7 +21,7 @@ import java.util.List;
 public class SongDAO
 {
     
-    private static final String SONG_SOURCE = "Zpotify\\musik\\songs.txt";
+    private static final String SONG_SOURCE = "musik/songs.txt";
 
     public List<Song> getAllSongs() throws IOException
     {
@@ -72,5 +72,7 @@ public class SongDAO
     {
         //to be continued
     }
+
+    
 }
 

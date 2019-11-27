@@ -5,7 +5,10 @@
  */
 package zpotify.dal;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import zpotify.be.Song;
 
 import java.io.IOException;
@@ -20,16 +23,47 @@ public class SongDAO
     
     private static final String SONG_SOURCE = "musik/songs.txt";
 
-    public List<Song> getAllSongs()
+    public List<Song> getAllSongs() throws IOException
     {
-        File file = new File (SONG_SOURCE);
         
-        System.out.println("is it there:" + file.canRead());
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(SONG_SOURCE))))
+        {
+            List<Song> allSongs = new ArrayList<>();
+            
+            while(true)
+            {
+                String aLineOfText = br.readLine();
+                if (aLineOfText == null)
+                {
+                    break;
+                }else if (!aLineOfText.isEmpty())
+                {
+                    try
+                    {
+                        String[] arrSong = aLineOfText.split(",");
+                        
+                        int id = Integer.parseInt(arrSong[0].trim());
+                        String title = arrSong[1].trim();
+                        int length = Integer.parseInt(arrSong[2].trim());
+                        String artist = arrSong[3].trim();
+                        for(int i = 3; i < arrSong.length; i++)
+                                {
+                                    title += "," + arrSong[i];
+                                }
+                        Song song = new Song(id, title, length, artist);
+                                allSongs.add(song);
+                    } catch (Exception e)
+                    {
+                        //Catch
+                    }
+                }
+            }
+            return allSongs;
+        }
         
-        return new ArrayList<>();
     }
 
-    public void updateSong(Song song)
+    public void updateSong(Song song) throws IOException
     {
         List<Song> allSongs = getAllSongs();
     }

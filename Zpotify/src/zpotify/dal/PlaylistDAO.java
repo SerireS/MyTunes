@@ -5,26 +5,27 @@
  */
 package zpotify.dal;
 
+import zpotify.be.Playlist;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import zpotify.be.Playlist;
 
 /**
- *
  * @author jigzi
  */
-public class PlaylistDAO {
+public class PlaylistDAO
+{
     public List<Playlist> getAllPlaylists()
     {
         return new ArrayList<>();
     }
-    
+
     public void updatePlaylist(Playlist playlist)
     {
         List<Playlist> allPlaylists = getAllPlaylists();
     }
-    
+
     public void deletePlaylist(Playlist playlist) throws IOException
     {
         //To be continued

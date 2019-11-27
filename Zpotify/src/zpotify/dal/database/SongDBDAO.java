@@ -5,13 +5,13 @@
  */
 package zpotify.dal.database;
 
-import zpotify.dal.SongDAO;
+
 
 /**
  *
  * @author nbruu
  */
-public class SongDBDAO implements SongDAO
+public class SongDBDAO 
 {
      private DatabaseConnector dbCon;
      
@@ -22,13 +22,7 @@ public class SongDBDAO implements SongDAO
      
      public static void main(String[] args)
     {
-        try
-        {
-            SongDBDAO songDAO = new SongDBDAO();
-            
-            string TXt
-            
-        }
+        
         
     }
     

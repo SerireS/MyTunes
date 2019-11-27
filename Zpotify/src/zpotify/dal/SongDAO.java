@@ -21,7 +21,7 @@ import java.util.List;
 public class SongDAO
 {
     
-    private static final String SONG_SOURCE = "Zpotify/musik/songs.txt";
+    private static final String SONG_SOURCE = "musik/songs.txt";
 
     public List<Song> getAllSongs() throws IOException
     {
@@ -44,11 +44,12 @@ public class SongDAO
                         
                         int id = Integer.parseInt(arrSong[0].trim());
                         String title = arrSong[1].trim();
-                        int length = Integer.parseInt(arrSong[2].trim());
-                        String artist = arrSong[3].trim();
+                        String artist = arrSong[2].trim();
+                        int length = Integer.parseInt(arrSong[3].trim());
                         for(int i = 3; i < arrSong.length; i++)
                                 {
                                     title += "," + arrSong[i];
+                                    artist += "," + arrSong[i];
                                 }
                         Song song = new Song(id, title, length, artist);
                                 allSongs.add(song);

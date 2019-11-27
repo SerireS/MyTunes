@@ -23,12 +23,12 @@ public class SongManager
         songDao = new SongDAO();
     }
 
-    public List<Song> getAllSongs()
+    public List<Song> getAllSongs() throws IOException
     {
         return songDao.getAllSongs();
     }
 
-    public void updateSong(Song song)
+    public void updateSong(Song song) throws IOException
     {
         songDao.updateSong(song);
     }

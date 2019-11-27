@@ -20,7 +20,7 @@ public class SongModel
     private ObservableList<Song> allSongs;
     private SongManager songManager;
 
-    public SongModel()
+    public SongModel() throws IOException
     {
         songManager = new SongManager();
         allSongs = FXCollections.observableArrayList();

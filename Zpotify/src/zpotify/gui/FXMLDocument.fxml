@@ -5,8 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #1F1f1f;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1000.0" style="-fx-background-color: #1F1f1f;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLDocumentController">
     <children>
         <Pane layoutX="-8.0" layoutY="-5.0" prefHeight="47.0" prefWidth="1016.0">
             <children>
@@ -57,6 +60,9 @@
                     <image>
                         <Image url="@Image/spotify%20(2).png" />
                     </image>
+               <effect>
+                  <Glow />
+               </effect>
                 </ImageView>
             </children>
         </Pane>
@@ -69,6 +75,9 @@
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
+               <effect>
+                  <DropShadow color="#231024" />
+               </effect>
                 </ImageView>
                 <ImageView fx:id="button_next" fitHeight="25.0" fitWidth="25.0" layoutX="221.0" layoutY="15.0" onMouseClicked="#nextSong" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -124,16 +133,22 @@
         <Pane layoutX="18.0" layoutY="240.0" prefHeight="389.0" prefWidth="964.0">
             <children>
             <ListView fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
-                <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="494.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="488.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/left-black-arrow.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
+               <effect>
+                  <DropShadow color="#4f2c4f" />
+               </effect>
                 </ImageView>
             <ListView fx:id="txt_song_playlist" layoutX="269.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
-            <ListView fx:id="txt_songs" layoutX="535.0" layoutY="14.0" prefHeight="358.0" prefWidth="415.0" />
+            <ListView fx:id="txt_songs" layoutX="535.0" layoutY="14.0" prefHeight="358.0" prefWidth="415.0">
+               <effect>
+                  <DropShadow />
+               </effect></ListView>
             </children>
         </Pane>
         <Pane layoutX="20.0" layoutY="223.0" prefHeight="34.0" prefWidth="964.0">
@@ -148,7 +163,7 @@
                         <Font name="Lato Bold" size="13.0" />
                     </font>
                 </Label>
-                <Label layoutX="547.0" layoutY="12.0" text="Songs" textFill="WHITE">
+                <Label layoutX="532.0" layoutY="12.0" text="Songs" textFill="WHITE">
                     <font>
                         <Font name="Lato Bold" size="13.0" />
                     </font>
@@ -218,18 +233,13 @@
                 </Button>
             </children>
         </Pane>
-        <Label layoutX="829.0" layoutY="106.0" text="Filter:" textFill="WHITE">
+        <Label layoutX="829.0" layoutY="114.0" text="Filter:" textFill="WHITE">
             <font>
                 <Font name="Lato Bold" size="13.0" />
             </font>
         </Label>
-        <TextField fx:id="txt_search" layoutX="870.0" layoutY="102.0" prefHeight="25.0" prefWidth="79.0" promptText="Enter text" style="-fx-background-color: #ffffff;" />
-        <Label layoutX="450.0" layoutY="77.0" text="Currently Playing:" textFill="WHITE">
-            <font>
-                <Font name="Lato Bold" size="13.0" />
-            </font>
-        </Label>
-        <Label layoutX="448.0" layoutY="114.0" text="Jesu Brødre - SPK" textFill="WHITE">
+        <TextField fx:id="txt_search" layoutX="869.0" layoutY="110.0" prefHeight="25.0" prefWidth="79.0" promptText="Enter text" style="-fx-background-color: #ffffff;" />
+        <Label layoutX="448.0" layoutY="114.0" text="Currently Playing:" textFill="WHITE">
             <font>
                 <Font name="Lato Bold" size="13.0" />
             </font>
@@ -258,5 +268,10 @@
             </effect>
         </ImageView>
       <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="WHITE" />
+      <TextArea fx:id="txtArea_song_playing" layoutX="400.0" layoutY="145.0" minHeight="-Infinity" opacity="0.9" prefHeight="25.0" prefWidth="200.0" promptText="None" wrapText="true">
+         <font>
+            <Font name="Lato Bold" size="12.0" />
+         </font>
+      </TextArea>
     </children>
 </AnchorPane>

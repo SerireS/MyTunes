@@ -21,7 +21,11 @@ import java.util.List;
 public class SongDAO
 {
     
+<<<<<<< HEAD
     private static final String SONG_SOURCE = "musik/songs.txt";
+=======
+    private static final String SONG_SOURCE = "Zpotify/musik/songs.txt";
+>>>>>>> ec713b0236f25dc0e50d00f073443fb2cce9b0c5
 
     public List<Song> getAllSongs() throws IOException
     {
@@ -54,7 +58,7 @@ public class SongDAO
                                 allSongs.add(song);
                     } catch (Exception e)
                     {
-                        //Catch
+                        e.printStackTrace();
                     }
                 }
             }

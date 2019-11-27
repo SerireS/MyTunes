@@ -157,17 +157,17 @@
         </Pane>
         <Pane layoutX="31.0" layoutY="623.0" prefHeight="34.0" prefWidth="200.0">
             <children>
-                <Button fx:id="btn_new_playlist" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="New..." textFill="WHITE">
+                <Button fx:id="btn_new_playlist" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionNewPlaylist" style="-fx-background-color: #333333;" text="New..." textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btn_edit_playlist" layoutX="73.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Edit..." textFill="WHITE">
+                <Button fx:id="btn_edit_playlist" layoutX="73.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionEditPlaylist" style="-fx-background-color: #333333;" text="Edit..." textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btn_delete_playlist" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
+                <Button fx:id="btn_delete_playlist" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionDeletePlaylist" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -176,7 +176,7 @@
         </Pane>
         <Pane layoutX="287.0" layoutY="623.0" prefHeight="34.0" prefWidth="200.0">
             <children>
-                <Button fx:id="btn_delete_song_playlist" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
+                <Button fx:id="btn_delete_song_playlist" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionDeleteSongOnPlaylist" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -201,17 +201,17 @@
         </Pane>
         <Pane layoutX="553.0" layoutY="623.0" prefHeight="34.0" prefWidth="401.0">
             <children>
-                <Button fx:id="btn_new_song" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="New..." textFill="WHITE">
+                <Button fx:id="btn_new_song" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionNewSong" style="-fx-background-color: #333333;" text="New..." textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btn_edit_song" layoutX="73.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Edit..." textFill="WHITE">
+                <Button fx:id="btn_edit_song" layoutX="73.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionEditSong" style="-fx-background-color: #333333;" text="Edit..." textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btn_delete_song" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
+                <Button fx:id="btn_delete_song" layoutX="149.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonActionDeleteSong" style="-fx-background-color: #333333;" text="Delete" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

@@ -5,34 +5,33 @@
  */
 package zpotify.bll;
 
+import java.io.IOException;
+import java.util.List;
 import zpotify.be.Playlist;
 import zpotify.dal.PlaylistDAO;
 
-import java.io.IOException;
-import java.util.List;
-
 /**
+ *
  * @author jigzi
  */
-public class PlaylistManager
-{
+public class PlaylistManager {
     private PlaylistDAO playlistDao;
-
+    
     public PlaylistManager()
     {
         playlistDao = new PlaylistDAO();
     }
-
+    
     public List<Playlist> getAllPlaylists()
     {
         return playlistDao.getAllPlaylists();
     }
-
+    
     public void updatePlaylist(Playlist playlist)
     {
         playlistDao.updatePlaylist(playlist);
     }
-
+    
     public void deletePlaylist(Playlist playlist) throws IOException
     {
         playlistDao.deletePlaylist(playlist);

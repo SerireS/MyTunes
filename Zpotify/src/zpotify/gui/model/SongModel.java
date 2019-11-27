@@ -5,13 +5,12 @@
  */
 package zpotify.gui.model;
 
+import java.io.IOException;
+import java.util.Comparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import zpotify.be.Song;
 import zpotify.bll.SongManager;
-
-import java.io.IOException;
-import java.util.Comparator;
 
 /**
  * @author jigzi
@@ -32,20 +31,20 @@ public class SongModel
     {
         return allSongs;
     }
-
+    
     public void deleteSong(Song selectedSong) throws IOException
     {
         songManager.deleteSong(selectedSong);
-        if (allSongs.remove(selectedSong))
+        if(allSongs.remove(selectedSong))
         {
             allSongs.remove(selectedSong);
             allSongs.sort(new Comparator<Song>()
             {
                 // Meningen er at sortere dem efter længde? Ved ikke omdet er meninge, revurder metode
                 @Override
-                public int compare(Song arg0, Song arg1)
+                public int compare (Song arg0, Song arg1)
                 {
-                    return arg0.getLength() - arg1.getLength();
+                    return arg0.getLength()- arg1.getLength();
                 }
             });
         }

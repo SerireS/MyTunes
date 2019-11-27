@@ -22,12 +22,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.StageStyle;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.StageStyle;
 import zpotify.be.Song;
 
 /**
@@ -83,12 +77,8 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView btn_window_mode;
     @FXML
-
     private ImageView button_next;
     
-
-    private ImageView btn_next;
-
 
     private void handleButtonAction(MouseEvent event)
     {
@@ -135,7 +125,7 @@ public class FXMLDocumentController implements Initializable
             }
                 });*/
     }
-
+    
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -165,8 +155,8 @@ public class FXMLDocumentController implements Initializable
             windowsState = true;
         }
     }
-
-    @FXML
+    
+@FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {

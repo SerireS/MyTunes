@@ -6,11 +6,9 @@
 package zpotify.dal;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import zpotify.be.Song;
 
 import java.io.IOException;
@@ -23,7 +21,7 @@ import java.util.List;
 public class SongDAO
 {
     
-    private static final String SONG_SOURCE = "musik/songs.txt";
+    private static final String SONG_SOURCE = "Zpotify\\musik\\songs.txt";
 
     public List<Song> getAllSongs() throws IOException
     {
@@ -46,18 +44,17 @@ public class SongDAO
                         
                         int id = Integer.parseInt(arrSong[0].trim());
                         String title = arrSong[1].trim();
-                        String artist = arrSong[2].trim();
-                        int length = Integer.parseInt(arrSong[3].trim());
+                        int length = Integer.parseInt(arrSong[2].trim());
+                        String artist = arrSong[3].trim();
                         for(int i = 3; i < arrSong.length; i++)
                                 {
                                     title += "," + arrSong[i];
-                                    artist += "," + arrSong[i];
                                 }
                         Song song = new Song(id, title, length, artist);
                                 allSongs.add(song);
                     } catch (Exception e)
                     {
-                        e.printStackTrace();
+                        //Catch
                     }
                 }
             }
@@ -71,21 +68,9 @@ public class SongDAO
         List<Song> allSongs = getAllSongs();
     }
     
-//    public void deleteSong(Song song) throws IOException
-////    {
-////        List<Song> allSongs = getAllSongs();
-////        if (allSongs.remove(song))
-////        {
-////            try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(SONG_SOURCE))))
-////            {
-////                for (Song song : allSongs)
-////                {
-////                    bw.write(song.getArtist()+ "," + song.getTitle() + "," + song.getLength());
-////                    bw.newLine();
-////                }
-////            }
-////
-////        }
-////    }
+    public void deleteSong(Song song) throws IOException
+    {
+        //to be continued
+    }
 }
 

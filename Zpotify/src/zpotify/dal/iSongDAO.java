@@ -5,18 +5,18 @@
  */
 package zpotify.dal;
 
-import java.util.List;
 import zpotify.be.Song;
 
+import java.util.List;
+
 /**
- *
  * @author nbruu
  */
-public interface iSongDAO 
+public interface iSongDAO
 {
-    
+
     Song createSong(String title, int length, String artist) throws DalException;
-    
+
     void deleteSong(Song song) throws DalException;
 
     List<Song> getallSongs() throws DalException;

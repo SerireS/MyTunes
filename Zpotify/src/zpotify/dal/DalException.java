@@ -6,9 +6,9 @@
 package zpotify.dal;
 
 /**
- *
  * @author nbruu
  */
-class DalException extends Exception {
-    
+class DalException extends Exception
+{
+
 }

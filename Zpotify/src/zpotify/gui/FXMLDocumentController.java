@@ -17,7 +17,6 @@ import zpotify.gui.model.SongModel;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import zpotify.be.Song;
 
 /**
  * @author Peder
@@ -73,7 +72,7 @@ public class FXMLDocumentController implements Initializable
     private ImageView btn_max;
     @FXML
     private ImageView btn_next;
-    
+
 
     private void handleButtonAction(MouseEvent event)
     {
@@ -120,7 +119,7 @@ public class FXMLDocumentController implements Initializable
             }
                 });*/
     }
-    
+
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -150,8 +149,8 @@ public class FXMLDocumentController implements Initializable
             windowsState = true;
         }
     }
-    
-@FXML
+
+    @FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {

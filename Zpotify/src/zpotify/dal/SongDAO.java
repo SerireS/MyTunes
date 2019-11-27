@@ -71,21 +71,21 @@ public class SongDAO
         List<Song> allSongs = getAllSongs();
     }
     
-    public void deleteSong(Song song) throws IOException
-    {
-        List<Song> allSongs = getAllSongs();
-        if (allSongs.remove(song))
-        {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(SONG_SOURCE))))
-            {
-                for (Song song : allSongs)
-                {
-                    bw.write(song.getArtist()+ "," + song.getTitle() + "," + song.getLength());
-                    bw.newLine();
-                }
-            }
-
-        }
-    }
+//    public void deleteSong(Song song) throws IOException
+////    {
+////        List<Song> allSongs = getAllSongs();
+////        if (allSongs.remove(song))
+////        {
+////            try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(SONG_SOURCE))))
+////            {
+////                for (Song song : allSongs)
+////                {
+////                    bw.write(song.getArtist()+ "," + song.getTitle() + "," + song.getLength());
+////                    bw.newLine();
+////                }
+////            }
+////
+////        }
+////    }
 }
 

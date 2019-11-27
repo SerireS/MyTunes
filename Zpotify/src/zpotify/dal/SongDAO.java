@@ -6,9 +6,11 @@
 package zpotify.dal;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import zpotify.be.Song;
 
 import java.io.IOException;
@@ -71,7 +73,19 @@ public class SongDAO
     
     public void deleteSong(Song song) throws IOException
     {
-        //to be continued
+        List<Song> allSongs = getAllSongs();
+        if (allSongs.remove(song))
+        {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(SONG_SOURCE))))
+            {
+                for (Song song : allSongs)
+                {
+                    bw.write(song.getArtist()+ "," + song.getTitle() + "," + song.getLength());
+                    bw.newLine();
+                }
+            }
+
+        }
     }
 }
 

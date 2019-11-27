@@ -5,6 +5,7 @@
  */
 package zpotify.dal;
 
+import java.io.File;
 import zpotify.be.Song;
 
 import java.io.IOException;
@@ -16,9 +17,15 @@ import java.util.List;
  */
 public class SongDAO
 {
+    
+    private static final String SONG_SOURCE = "musik/songs.txt";
 
     public List<Song> getAllSongs()
     {
+        File file = new File (SONG_SOURCE);
+        
+        System.out.println("is it there:" + file.canRead());
+        
         return new ArrayList<>();
     }
 

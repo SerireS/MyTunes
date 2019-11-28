@@ -43,12 +43,12 @@ public class SongDAO
                         String artist = arrSong[2].trim();
                         int length = Integer.parseInt(arrSong[3].trim());
 
-                        for (int i = 3; i < arrSong.length; i++)
+                        /*for (int i = 3; i < arrSong.length; i++)
                         {
                             title += "," + arrSong[i];
                             artist += "," + arrSong[i];
-                        }
-                        Song song = new Song(id, title, length, artist);
+                        }*/
+                        Song song = new Song(id, title, artist, length);
                         allSongs.add(song);
                     } catch (Exception e)
                     {

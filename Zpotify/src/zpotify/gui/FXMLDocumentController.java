@@ -30,6 +30,7 @@ public class FXMLDocumentController implements Initializable
 
     private static MediaPlayer mediaPlayer;
     private boolean windowsState = true;
+    private boolean playing = true;
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -161,7 +162,15 @@ public class FXMLDocumentController implements Initializable
         String path = "C:/Users/Jonas/Documents/GitHub/MyTunes/Zpotify/musik/Chill.mp3";
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
+        if (playing)
+        {
+            mediaPlayer.setAutoPlay(true);
+            playing = false;
+        } else
+        {
+            mediaPlayer.setAutoPlay(false);
+            playing = true;
+        }
 
     }
 

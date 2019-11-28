@@ -8,34 +8,39 @@ package zpotify.be;
 import java.util.List;
 
 /**
- *
  * @author jigzi
  */
-public class Playlist {
-    
+public class Playlist
+{
+
     private List<Song> songs;
     private String playlistName;
 
-    public Playlist(List<Song> songs, String playlistName) {
+    public Playlist(List<Song> songs, String playlistName)
+    {
         this.songs = songs;
         this.playlistName = playlistName;
     }
 
-    public List<Song> getSongs() {
+    public List<Song> getSongs()
+    {
         return songs;
     }
 
-    public void setSongs(List<Song> songs) {
+    public void setSongs(List<Song> songs)
+    {
         this.songs = songs;
     }
 
-    public String getPlaylistName() {
+    public String getPlaylistName()
+    {
         return playlistName;
     }
 
-    public void setPlaylistName(String playlistName) {
+    public void setPlaylistName(String playlistName)
+    {
         this.playlistName = playlistName;
     }
-    
-    
+
+
 }

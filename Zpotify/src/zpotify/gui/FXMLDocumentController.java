@@ -10,11 +10,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.*;
 import javafx.stage.Stage;
 import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -160,6 +168,10 @@ public class FXMLDocumentController implements Initializable
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
+        String path = "C:/Users/Jonas/Documents/GitHub/MyTunes/Zpotify/musik/Chill.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
 
     }
 

@@ -70,7 +70,7 @@
             <children>
                 <ImageView fx:id="btn_playpause" fitHeight="47.0" fitWidth="44.0" layoutX="157.0" layoutY="5.0" onMouseClicked="#play_pause" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Image/play-button%20(2).png" />
+                        <Image url="@Image/play-button%20(3).png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />

@@ -76,7 +76,7 @@ public class Song implements Serializable
     @Override
     public String toString()
     {
-        return title + "," + length + " (" + artist + ")";
+        return title + "," + artist + " (" + length + ")";
     }
 
     @Override   

@@ -5,32 +5,22 @@
  */
 package zpotify.gui;
 
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.event.ActionEvent;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.*;
-import javafx.stage.Stage;
-import zpotify.be.Song;
-import zpotify.gui.model.SongModel;
-import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import zpotify.be.Song;
+import zpotify.gui.model.SongModel;
 
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.StageStyle;
-import zpotify.be.Song;
 
 /**
  * @author Peder
@@ -86,7 +76,7 @@ public class FXMLDocumentController implements Initializable
     private ImageView btn_window_mode;
     @FXML
     private ImageView button_next;
-    
+
 
     private void handleButtonAction(MouseEvent event)
     {
@@ -133,7 +123,7 @@ public class FXMLDocumentController implements Initializable
             }
                 });*/
     }
-    
+
     @FXML
     //closes the app
     private void close_app(javafx.scene.input.MouseEvent event)
@@ -163,8 +153,8 @@ public class FXMLDocumentController implements Initializable
             windowsState = true;
         }
     }
-    
-@FXML
+
+    @FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
@@ -206,19 +196,20 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    private void handleButtonActionNewPlaylist(ActionEvent event) 
+    private void handleButtonActionNewPlaylist(ActionEvent event)
     {
-        try {
+        try
+        {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditPlaylist.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
             stage.show();
-            
-        }
-        catch (Exception e) {
+
+        } catch (Exception e)
+        {
             System.out.println("Cant load new Window");
         }
     }
@@ -226,69 +217,72 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private void handleButtonActionEditPlaylist(ActionEvent event)
     {
-        try {
+        try
+        {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditPlaylist.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
             stage.show();
-            
-        }
-        catch (Exception e) {
+
+        } catch (Exception e)
+        {
             System.out.println("Cant load new Window");
         }
     }
 
     @FXML
-    private void handleButtonActionDeletePlaylist(ActionEvent event) 
+    private void handleButtonActionDeletePlaylist(ActionEvent event)
     {
     }
 
     @FXML
-    private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) 
+    private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event)
     {
     }
 
     @FXML
-    private void handleButtonActionNewSong(ActionEvent event) 
+    private void handleButtonActionNewSong(ActionEvent event)
     {
-        try {
+        try
+        {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditSong.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
             stage.show();
-            
-        }
-        catch (Exception e) {
+
+        } catch (Exception e)
+        {
             System.out.println("Cant load new Window");
         }
     }
 
     @FXML
-    private void handleButtonActionEditSong(ActionEvent event) 
+    private void handleButtonActionEditSong(ActionEvent event)
     {
-        try {
+        try
+        {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditSong.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
             stage.show();
-            
-        }
-        catch (Exception e) {
+
+        } catch (Exception e)
+        {
             System.out.println("Cant load new Window");
         }
     }
 
     @FXML
-    private void handleButtonActionDeleteSong(ActionEvent event) 
+    private void handleButtonActionDeleteSong(ActionEvent event)
     {
     }
 

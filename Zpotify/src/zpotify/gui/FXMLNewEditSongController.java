@@ -5,20 +5,22 @@
  */
 package zpotify.gui;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /**
  * FXML Controller class
  *
  * @author Peter
  */
-public class FXMLNewEditSongController implements Initializable {
+public class FXMLNewEditSongController implements Initializable
+{
 
     @FXML
     private Button btn_save;
@@ -31,25 +33,26 @@ public class FXMLNewEditSongController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         // TODO
-    }    
+    }
 
     @FXML
-    private void handleButtonActionSave(ActionEvent event) 
+    private void handleButtonActionSave(ActionEvent event)
     {
     }
 
     @FXML
-    private void handleButtonActionChoose(ActionEvent event) 
+    private void handleButtonActionChoose(ActionEvent event)
     {
     }
 
     @FXML
-    private void handleButtonActionCancel(ActionEvent event) 
+    private void handleButtonActionCancel(ActionEvent event)
     {
         Stage stage = (Stage) btn_cancel.getScene().getWindow();
         stage.close();
     }
-    
+
 }

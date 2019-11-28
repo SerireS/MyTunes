@@ -22,6 +22,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 /**
  * @author Peder
  */
@@ -118,8 +119,10 @@ public class FXMLDocumentController implements Initializable
             {
                 if (newValue != null)
                 {
+                    txtSelectedMovieYear.setText(newValue.getId() + "");
                     txtSelectedMovieTitle.setText(newValue.getTitle());
-                    txtSelectedMovieYear.setText(newValue.getYear() + "");
+                    txtSelectedMovieTitle.setText(newValue.getArtist());
+                    txtSelectedMovieYear.setText(newValue.getLength() + "");
                 }
             }
                 });*/

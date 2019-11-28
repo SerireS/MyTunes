@@ -28,8 +28,8 @@ import java.util.ResourceBundle;
 public class FXMLDocumentController implements Initializable
 {
 
+    private static MediaPlayer mediaPlayer;
     private boolean windowsState = true;
-    
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -78,11 +78,18 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView button_next;
 
-
     private void handleButtonAction(MouseEvent event)
     {
 
     }
+    
+    /*@FXML
+    private void handleDeleteSong(ActionEvent event) throws IOException
+    {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -99,14 +106,6 @@ public class FXMLDocumentController implements Initializable
             ex.printStackTrace();
         }
     }
-    
-    /*@FXML
-    private void handleDeleteSong(ActionEvent event) throws IOException
-    {
-        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
-        txt_songs.getItems().remove(selectedSong);
-        songModel.deleteSong(selectedSong);
-    }*/
 
     private void setSongSelection()
     {
@@ -155,13 +154,11 @@ public class FXMLDocumentController implements Initializable
         }
     }
 
-    private static MediaPlayer mediaPlayer;
-    
     @FXML
     //pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
-        String path = "C:/Users/nbruu/Desktop/musik/Chill.mp3";
+        String path = "C:/Users/Jonas/Documents/GitHub/MyTunes/Zpotify/musik/Chill.mp3";
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);

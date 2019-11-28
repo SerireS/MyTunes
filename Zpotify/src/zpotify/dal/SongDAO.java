@@ -41,7 +41,7 @@ public class SongDAO
                         int id = Integer.parseInt(arrSong[0].trim());
                         String title = arrSong[1].trim();
                         String artist = arrSong[2].trim();
-                        long length = Long.parseLong(arrSong[3].trim());
+                        int length = Integer.parseInt(arrSong[3].trim());
 
                         /*for (int i = 3; i < arrSong.length; i++)
                         {

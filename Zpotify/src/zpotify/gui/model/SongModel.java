@@ -42,7 +42,7 @@ public class SongModel
             {
                 // Meningen er at sortere dem efter længde? Ved ikke omdet er meninge, revurder metode
                 @Override
-                public long compare (Song arg0, Song arg1)
+                public int compare (Song arg0, Song arg1)
                 {
                     return arg0.getLength()- arg1.getLength();
                 }

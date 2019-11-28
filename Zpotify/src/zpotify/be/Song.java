@@ -9,21 +9,21 @@ public class Song implements Serializable {
 
     private final int id;
     private String title;
-    private long length;
+    private int length;
     private String artist;
 
-    public Song(int id, String title, String artist, long length) {
+    public Song(int id, String title, String artist, int length) {
         this.id = id;
         this.title = title;
         this.artist = artist;
         this.length = length;
     }
 
-    public long getLength() {
+    public int getLength() {
         return length;
     }
 
-    public void setLength(long length) {
+    public void setLength(int length) {
         this.length = length;
     }
 

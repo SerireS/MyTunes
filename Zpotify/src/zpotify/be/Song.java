@@ -15,12 +15,12 @@ public class Song implements Serializable
     private int length;
     private String artist;
 
-    public Song(int id, String title, int length, String artist)
+    public Song(int id, String title, String artist, int length)
     {
         this.id = id;
         this.title = title;
-        this.length = length;
         this.artist = artist;
+        this.length = length;
     }
 
     public int getLength()
@@ -76,10 +76,10 @@ public class Song implements Serializable
     @Override
     public String toString()
     {
-        return title + " (" + length + ")";
+        return title + "," + length + " (" + artist + ")";
     }
 
-    @Override
+    @Override   
     public boolean equals(Object obj)
     {
         if (obj instanceof Song)

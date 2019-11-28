@@ -21,6 +21,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.image.Image;
 
 
 /**
@@ -159,7 +160,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    //pause the music
+    //play and pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
         String path = "C:/Users/Jonas/Documents/GitHub/MyTunes/Zpotify/musik/Christmas Songs.mp3";

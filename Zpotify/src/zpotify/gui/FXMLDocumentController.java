@@ -21,6 +21,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.image.Image;
+
 
 /**
  * @author Peder
@@ -118,8 +120,10 @@ public class FXMLDocumentController implements Initializable
             {
                 if (newValue != null)
                 {
+                    txtSelectedMovieYear.setText(newValue.getId() + "");
                     txtSelectedMovieTitle.setText(newValue.getTitle());
-                    txtSelectedMovieYear.setText(newValue.getYear() + "");
+                    txtSelectedMovieTitle.setText(newValue.getArtist());
+                    txtSelectedMovieYear.setText(newValue.getLength() + "");
                 }
             }
                 });*/
@@ -156,7 +160,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    //pause the music
+    //play and pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
         String path = "C:/Users/Jonas/Documents/GitHub/MyTunes/Zpotify/musik/Christmas Songs.mp3";

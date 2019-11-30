@@ -5,6 +5,8 @@
  */
 package zpotify.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -15,7 +17,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
 
 import java.awt.event.MouseEvent;
@@ -52,7 +53,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ListView<?> txt_song_playlist;
     @FXML
-    private ListView<Song> txt_songs;
+    private ListView<String> txt_songs;
     @FXML
     private ImageView btn_move_song;
     @FXML
@@ -95,24 +96,60 @@ public class FXMLDocumentController implements Initializable
 
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        String path = "musik/Christmas Songs.mp3";
-        media = new Media(new File(path).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
+
+        txt_songs.setOnMouseClicked(click ->
+        {
+            if (click.getClickCount() == 2)
+            {
+                try
+                {
+                    mediaPlayer.stop();
+                    mediaPlayer.dispose();
+                } catch (Exception ignored)
+                {
+                }
+
+                media = new Media(new File("musik/" + txt_songs.getSelectionModel().getSelectedItem()).toURI().toString());
+                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.play();
+                btn_playpause.setImage(new Image("/Image/Pause.png"));
+            }
+        });
 
         try
         {
-            songModel = new SongModel();
-            txt_songs.setItems(songModel.getAllSongs());
-
-            setSongSelection();
-        } catch (Exception ex)
+            File folder = new File("musik");
+            File[] listOfFiles = folder.listFiles();
+            ObservableList<String> songList = FXCollections.observableArrayList();
+            if (listOfFiles != null)
+            {
+                for (File file : listOfFiles)
+                {
+                    songList.add(file.getName());
+                }
+            }
+            txt_songs.setItems(songList);
+        } catch (Exception ignore)
         {
-            System.out.println("does not work properly");
-            ex.printStackTrace();
+            System.out.println("No Files In Folder");
         }
+
+
+//        try
+//        {
+//            songModel = new SongModel();
+//            txt_songs.setItems(songModel.getAllSongs());
+//
+//            setSongSelection();
+//        } catch (Exception ex)
+//        {
+//            System.out.println("does not work properly");
+//            ex.printStackTrace();
+//        }
     }
 
     private void setSongSelection()

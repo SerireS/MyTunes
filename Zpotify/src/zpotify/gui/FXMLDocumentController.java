@@ -163,7 +163,7 @@ public class FXMLDocumentController implements Initializable
     //play and pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
-        String path = "C:/Users/Jonas/Documents/GitHub/MyTunes/Zpotify/musik/Christmas Songs.mp3";
+        String path = "musik/Christmas Songs.mp3";
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         if (playing)

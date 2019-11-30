@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -30,8 +31,9 @@ public class FXMLDocumentController implements Initializable
 {
 
     private static MediaPlayer mediaPlayer;
+    private Media media;
     private boolean windowsState = true;
-    private boolean playing = false;
+    private boolean playing = true;
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -79,11 +81,6 @@ public class FXMLDocumentController implements Initializable
     private ImageView btn_window_mode;
     @FXML
     private ImageView button_next;
-
-    private void handleButtonAction(MouseEvent event)
-    {
-
-    }
     
     /*@FXML
     private void handleDeleteSong(ActionEvent event) throws IOException
@@ -93,9 +90,18 @@ public class FXMLDocumentController implements Initializable
         songModel.deleteSong(selectedSong);
     }*/
 
+    private void handleButtonAction(MouseEvent event)
+    {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        String path = "musik/Christmas Songs.mp3";
+        media = new Media(new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+
         try
         {
             songModel = new SongModel();
@@ -162,17 +168,14 @@ public class FXMLDocumentController implements Initializable
     //play and pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
-        String path = "musik/Christmas Songs.mp3";
-        Media media = new Media(new File(path).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        if (playing)
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {
-            mediaPlayer.setAutoPlay(true);
-            playing = true;
+            mediaPlayer.pause();
+            btn_playpause.setImage(new Image("Image/play-button (2).png"));
         } else
         {
-            mediaPlayer.setAutoPlay(false);
-            playing = false;
+            mediaPlayer.play();
+            btn_playpause.setImage(new Image("/Image/Pause.png"));
         }
     }
 

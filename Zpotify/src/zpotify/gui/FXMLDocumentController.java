@@ -116,7 +116,7 @@ public class FXMLDocumentController implements Initializable
                 media = new Media(new File("musik/" + txt_songs.getSelectionModel().getSelectedItem()).toURI().toString());
                 mediaPlayer = new MediaPlayer(media);
                 mediaPlayer.play();
-                btn_playpause.setImage(new Image("/Image/Pause.png"));
+                btn_playpause.setImage(new Image("/Image/pause1.png"));
             }
         });
 
@@ -212,7 +212,7 @@ public class FXMLDocumentController implements Initializable
         } else
         {
             mediaPlayer.play();
-            btn_playpause.setImage(new Image("/Image/Pause.png"));
+            btn_playpause.setImage(new Image("/Image/pause1.png"));
         }
     }
 

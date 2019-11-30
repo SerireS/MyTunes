@@ -21,7 +21,6 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.image.Image;
 
 
 /**
@@ -32,7 +31,7 @@ public class FXMLDocumentController implements Initializable
 
     private static MediaPlayer mediaPlayer;
     private boolean windowsState = true;
-    private boolean playing = true;
+    private boolean playing = false;
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -169,13 +168,12 @@ public class FXMLDocumentController implements Initializable
         if (playing)
         {
             mediaPlayer.setAutoPlay(true);
-            playing = false;
+            playing = true;
         } else
         {
             mediaPlayer.setAutoPlay(false);
-            playing = true;
+            playing = false;
         }
-
     }
 
     @FXML

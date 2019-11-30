@@ -205,25 +205,6 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    private void handleButtonActionNewPlaylist(ActionEvent event)
-    {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditPlaylist.fxml"));
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setTitle("Zpotify");
-            stage.setScene(new Scene(root1));
-            stage.show();
-
-        } catch (Exception e)
-        {
-            System.out.println("Cant load new Window");
-        }
-    }
-
-    @FXML
     private void handleButtonActionEditPlaylist(ActionEvent event)
     {
         try

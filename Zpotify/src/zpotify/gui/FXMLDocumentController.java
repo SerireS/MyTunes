@@ -84,6 +84,8 @@ public class FXMLDocumentController implements Initializable
     private ImageView button_next;
     @FXML
     private Slider volumeSlider;
+    @FXML
+    private TextArea txtArea_song_playing;
     
     /*@FXML
     private void handleDeleteSong(ActionEvent event) throws IOException

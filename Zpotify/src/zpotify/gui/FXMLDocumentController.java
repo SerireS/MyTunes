@@ -5,6 +5,8 @@
  */
 package zpotify.gui;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -77,11 +79,11 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private TextField txt_search;
     @FXML
-    private Slider slider_volume;
-    @FXML
     private ImageView btn_window_mode;
     @FXML
     private ImageView button_next;
+    @FXML
+    private Slider volumeSlider;
     
     /*@FXML
     private void handleDeleteSong(ActionEvent event) throws IOException
@@ -100,7 +102,6 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-
         txt_songs.setOnMouseClicked(click ->
         {
             if (click.getClickCount() == 2)
@@ -119,6 +120,17 @@ public class FXMLDocumentController implements Initializable
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
             }
         });
+
+        volumeSlider.setValue(mediaPlayer.getVolume() * 100);
+        volumeSlider.valueProperty().addListener(new InvalidationListener()
+        {
+            @Override
+            public void invalidated(Observable observable)
+            {
+                mediaPlayer.setVolume(volumeSlider.getValue() / 100);
+            }
+        });
+
 
         try
         {

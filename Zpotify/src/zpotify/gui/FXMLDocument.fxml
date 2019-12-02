@@ -66,7 +66,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Pane layoutX="14.0" layoutY="93.0" prefHeight="47.0" prefWidth="260.0">
+        <Pane layoutX="-34.0" layoutY="91.0" prefHeight="47.0" prefWidth="154.0">
             <children>
                 <ImageView fx:id="btn_playpause" fitHeight="47.0" fitWidth="44.0" layoutX="157.0" layoutY="5.0" onMouseClicked="#play_pause" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -94,39 +94,6 @@
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>
-                </ImageView>
-                <ImageView fx:id="btn_shuffle" fitHeight="18.0" fitWidth="20.0" layoutX="51.0" layoutY="21.0" onMouseClicked="#shuffle_music" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Image/shuffle%20(1).png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                    </cursor>
-                    <effect>
-                        <ColorAdjust brightness="0.21" />
-                    </effect>
-                </ImageView>
-                <ImageView fx:id="btn_stop" fitHeight="15.0" fitWidth="20.0" layoutX="79.0" layoutY="22.0" onMouseClicked="#stop_music" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Image/stop.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                    </cursor>
-                    <effect>
-                        <ColorAdjust brightness="0.21" />
-                    </effect>
-                </ImageView>
-                <ImageView fx:id="btn_replay" fitHeight="20.0" fitWidth="20.0" layoutX="24.0" layoutY="20.0" onMouseClicked="#replay_music" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Image/replay.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                    </cursor>
-                    <effect>
-                        <ColorAdjust brightness="0.21" />
-                    </effect>
                 </ImageView>
             </children>
         </Pane>

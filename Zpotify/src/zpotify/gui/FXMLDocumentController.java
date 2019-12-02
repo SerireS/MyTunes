@@ -45,12 +45,6 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ImageView btn_previous;
     @FXML
-    private ImageView btn_shuffle;
-    @FXML
-    private ImageView btn_stop;
-    @FXML
-    private ImageView btn_replay;
-    @FXML
     private ListView<?> txt_playlist;
     @FXML
     private ListView<?> txt_song_playlist;
@@ -234,24 +228,6 @@ public class FXMLDocumentController implements Initializable
     @FXML
     //play previous song
     private void previousSong(javafx.scene.input.MouseEvent event)
-    {
-    }
-
-    @FXML
-    //shuffle the songs
-    private void shuffle_music(javafx.scene.input.MouseEvent event)
-    {
-    }
-
-    @FXML
-    //stop music
-    private void stop_music(javafx.scene.input.MouseEvent event)
-    {
-    }
-
-    @FXML
-    //replay the song
-    private void replay_music(javafx.scene.input.MouseEvent event)
     {
     }
 

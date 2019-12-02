@@ -247,6 +247,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
+    //Opens new window to add playlist
     private void handleButtonActionNewPlaylist(ActionEvent event)
     {
         try
@@ -266,6 +267,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
+    //Opens new window to edit playlist
     private void handleButtonActionEditPlaylist(ActionEvent event)
     {
         try
@@ -285,16 +287,19 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
+    //Deletes playlist
     private void handleButtonActionDeletePlaylist(ActionEvent event)
     {
     }
 
     @FXML
+    //Deletes song on playlist
     private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event)
     {
     }
 
     @FXML
+    //Opens new window to add new song
     private void handleButtonActionNewSong(ActionEvent event)
     {
         try
@@ -314,6 +319,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
+    //Opens new window to edit song
     private void handleButtonActionEditSong(ActionEvent event)
     {
         try
@@ -333,6 +339,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
+    //Deletes song
     private void handleButtonActionDeleteSong(ActionEvent event)
     {
     }

@@ -117,14 +117,15 @@ public class FXMLDocumentController implements Initializable
             }
         });
 
-        volumeSlider.setValue(mediaPlayer.getVolume() * 100);
-        volumeSlider.valueProperty().addListener(new InvalidationListener()
-        {
-            @Override
-            public void invalidated(Observable observable)
-            {
-                mediaPlayer.setVolume(volumeSlider.getValue() / 100);
-            }
+        // providing functionality to volume slider 
+            volumeSlider.valueProperty().addListener(new InvalidationListener() { 
+                public void invalidated(Observable ov) 
+                { 
+                    if (volumeSlider.isPressed()) { 
+                        mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume 
+                        // as specified by user by pressing 
+                    } 
+                }
         });
 
 

@@ -91,12 +91,6 @@ public class FXMLDocumentController implements Initializable
         songModel.deleteSong(selectedSong);
     }*/
 
-    private void handleButtonAction(MouseEvent event)
-    {
-
-    }
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {

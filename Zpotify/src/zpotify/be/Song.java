@@ -12,13 +12,23 @@ public class Song implements Serializable
     private String title;
     private int length;
     private String artist;
+    private String place;
 
-    public Song(int id, String title, String artist, int length)
+    public Song(int id, String title, String artist, int length, String place)
     {
+        this.place = place;
         this.id = id;
         this.title = title;
         this.artist = artist;
         this.length = length;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public int getLength()

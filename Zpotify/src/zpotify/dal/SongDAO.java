@@ -18,7 +18,7 @@ public class SongDAO
 
     private static final String SONG_SOURCE = "musik/songs.txt";
 
-    public List<Song> getAllSongs() throws IOException
+    /*public List<Song> getAllSongs() throws IOException
     {
 
         try (BufferedReader br = new BufferedReader(new FileReader(new File(SONG_SOURCE))))
@@ -42,12 +42,12 @@ public class SongDAO
                         String artist = arrSong[2].trim();
                         int length = Integer.parseInt(arrSong[3].trim());
 
-                        /*for (int i = 3; i < arrSong.length; i++)
+                        for (int i = 3; i < arrSong.length; i++)
                         {
                             title += "," + arrSong[i];
                             artist += "," + arrSong[i];
-                        }*/
-                        Song song = new Song(id, title, artist, length);
+                        }
+                        Song song = new Song(id, title, artist, place);
                         allSongs.add(song);
                     } catch (Exception e)
                     {
@@ -59,10 +59,10 @@ public class SongDAO
         }
 
     }
-
+*/
     public void updateSong(Song song) throws IOException
     {
-        List<Song> allSongs = getAllSongs();
+//        List<Song> allSongs = getAllSongs();
     }
 
     public void deleteSong(Song song) throws IOException

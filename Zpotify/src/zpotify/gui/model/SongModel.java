@@ -12,6 +12,7 @@ import zpotify.bll.SongManager;
 
 import java.io.IOException;
 import java.util.Comparator;
+import zpotify.dal.database.SongDBDAO;
 
 /**
  * @author jigzi
@@ -20,6 +21,7 @@ public class SongModel
 {
     private ObservableList<Song> allSongs;
     private SongManager songManager;
+    private SongDBDAO songDBDao;
 
     public SongModel() throws IOException
     {

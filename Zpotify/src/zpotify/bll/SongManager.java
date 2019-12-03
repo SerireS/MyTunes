@@ -9,9 +9,13 @@ import zpotify.be.Song;
 import zpotify.dal.SongDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import zpotify.dal.DalException;
+import zpotify.dal.database.SongDBDAO;
 
 /**
  * @author jigzi
@@ -20,30 +24,50 @@ public class SongManager
 {
     
     private SongDAO songDao;
+    private SongDBDAO songDBDao;
 
-    public SongManager()
+    public SongManager() 
     {
+        
         songDao = new SongDAO();
+        try {
+            songDBDao = new SongDBDAO();
+        } catch (IOException ex) {
+            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public List<Song> getAllSongs() throws IOException
+    public List<Song> getAllSongs() 
     {
-        return songDao.getAllSongs();
+        try {
+            return songDBDao.getAllSongs();
+        } catch (SQLException ex) {
+            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
-    public void updateSong(Song song) throws IOException
+    public void updateSong(Song song) 
     {
-        songDao.updateSong(song);
+        try {
+            songDao.updateSong(song);
+        } catch (IOException ex) {
+            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public void deleteSong(Song song) throws IOException
+    public void deleteSong(Song song) 
     {
-        songDao.deleteSong(song);
+        try {
+            songDao.deleteSong(song);
+        } catch (IOException ex) {
+            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /*
 
-    public List<Song> search(String query) throws DalException, IOException
+    public List<Song> search(String query)
     {
         List<Song> searchBase = songDao.getAllSongs();
         List<Song> result = new ArrayList<>();

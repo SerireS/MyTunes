@@ -6,6 +6,9 @@
 package zpotify.gui;
 
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -30,10 +33,15 @@ public class Zpotify extends Application
     }
 
     @Override
-    public void start(Stage stage) throws Exception
+    public void start(Stage stage) 
     {
         //Make top bar transparent and drag application
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(Zpotify.class.getName()).log(Level.SEVERE, null, ex);
+        }
         stage.initStyle(StageStyle.TRANSPARENT);
 
         root.setOnMousePressed(new EventHandler<MouseEvent>()

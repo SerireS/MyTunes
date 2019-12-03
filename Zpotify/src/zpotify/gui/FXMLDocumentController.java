@@ -91,6 +91,11 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+
+        {
+            songPlaying();
+        }
+
         txt_songs.setOnMouseClicked(click ->
         {
             if (click.getClickCount() == 2)
@@ -328,9 +333,9 @@ public class FXMLDocumentController implements Initializable
     {
     }
 
-    private String songPlaying(ActionEvent event)
+    private String songPlaying()
     {
-        String playing = new String(mediaPlayer.getMedia().toString());
+        String playing = "test";
         return playing;
     }
 

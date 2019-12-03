@@ -12,16 +12,26 @@ import java.util.List;
  */
 public class Playlist
 {
-
+    private int playlistId;
     private List<Song> songs;
     private String playlistName;
 
-    public Playlist(List<Song> songs, String playlistName)
+
+    public Playlist(int playlistId, List<Song> songs, String playlistName)
     {
+        this.playlistId = playlistId;
         this.songs = songs;
         this.playlistName = playlistName;
     }
 
+    public int getPlaylistId() {
+        return playlistId;
+    }
+
+    public void setPlaylistId(int playlistId) {
+        this.playlistId = playlistId;
+    }
+    
     public List<Song> getSongs()
     {
         return songs;

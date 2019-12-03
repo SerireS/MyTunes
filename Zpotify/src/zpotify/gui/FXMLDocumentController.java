@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import zpotify.gui.model.SongModel;
 
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -79,8 +80,6 @@ public class FXMLDocumentController implements Initializable
     private Slider volumeSlider;
     @FXML
     private TextArea txtArea_song_playing;
-    @FXML
-    private TextArea songPlaying;
     
     /*@FXML
     private void handleDeleteSong(ActionEvent event) throws IOException
@@ -328,13 +327,6 @@ public class FXMLDocumentController implements Initializable
     //Deletes song
     private void handleButtonActionDeleteSong(ActionEvent event)
     {
-    }
-
-    @FXML
-    private String songPlaying(ActionEvent event)
-    {
-        String playing = new String(mediaPlayer.getMedia().toString());
-        return playing;
     }
 
 }

@@ -91,17 +91,13 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-
-        {
-            songPlaying();
-        }
-
         txt_songs.setOnMouseClicked(click ->
         {
             if (click.getClickCount() == 2)
             {
                 try
                 {
+                    textPlaying();
                     mediaPlayer.stop();
                     mediaPlayer.dispose();
                 } catch (Exception ignored)
@@ -112,6 +108,7 @@ public class FXMLDocumentController implements Initializable
                 mediaPlayer = new MediaPlayer(media);
                 mediaPlayer.play();
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
+                textPlaying();
             }
         });
 
@@ -333,10 +330,8 @@ public class FXMLDocumentController implements Initializable
     {
     }
 
-    private String songPlaying()
+    private void textPlaying()
     {
-        String playing = "test";
-        return playing;
+        songPlaying.setText(txt_songs.getSelectionModel().getSelectedItem());
     }
-
 }

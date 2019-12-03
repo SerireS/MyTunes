@@ -78,7 +78,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private Slider volumeSlider;
     @FXML
-    private ListView<?> songPlaying;
+    private TextField songPlaying;
     
     /*@FXML
     private void handleDeleteSong(ActionEvent event) throws IOException

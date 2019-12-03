@@ -9,13 +9,16 @@ import zpotify.be.Song;
 import zpotify.dal.SongDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import zpotify.dal.DalException;
 
 /**
  * @author jigzi
  */
 public class SongManager
 {
+    
     private SongDAO songDao;
 
     public SongManager()
@@ -37,4 +40,22 @@ public class SongManager
     {
         songDao.deleteSong(song);
     }
+    
+    /*
+
+    public List<Song> search(String query) throws DalException, IOException
+    {
+        List<Song> searchBase = songDao.getAllSongs();
+        List<Song> result = new ArrayList<>();
+
+        for (Song song : searchBase)
+        {
+            if (song.getTitle().toLowerCase().contains(query.toLowerCase()))
+            {
+                result.add(song);
+            }
+        }
+        return result;
+    }
+    */
 }

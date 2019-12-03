@@ -78,9 +78,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private Slider volumeSlider;
     @FXML
-    private TextArea txtArea_song_playing;
-    @FXML
-    private TextArea songPlaying;
+    private TextField songPlaying;
     
     /*@FXML
     private void handleDeleteSong(ActionEvent event) throws IOException
@@ -330,7 +328,6 @@ public class FXMLDocumentController implements Initializable
     {
     }
 
-    @FXML
     private String songPlaying(ActionEvent event)
     {
         String playing = new String(mediaPlayer.getMedia().toString());

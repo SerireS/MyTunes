@@ -36,6 +36,12 @@ public class SongManager
             Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public Song createSong(int id, String title, String artist, int length, String place) throws DalException
+    {
+        songDBDao.createSong(id, title, artist, length, place);
+        return null;
+    }
 
     public List<Song> getAllSongs() 
     {
@@ -64,6 +70,7 @@ public class SongManager
             Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     
     /*
 

@@ -8,12 +8,14 @@ package zpotify.dal.database;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import zpotify.be.Song;
+import zpotify.dal.DalException;
 import zpotify.dal.SongDAO;
 
 /**
@@ -50,7 +52,35 @@ public class SongDBDAO extends SongDAO {
             return allSongs;
         
     }    }
-            
+    
+
+    
+    public void createSong(int id, String title, String artist, int length, String place) throws DalException {
+        try ( Connection con = dbCon.getConnection()) {
+            String sql = "INSERT INTO Song VALUES (?,?,?,?,?);";
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, title);
+            ps.setString(2, artist);
+            ps.setInt(3, length);
+            ps.setString(4, place);
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows == 1) {
+                ResultSet rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    
+                    Song song = new Song(id, title, artist, length, place);
+                    
+                }
+            }
+            throw new DalException();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new DalException();
+        }
+    }
+
    
 
 }

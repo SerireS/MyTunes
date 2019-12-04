@@ -52,6 +52,11 @@ public class FXMLNewEditSongController implements Initializable
     @FXML
     private void handleButtonActionSave(ActionEvent event)
     {
+        String title = txt_title.getText().trim();
+        String artist = txt_artist.getText().trim();
+        int length = Integer.parseInt(txt_time.getText().trim());
+        String place = txt_MP3_File.getText().trim();
+            
     }
 
     @FXML

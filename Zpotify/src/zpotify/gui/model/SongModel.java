@@ -12,6 +12,7 @@ import zpotify.bll.SongManager;
 
 import java.io.IOException;
 import java.util.Comparator;
+import zpotify.dal.DalException;
 import zpotify.dal.database.SongDBDAO;
 
 /**
@@ -33,6 +34,12 @@ public class SongModel
     public ObservableList<Song> getAllSongs()
     {
         return allSongs;
+    }
+    
+     public Song createSong(int id, String title, String artist, int length, String place) throws DalException
+    {
+        songManager.createSong(id, title, artist, length, place);
+        return null;
     }
 
     public void deleteSong(Song selectedSong) throws IOException

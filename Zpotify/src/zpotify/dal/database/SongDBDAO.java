@@ -69,25 +69,26 @@ public class SongDBDAO extends SongDAO {
         }
     }
         
-    public void createSong(int id, String title, String artist, int length, String place) throws DalException {
+    public void createSong(String title, int length, String artist, String place) throws DalException {
+        System.out.println(title + length + artist + place);
         try ( Connection con = dbCon.getConnection()) {
-            String sql = "INSERT INTO Songs VALUES (?,?,?,?,?);";
+            String sql = "INSERT INTO Songs VALUES (?,?,?,?);";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
-            ps.setString(2, artist);
-            ps.setInt(3, length);
+            ps.setInt(2, length);
+            ps.setString(3, artist);
             ps.setString(4, place);
             int affectedRows = ps.executeUpdate();
-
+        System.out.println("" +affectedRows);
             if (affectedRows == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
                     
-                    Song song = new Song(id, title, artist, length, place);
+                    Song song = new Song(title, length, artist, place);
                     
                 }
             }
-            throw new DalException();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();

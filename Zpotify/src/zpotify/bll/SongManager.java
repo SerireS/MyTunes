@@ -37,9 +37,10 @@ public class SongManager
         }
     }
     
-    public Song createSong(int id, String title, String artist, int length, String place) throws DalException
+    public Song createSong(String title, int length, String artist, String place) throws DalException
     {
-        songDBDao.createSong(id, title, artist, length, place);
+        
+        songDBDao.createSong(title, length, artist, place);
         return null;
     }
 

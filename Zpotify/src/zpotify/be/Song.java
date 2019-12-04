@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Song implements Serializable
 {
 
-    private final int id;
+    private int id;
     private String title;
     private int length;
     private String artist;
@@ -22,6 +22,15 @@ public class Song implements Serializable
         this.artist = artist;
         this.length = length;
     }
+
+    public Song(String title, int length, String artist, String place) {
+        this.title = title;
+        this.length = length;
+        this.artist = artist;
+        this.place = place;
+    }
+    
+    
 
     public String getPlace() {
         return place;

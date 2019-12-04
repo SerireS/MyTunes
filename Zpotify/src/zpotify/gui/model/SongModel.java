@@ -36,9 +36,12 @@ public class SongModel
         return allSongs;
     }
     
-     public Song createSong(int id, String title, String artist, int length, String place) throws DalException
+    
+    
+     public Song createSong(String title, int length, String artist, String place) throws DalException
     {
-        songManager.createSong(id, title, artist, length, place);
+        
+        songManager.createSong(title, length, artist, place);
         return null;
     }
 

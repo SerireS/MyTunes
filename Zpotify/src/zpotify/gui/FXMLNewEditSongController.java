@@ -14,8 +14,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import zpotify.dal.DalException;
+import zpotify.gui.model.SongModel;
 
 /**
  * FXML Controller class
@@ -24,6 +29,7 @@ import java.util.ResourceBundle;
  */
 public class FXMLNewEditSongController implements Initializable
 {
+    private SongModel songModel;
 
     @FXML
     private Button btn_save;
@@ -48,17 +54,29 @@ public class FXMLNewEditSongController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        // TODO
+        try {
+            songModel = new SongModel();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLNewEditSongController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    
 
     @FXML
-    private void handleButtonActionSave(ActionEvent event)
+    private void handleButtonActionSave(ActionEvent event) throws DalException
     {
+        System.out.println("Vi nåede det");
+        System.out.println(txt_title.getText());
+        
         String title = txt_title.getText().trim();
-        String artist = txt_artist.getText().trim();
         int length = Integer.parseInt(txt_time.getText().trim());
-        String place = txt_MP3_File.getText().trim();
-            
+        String artist = txt_artist.getText().trim();
+        String place = "musik/" + txt_MP3_File.getText().trim();
+        
+        songModel.createSong(title, length, artist, place);
+        
+        Stage stage = (Stage) btn_save.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -72,7 +90,7 @@ public class FXMLNewEditSongController implements Initializable
         if (selectedFile != null)
         {
             txt_MP3_File.setText(selectedFile.getName());
-            selectedFile.getAbsoluteFile();
+            
         }
     }
 

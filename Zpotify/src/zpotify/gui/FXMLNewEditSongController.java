@@ -9,11 +9,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -62,6 +64,13 @@ public class FXMLNewEditSongController implements Initializable
     @FXML
     private void handleButtonActionChoose(ActionEvent event)
     {
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+
+        if (selectedFile != null)
+        {
+            System.out.println("test");
+        }
     }
 
     @FXML

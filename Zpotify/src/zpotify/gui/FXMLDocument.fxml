@@ -234,7 +234,10 @@
             </effect>
         </ImageView>
       <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="WHITE" />
-      <TextField fx:id="songPlaying" editable="false" layoutX="373.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" style="-fx-background-color: #ffffff;" />
+      <TextField fx:id="songPlaying" editable="false" layoutX="373.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" style="-fx-background-color: #ffffff;">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></TextField>
     </children>
    <effect>
       <DropShadow />

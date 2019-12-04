@@ -42,7 +42,7 @@ public class SongModel
         return null;
     }
 
-    public void deleteSong(Song selectedSong) throws IOException
+    public void deleteSong(Song selectedSong) throws IOException, DalException
     {
         songManager.deleteSong(selectedSong);
         if (allSongs.remove(selectedSong))

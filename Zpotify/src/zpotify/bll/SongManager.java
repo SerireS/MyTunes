@@ -62,13 +62,9 @@ public class SongManager
         }
     }
 
-    public void deleteSong(Song song) 
+    public void deleteSong(Song song) throws DalException 
     {
-        try {
-            songDao.deleteSong(song);
-        } catch (IOException ex) {
-            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        songDBDao.deleteSong(song);
     }
     
     

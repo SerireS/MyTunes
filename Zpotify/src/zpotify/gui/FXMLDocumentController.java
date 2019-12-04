@@ -23,11 +23,13 @@ import javafx.stage.StageStyle;
 import zpotify.gui.model.SongModel;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
+import zpotify.dal.DalException;
 import zpotify.gui.model.PlaylistModel;
 
 /**
@@ -84,13 +86,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField songPlaying;
 
-    /*@FXML
-    private void handleDeleteSong(ActionEvent event) throws IOException
-    {
-        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
-        txt_songs.getItems().remove(selectedSong);
-        songModel.deleteSong(selectedSong);
-    }*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         txt_songs.setOnMouseClicked(click
@@ -316,7 +311,10 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     //Deletes song
-    private void handleButtonActionDeleteSong(ActionEvent event) {
+    private void handleButtonActionDeleteSong(ActionEvent event) throws IOException, DalException {
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_songs.getItems().remove(selectedSong);
+        songModel.deleteSong(selectedSong);
     }
 
     private void textPlaying() {

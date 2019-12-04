@@ -65,9 +65,9 @@ public class SongDAO
 //        List<Song> allSongs = getAllSongs();
     }
 
-    public void deleteSong(Song song) throws IOException
+   /* public void deleteSong(Song song) throws IOException
     {
         //to be continued
-    }
+    }*/
 }
 

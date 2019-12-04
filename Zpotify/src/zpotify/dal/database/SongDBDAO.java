@@ -52,12 +52,26 @@ public class SongDBDAO extends SongDAO {
             return allSongs;
         
     }    }
-    
-
-    
+    //Deletes the song from SQL database
+    public void deleteSong(Song song) throws DalException {
+        try ( Connection con = dbCon.getConnection()) {
+            int id = song.getId();
+            String sql = "DELETE FROM songs WHERE id=?;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int affectedRows = ps.executeUpdate();
+            if (affectedRows != 1) {
+                throw new DalException();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new DalException();
+        }
+    }
+        
     public void createSong(int id, String title, String artist, int length, String place) throws DalException {
         try ( Connection con = dbCon.getConnection()) {
-            String sql = "INSERT INTO Song VALUES (?,?,?,?,?);";
+            String sql = "INSERT INTO Songs VALUES (?,?,?,?,?);";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
             ps.setString(2, artist);

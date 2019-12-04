@@ -76,7 +76,7 @@ public class Song implements Serializable
      *
      * @return the value of id
      */
-    private int getId()
+    public int getId()
     {
         return id;
     }

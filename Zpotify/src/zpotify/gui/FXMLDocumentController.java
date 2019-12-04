@@ -26,7 +26,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import zpotify.be.Playlist;
 import zpotify.be.Song;
+import zpotify.gui.model.PlaylistModel;
 
 /**
  * @author Peder
@@ -37,6 +39,7 @@ public class FXMLDocumentController implements Initializable {
     private Media media;
     private boolean windowsState = true;
     private boolean playing = true;
+    private PlaylistModel playlistModel;
     private SongModel songModel;
     @FXML
     private ImageView btn_close;
@@ -45,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ImageView btn_previous;
     @FXML
-    private ListView<?> txt_playlist;
+    private ListView<Playlist> txt_playlist;
     @FXML
     private ListView<?> txt_song_playlist;
     @FXML
@@ -99,7 +102,7 @@ public class FXMLDocumentController implements Initializable {
                     mediaPlayer.dispose();
                 } catch (Exception ignored) {
                 }
-                
+
                 System.out.println(txt_songs.getSelectionModel().getSelectedItem().getPlace());
 
                 media = new Media(new File(txt_songs.getSelectionModel().getSelectedItem().getPlace()).toURI().toString());
@@ -149,6 +152,19 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("does not work properly");
             ex.printStackTrace();
         }
+        try {
+            playlistModel = new PlaylistModel();
+
+            ObservableList<Playlist> playlists = playlistModel.getAllPlaylists();
+            txt_playlist.setItems(playlists);
+            System.out.println(playlists);
+
+            setPlaylistSelection();
+
+        } catch (Exception ex) {
+            System.out.println("Faulty Playlist, or something");
+            ex.printStackTrace();
+        }
     }
 
     private void setSongSelection() {
@@ -167,6 +183,10 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
                 });*/
+    }
+
+    private void setPlaylistSelection() {
+        txt_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     @FXML

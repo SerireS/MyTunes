@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -28,6 +29,16 @@ public class FXMLNewEditSongController implements Initializable
     private Button btn_choose;
     @FXML
     private Button btn_cancel;
+    @FXML
+    private TextField txt_title;
+    @FXML
+    private TextField txt_artist;
+    @FXML
+    private TextField txt_category;
+    @FXML
+    private TextField txt_time;
+    @FXML
+    private TextField txt_MP3_File;
 
     /**
      * Initializes the controller class.

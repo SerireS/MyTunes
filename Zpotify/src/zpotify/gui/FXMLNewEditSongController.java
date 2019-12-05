@@ -73,7 +73,7 @@ public class FXMLNewEditSongController implements Initializable
         String title = txt_title.getText().trim();
         int length = Integer.parseInt(txt_time.getText().trim());
         String artist = txt_artist.getText().trim();
-        String place = path;
+        String place = "musik/" + txt_MP3_File.getText().trim();
         
         songModel.createSong(title, length, artist, place);
         
@@ -95,7 +95,7 @@ public class FXMLNewEditSongController implements Initializable
         if (selectedFile != null)
         {
             txt_MP3_File.setText(selectedFile.getName());
-            path = "musik";
+            
         }
     }
 

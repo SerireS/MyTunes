@@ -37,7 +37,7 @@ public class SongModel
         return allSongs;
     }
     
-    public void search(String query) throws IOException, SQLException
+    public void search(String query) throws IOException, DalException, SQLException
     {
         if (query.isEmpty())
         {
@@ -46,7 +46,7 @@ public class SongModel
         } else
         {
             allSongs.clear();
-            allSongs.addAll(SongManager.search(query));
+            allSongs.addAll(songManager.search(query));
         }
     }
     

@@ -44,7 +44,7 @@ public class SongManager
         return null;
     }
     
-    public List<Song> search(String query) throws IOException, SQLException
+    public List<Song> search(String query) throws DalException, SQLException
     {
         List<Song> searchBase = songDBDao.getAllSongs();
         List<Song> result = new ArrayList<>();

@@ -358,7 +358,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void handleSearchSong(KeyEvent event) {
+    private void handleSearchSong(KeyEvent event) throws SQLException {
         try {
             String query = txt_search.getText().trim();
             songModel.search(query);

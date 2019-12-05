@@ -26,6 +26,7 @@ and open the template in the editor.
 .list-view {
   -fx-background-insets: 0;
   -fx-padding: 0;
+  -fx-background-color: #222222;
 }
 
 .list-view .list-cell:even {

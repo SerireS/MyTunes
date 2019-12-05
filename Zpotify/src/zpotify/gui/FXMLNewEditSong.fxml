@@ -42,7 +42,7 @@
                </font>
             </Label>
             <TextField fx:id="txt_time" layoutX="102.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="96.0" promptText="Enter text" />
-            <Button fx:id="btn_save" layoutX="317.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonActionSave" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #333333;" text="Save" textFill="WHITE">
+            <Button fx:id="btn_save" layoutX="317.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonActionSave" prefHeight="25.0" prefWidth="56.0" stylesheets="@style/buttonCss.css" text="Save" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -50,7 +50,7 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></TextField>
-            <Button fx:id="btn_choose" layoutX="315.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleButtonActionChoose" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #333333;" text="Choose" textFill="WHITE">
+            <Button fx:id="btn_choose" layoutX="315.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleButtonActionChoose" prefHeight="25.0" prefWidth="56.0" stylesheets="@style/buttonCss.css" text="Choose" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -59,7 +59,7 @@
                   <Font name="Lato Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btn_cancel" layoutX="243.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonActionCancel" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #333333;" text="Cancel" textFill="WHITE">
+            <Button fx:id="btn_cancel" layoutX="243.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonActionCancel" prefHeight="25.0" prefWidth="56.0" stylesheets="@style/buttonCss.css" text="Cancel" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

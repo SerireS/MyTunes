@@ -25,11 +25,11 @@
          </font>
       </Label>
       <TextField layoutX="92.0" layoutY="105.0" prefHeight="25.0" prefWidth="269.0" promptText="Enter text" />
-      <Button fx:id="btn_save" layoutX="309.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonActionSave" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #333333;" text="Save" textFill="WHITE">
+      <Button fx:id="btn_save" layoutX="309.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonActionSave" prefHeight="25.0" prefWidth="52.0" stylesheets="@style/buttonCss.css" text="Save" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btn_cancel" layoutX="241.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonActionCancel" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #333333;" text="Cancel" textFill="WHITE">
+      <Button fx:id="btn_cancel" layoutX="241.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonActionCancel" prefHeight="25.0" prefWidth="52.0" stylesheets="@style/buttonCss.css" text="Cancel" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

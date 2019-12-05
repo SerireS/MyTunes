@@ -107,16 +107,13 @@
         <Pane layoutX="18.0" layoutY="240.0" prefHeight="389.0" prefWidth="964.0">
             <children>
             <ListView fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
-                <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="488.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="490.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Image/left-black-arrow.png" />
+                        <Image url="@Image/arrowhead-thin-outline-to-the-left.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
-               <effect>
-                  <DropShadow color="#4f2c4f" />
-               </effect>
                 </ImageView>
             <ListView fx:id="txt_song_playlist" layoutX="269.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
             <ListView fx:id="txt_songs" layoutX="535.0" layoutY="14.0" prefHeight="358.0" prefWidth="415.0">
@@ -172,7 +169,7 @@
                 </Button>
                 <ImageView fx:id="btn_move_up" fitHeight="25.0" fitWidth="25.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Image/up-arrow.png" />
+                        <Image url="@Image/navigate-up-arrow.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -180,7 +177,7 @@
                 </ImageView>
                 <ImageView fx:id="btn_move_down" fitHeight="25.0" fitWidth="25.0" layoutX="34.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Image/down-arrow.png" />
+                        <Image url="@Image/arrow-down-sign-to-navigate.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />

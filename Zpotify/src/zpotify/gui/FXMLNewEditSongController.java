@@ -89,7 +89,9 @@ public class FXMLNewEditSongController implements Initializable
         FileChooser fc = new FileChooser();
         FileChooser.ExtensionFilter onlyMP3 = new FileChooser.ExtensionFilter("Mp3 Files","*.mp3");
         fc.getExtensionFilters().add(onlyMP3);
+        fc.setInitialDirectory(new File("musik/"));
         File selectedFile = fc.showOpenDialog(null);
+
 
         if (selectedFile != null)
         {

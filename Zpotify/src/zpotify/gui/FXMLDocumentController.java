@@ -25,8 +25,12 @@ import zpotify.gui.model.SongModel;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
@@ -349,6 +353,16 @@ public class FXMLDocumentController implements Initializable {
 
         } catch (Exception ex) {
             System.out.println("Faulty Playlist, or something");
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleSearchSong(KeyEvent event) {
+        try {
+            String query = txt_search.getText().trim();
+            songModel.search(query);
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }

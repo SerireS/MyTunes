@@ -11,6 +11,7 @@ import zpotify.be.Song;
 import zpotify.bll.SongManager;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Comparator;
 import zpotify.dal.DalException;
 import zpotify.dal.database.SongDBDAO;
@@ -36,7 +37,18 @@ public class SongModel
         return allSongs;
     }
     
-    
+    public void search(String query) throws IOException, SQLException
+    {
+        if (query.isEmpty())
+        {
+            allSongs.clear();
+            allSongs.addAll(songManager.getAllSongs());
+        } else
+        {
+            allSongs.clear();
+            allSongs.addAll(SongManager.search(query));
+        }
+    }
     
      public Song createSong(String title, int length, String artist, String place) throws DalException
     {

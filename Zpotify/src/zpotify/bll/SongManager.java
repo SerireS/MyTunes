@@ -43,6 +43,21 @@ public class SongManager
         songDBDao.createSong(title, length, artist, place);
         return null;
     }
+    
+    public List<Song> search(String query) throws IOException, SQLException
+    {
+        List<Song> searchBase = songDBDao.getAllSongs();
+        List<Song> result = new ArrayList<>();
+        
+        for (Song song : searchBase)
+        {
+            if (song.getTitle().toLowerCase().contains(query.toLowerCase()))
+            {
+                result.add(song);
+            }
+        }
+        return result;
+    }
 
     public List<Song> getAllSongs() 
     {

@@ -326,5 +326,31 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void refreshSongs(MouseEvent event) {
+        try {
+            songModel = new SongModel();
+
+            ObservableList<Song> songs = songModel.getAllSongs();
+            txt_songs.setItems(songs);
+            System.out.println(songs);
+
+            setSongSelection();
+        } catch (Exception ex) {
+            System.out.println("does not work properly");
+            ex.printStackTrace();
+        }
+        try {
+            playlistModel = new PlaylistModel();
+
+            ObservableList<Playlist> playlists = playlistModel.getAllPlaylists();
+            txt_playlist.setItems(playlists);
+            System.out.println(playlists);
+
+            setPlaylistSelection();
+
+        } catch (Exception ex) {
+            System.out.println("Faulty Playlist, or something");
+            ex.printStackTrace();
+        }
     }
+    
 }

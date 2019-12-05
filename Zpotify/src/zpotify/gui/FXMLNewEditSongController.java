@@ -95,7 +95,7 @@ public class FXMLNewEditSongController implements Initializable
         if (selectedFile != null)
         {
             txt_MP3_File.setText(selectedFile.getName());
-            path = selectedFile.getPath();
+            path = "musik";
         }
     }
 

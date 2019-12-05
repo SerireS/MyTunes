@@ -83,6 +83,8 @@ public class FXMLNewEditSongController implements Initializable
 
     @FXML
     private void handleButtonActionChoose(ActionEvent event)
+
+            // Chose button to new song function. Chooses a file limited to mp3 only and getting the path of the song.
     {
         FileChooser fc = new FileChooser();
         FileChooser.ExtensionFilter onlyMP3 = new FileChooser.ExtensionFilter("Mp3 Files","*.mp3");

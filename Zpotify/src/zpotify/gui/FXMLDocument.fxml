@@ -106,7 +106,7 @@
         </Pane>
         <Pane layoutX="18.0" layoutY="240.0" prefHeight="389.0" prefWidth="964.0">
             <children>
-            <ListView fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
+            <ListView fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" stylesheets="@style/listViewCss.css" />
                 <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="490.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/arrowhead-thin-outline-to-the-left.png" />
@@ -115,11 +115,8 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
-            <ListView fx:id="txt_song_playlist" layoutX="269.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" />
-            <ListView fx:id="txt_songs" layoutX="535.0" layoutY="14.0" prefHeight="358.0" prefWidth="415.0">
-               <effect>
-                  <DropShadow />
-               </effect></ListView>
+            <ListView fx:id="txt_song_playlist" layoutX="269.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" stylesheets="@style/listViewCss.css" />
+            <ListView fx:id="txt_songs" layoutX="535.0" layoutY="14.0" prefHeight="358.0" prefWidth="415.0" stylesheets="@style/listViewCss.css" />
             </children>
         </Pane>
         <Pane layoutX="20.0" layoutY="223.0" prefHeight="34.0" prefWidth="964.0">
@@ -239,7 +236,7 @@
             </effect>
         </ImageView>
       <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="WHITE" />
-      <TextField fx:id="songPlaying" editable="false" layoutX="373.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" style="-fx-background-color: #ffffff;">
+      <TextField fx:id="songPlaying" editable="false" layoutX="373.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" stylesheets="@style/textFieldCss.css">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></TextField>

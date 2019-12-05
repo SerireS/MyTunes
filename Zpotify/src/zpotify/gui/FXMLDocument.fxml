@@ -212,7 +212,7 @@
                 <Font name="Lato Bold" size="13.0" />
             </font>
         </Label>
-        <TextField fx:id="txt_search" layoutX="869.0" layoutY="110.0" onKeyPressed="#handleSearchSong" prefHeight="25.0" prefWidth="79.0" promptText="Enter text" style="-fx-background-color: #ffffff;" />
+        <TextField fx:id="txt_search" layoutX="869.0" layoutY="110.0" onKeyTyped="#handleSearchSong" prefHeight="25.0" prefWidth="79.0" promptText="Enter text" style="-fx-background-color: #ffffff;" />
         <Label layoutX="448.0" layoutY="114.0" text="Currently Playing:" textFill="WHITE">
             <font>
                 <Font name="Lato Bold" size="13.0" />

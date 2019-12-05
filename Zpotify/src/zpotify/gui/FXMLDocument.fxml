@@ -67,6 +67,9 @@
                <image>
                   <Image url="@Image/continuous.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             </children>
         </Pane>

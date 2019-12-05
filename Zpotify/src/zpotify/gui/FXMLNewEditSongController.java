@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import zpotify.dal.DalException;
+import zpotify.gui.model.SongModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +21,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import zpotify.dal.DalException;
-import zpotify.gui.model.SongModel;
 
 /**
  * FXML Controller class
@@ -30,6 +30,7 @@ import zpotify.gui.model.SongModel;
 public class FXMLNewEditSongController implements Initializable
 {
     private SongModel songModel;
+    private String path;
 
     @FXML
     private Button btn_save;
@@ -67,11 +68,12 @@ public class FXMLNewEditSongController implements Initializable
     {
         System.out.println("Vi nåede det");
         System.out.println(txt_title.getText());
+        System.out.println(path);
         
         String title = txt_title.getText().trim();
         int length = Integer.parseInt(txt_time.getText().trim());
         String artist = txt_artist.getText().trim();
-        String place = "musik/" + txt_MP3_File.getText().trim();
+        String place = path;
         
         songModel.createSong(title, length, artist, place);
         
@@ -90,7 +92,7 @@ public class FXMLNewEditSongController implements Initializable
         if (selectedFile != null)
         {
             txt_MP3_File.setText(selectedFile.getName());
-            
+            path = selectedFile.getPath();
         }
     }
 
@@ -100,5 +102,4 @@ public class FXMLNewEditSongController implements Initializable
         Stage stage = (Stage) btn_cancel.getScene().getWindow();
         stage.close();
     }
-
 }

@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
@@ -85,6 +86,8 @@ public class FXMLDocumentController implements Initializable {
     private Slider volumeSlider;
     @FXML
     private TextField songPlaying;
+    @FXML
+    private ImageView btn_refresh;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -319,5 +322,9 @@ public class FXMLDocumentController implements Initializable {
 
     private void textPlaying() {
         songPlaying.setText(txt_songs.getSelectionModel().getSelectedItem().getTitle());
+    }
+
+    @FXML
+    private void refreshSongs(MouseEvent event) {
     }
 }

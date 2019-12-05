@@ -63,6 +63,11 @@
                   <Glow />
                </effect>
                 </ImageView>
+            <ImageView fx:id="btn_refresh" fitHeight="25.0" fitWidth="25.0" layoutX="18.0" layoutY="13.0" onMouseClicked="#refreshSongs" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Image/continuous.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
         <Pane layoutX="-34.0" layoutY="91.0" prefHeight="47.0" prefWidth="154.0">

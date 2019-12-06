@@ -71,11 +71,11 @@ public class FXMLNewEditSongController implements Initializable
         System.out.println(path);
         
         String title = txt_title.getText().trim();
-        int length = Integer.parseInt(txt_time.getText().trim());
-        String artist = txt_artist.getText().trim();
+//        int length = Integer.parseInt(txt_time.getText().trim());
+//        String artist = txt_artist.getText().trim();
         String place = "musik/" + txt_MP3_File.getText().trim();
         
-        songModel.createSong(title, length, artist, place);
+        songModel.createSong(title, place);
         
         Stage stage = (Stage) btn_save.getScene().getWindow();
         stage.close();

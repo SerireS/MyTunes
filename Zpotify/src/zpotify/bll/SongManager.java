@@ -6,7 +6,7 @@
 package zpotify.bll;
 
 import zpotify.be.Song;
-import zpotify.dal.SongDAO;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,13 +23,11 @@ import zpotify.dal.database.SongDBDAO;
 public class SongManager
 {
     
-    private SongDAO songDao;
     private SongDBDAO songDBDao;
 
     public SongManager() 
     {
         
-        songDao = new SongDAO();
         try {
             songDBDao = new SongDBDAO();
         } catch (IOException ex) {
@@ -37,10 +35,10 @@ public class SongManager
         }
     }
     
-    public Song createSong(String title, int length, String artist, String place) throws DalException
+    public Song createSong(String title, String place) throws DalException
     {
         
-        songDBDao.createSong(title, length, artist, place);
+        songDBDao.createSong(title, place);
         return null;
     }
     
@@ -71,11 +69,11 @@ public class SongManager
 
     public void updateSong(Song song) 
     {
-        try {
-            songDao.updateSong(song);
-        } catch (IOException ex) {
-            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            songDao.updateSong(song);
+//        } catch (IOException ex) {
+//            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     public void deleteSong(Song song) throws DalException 

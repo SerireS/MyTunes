@@ -23,10 +23,8 @@ public class Song implements Serializable
         this.length = length;
     }
 
-    public Song(String title, int length, String artist, String place) {
+    public Song(String title, String place) {
         this.title = title;
-        this.length = length;
-        this.artist = artist;
         this.place = place;
     }
     
@@ -96,7 +94,7 @@ public class Song implements Serializable
     @Override
     public String toString()
     {
-        return title + " - " + artist + " (" + ((length % 3600) / 60) + ")";
+        return title;
     }
 
     @Override

@@ -50,9 +50,9 @@ public class SongModel
         }
     }
     
-     public Song createSong(String title, int length, String artist, String place) throws DalException
+     public Song createSong(String title, String place) throws DalException
     {
-        songManager.createSong(title, length, artist, place);
+        songManager.createSong(title, place);
         return null;
     }
 

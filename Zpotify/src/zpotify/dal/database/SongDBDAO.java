@@ -16,13 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
-import zpotify.dal.SongDAO;
 
 /**
  *
  * @author nbruu
  */
-public class SongDBDAO extends SongDAO {
+public class SongDBDAO {
 
     private DatabaseConnector dbCon;
 
@@ -69,22 +68,22 @@ public class SongDBDAO extends SongDAO {
         }
     }
         
-    public void createSong(String title, int length, String artist, String place) throws DalException {
-        System.out.println(title + length + artist + place);
+    public void createSong(String title, String place) throws DalException {
+        System.out.println(title + place);
         try ( Connection con = dbCon.getConnection()) {
-            String sql = "INSERT INTO Songs VALUES (?,?,?,?);";
+            String sql = "INSERT INTO Songs (title, place) VALUES (?,?);";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
-            ps.setInt(2, length);
-            ps.setString(3, artist);
-            ps.setString(4, place);
+//            ps.setInt(2, length);
+//            ps.setString(3, artist);
+            ps.setString(2, place);
             int affectedRows = ps.executeUpdate();
         System.out.println("" +affectedRows);
             if (affectedRows == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
                     
-                    Song song = new Song(title, length, artist, place);
+                    Song song = new Song(title, place);
                     
                 }
             }

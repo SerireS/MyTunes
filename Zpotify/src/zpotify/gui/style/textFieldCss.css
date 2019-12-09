@@ -7,3 +7,8 @@ and open the template in the editor.
     Created on : 5. dec. 2019, 19.15.34
     Author     : Peter
 */
+
+  .text-field{
+      -fx-background-color: #222222;
+      -fx-text-fill: #aaaaaa;
+  }

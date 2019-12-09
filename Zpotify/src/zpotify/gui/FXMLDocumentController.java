@@ -277,12 +277,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     //Deletes playlist
-    private void handleButtonActionDeletePlaylist(ActionEvent event) {
+    private void handleButtonActionDeletePlaylist(ActionEvent event) throws IOException, DalException {
+        Playlist selectedPlaylist = txt_playlist.getSelectionModel().getSelectedItem();
+        txt_playlist.getItems().remove(selectedPlaylist);
+        playlistModel.deletePlaylist(selectedPlaylist);
+        System.out.println("Playlist succesfully deleted");
     }
 
     @FXML
     //Deletes song on playlist
     private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) {
+        
     }
 
     @FXML

@@ -65,7 +65,12 @@ public class FXMLNewEditPlaylistController implements Initializable
         String playlistName = txt_playlistName.getText().trim();
 
         
-        this.playlistModel.createPlaylist(playlistName);
+        try {
+            this.playlistModel.createPlaylist(playlistName);
+        } catch (Exception ex)
+        {
+            System.out.println("Virkede ikke");
+        }
         System.out.println("Vi nåede det");
         Stage stage = (Stage) btn_save.getScene().getWindow();
        // Tester om der er noget i playlistName felt, sætter en rød border for at indikere her mangles noget

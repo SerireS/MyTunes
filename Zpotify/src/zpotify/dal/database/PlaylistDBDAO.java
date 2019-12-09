@@ -69,7 +69,7 @@ public class PlaylistDBDAO {
         try ( Connection con = dbCon.getConnection()) {
             String sql = "INSERT INTO Playlists (playlistName) VALUES (?);";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(2, playlistName);
+            ps.setString(1, playlistName);
             int affectedRows = ps.executeUpdate();
         
             if (affectedRows == 1) {

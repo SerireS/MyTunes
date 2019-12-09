@@ -5,39 +5,31 @@
  */
 package zpotify.gui;
 
-import java.awt.List;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import zpotify.gui.model.SongModel;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Stop;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
 import zpotify.gui.model.PlaylistModel;
+import zpotify.gui.model.SongModel;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 /**
  * @author Peder
@@ -368,8 +360,10 @@ public class FXMLDocumentController implements Initializable {
         songModel.deleteSong(selectedSong);
     }
 
-    private void textPlaying() {
+    private void textPlaying()
+    {
         songPlaying.setText(txt_songs.getSelectionModel().getSelectedItem().getTitle());
+        songPlaying.setAlignment(Pos.CENTER);
     }
 
     public void refreshSongs() {

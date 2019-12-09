@@ -37,6 +37,6 @@ and open the template in the editor.
 }
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-    -fx-background-color: linear-gradient(#ff77f3 0%, #ff77f3 25%, #ff28ee 75%, #ff28ee 100%);
+    -fx-background-color: linear-gradient(#a1a8ff  0%, #b59fff 25%, #DF8EFF 75%, #f684ff 100%);
     -fx-text-fill: white;
 }

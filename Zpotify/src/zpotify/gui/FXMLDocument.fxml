@@ -83,7 +83,7 @@
                         <Image url="@Image/next%20(2).png" />
                     </image>
                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
                 <ImageView fx:id="btn_previous" fitHeight="25.0" fitWidth="25.0" layoutX="111.0" layoutY="15.0" onMouseClicked="#previousSong" pickOnBounds="true" preserveRatio="true">
@@ -91,7 +91,7 @@
                         <Image url="@Image/back.png" />
                     </image>
                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
             </children>

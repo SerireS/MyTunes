@@ -28,20 +28,9 @@
                         <Image url="@Image/close.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="915.0" layoutY="20.0" onMouseClicked="#minimize_app" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="943.0" layoutY="18.0" onMouseClicked="#minimize_app" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/minus-symbol.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <effect>
-                        <ColorAdjust brightness="0.21" />
-                    </effect>
-                </ImageView>
-                <ImageView fx:id="btn_window_mode" fitHeight="15.0" fitWidth="19.0" layoutX="942.0" layoutY="18.0" onMouseClicked="#windowMode" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Image/maximize%20(3).png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />

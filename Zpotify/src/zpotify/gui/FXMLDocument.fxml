@@ -230,7 +230,7 @@
                 <ColorAdjust brightness="0.21" />
             </effect>
         </ImageView>
-      <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="#575757" />
       <TextField fx:id="songPlaying" editable="false" layoutX="373.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" stylesheets="@style/textFieldCss.css">
          <cursor>
             <Cursor fx:constant="DEFAULT" />

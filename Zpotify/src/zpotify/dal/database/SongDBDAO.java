@@ -37,7 +37,7 @@ public class SongDBDAO {
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             ArrayList<Song> allSongs = new ArrayList<>();
-            System.out.println(rs);
+            System.out.println(rs + "tekst så vi kan genkende");
             while (rs.next())
             {
                 int id = rs.getInt("songId");
@@ -68,7 +68,7 @@ public class SongDBDAO {
         }
     }
         
-    public void createSong(String title, String place) throws DalException {
+    public boolean createSong(String title, String place) throws DalException {
         System.out.println(title + place);
         try ( Connection con = dbCon.getConnection()) {
             String sql = "INSERT INTO Songs (title, place) VALUES (?,?);";
@@ -78,13 +78,11 @@ public class SongDBDAO {
 //            ps.setString(3, artist);
             ps.setString(2, place);
             int affectedRows = ps.executeUpdate();
-        System.out.println("" +affectedRows);
+        
             if (affectedRows == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
-                    
-                    Song song = new Song(title, place);
-                    
+                    return true;
                 }
             }
             
@@ -93,6 +91,7 @@ public class SongDBDAO {
             ex.printStackTrace();
             throw new DalException();
         }
+        return false;
     }
 
    

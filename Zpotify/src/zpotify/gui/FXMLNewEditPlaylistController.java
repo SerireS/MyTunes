@@ -13,6 +13,15 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
+import zpotify.dal.DalException;
+import zpotify.gui.model.PlaylistModel;
 
 /**
  * FXML Controller class
@@ -21,11 +30,16 @@ import java.util.ResourceBundle;
  */
 public class FXMLNewEditPlaylistController implements Initializable
 {
+    
+    private PlaylistModel playlistModel;
+    private FXMLDocumentController controller;
 
     @FXML
     private Button btn_save;
     @FXML
     private Button btn_cancel;
+    @FXML
+    private TextField txt_playlistName;
 
     /**
      * Initializes the controller class.
@@ -35,14 +49,38 @@ public class FXMLNewEditPlaylistController implements Initializable
     {
         // TODO
     }
+    
+    // Denne metode sikre vi har fat i den samme PlaylistModel og Controller hele tiden.
+    void ApplyImportantData(PlaylistModel playlistModel, FXMLDocumentController controller) {
+        this.playlistModel = playlistModel;
+        this.controller = controller;
+    }
 
     @FXML
-    private void handleButtonActionSave(ActionEvent event)
+    private void handleButtonActionSave(ActionEvent event) throws DalException
     {
-        //insert save code
         
+        
+        
+        String playlistName = txt_playlistName.getText().trim();
+
+        System.out.println(playlistName);
+        
+        
+            this.playlistModel.createPlaylist(playlistName);
+        
+        System.out.println("Vi nåede det");
         Stage stage = (Stage) btn_save.getScene().getWindow();
+       // Tester om der er noget i playlistName felt, sætter en rød border for at indikere her mangles noget
+       // Det er først muligt at lukke dialogen ned når der er noget i feltet
+        if(playlistName.length() == 0){
+            Border warning = new Border(new BorderStroke(Color.RED, 
+            BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2)));
+            
+            txt_playlistName.setBorder(warning);
+        } else{
         stage.close();
+        }
     }
 
     @FXML

@@ -63,14 +63,6 @@
                   <Glow />
                </effect>
                 </ImageView>
-            <ImageView fx:id="btn_refresh" fitHeight="20.0" fitWidth="25.0" layoutX="20.0" layoutY="16.0" onMouseClicked="#refreshSongs" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Image/continuous.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
             </children>
         </Pane>
         <Pane layoutX="-34.0" layoutY="91.0" prefHeight="47.0" prefWidth="154.0">
@@ -201,12 +193,7 @@
                 </Button>
             </children>
         </Pane>
-        <Label layoutX="829.0" layoutY="114.0" text="Filter:" textFill="WHITE">
-            <font>
-                <Font name="Lato Bold" size="13.0" />
-            </font>
-        </Label>
-        <TextField fx:id="txt_search" layoutX="869.0" layoutY="110.0" onKeyTyped="#handleSearchSong" prefHeight="25.0" prefWidth="79.0" promptText="Enter text" style="-fx-background-color: #ffffff;" />
+        <TextField fx:id="txt_search" layoutX="770.0" layoutY="110.0" onKeyTyped="#handleSearchSong" prefHeight="25.0" prefWidth="200.0" promptText="Search" style="-fx-background-color: #222222;" stylesheets="@style/textFieldCss.css" />
         <Label layoutX="448.0" layoutY="114.0" text="Currently Playing:" textFill="WHITE">
             <font>
                 <Font name="Lato Bold" size="13.0" />
@@ -235,11 +222,16 @@
                 <ColorAdjust brightness="0.21" />
             </effect>
         </ImageView>
-      <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="899.0" layoutX="102.0" layoutY="42.0" startX="-100.0" stroke="#575757" />
       <TextField fx:id="songPlaying" editable="false" layoutX="373.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" stylesheets="@style/textFieldCss.css">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></TextField>
+      <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="945.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/magnifying-glass%20(1).png" />
+         </image>
+      </ImageView>
     </children>
    <effect>
       <DropShadow />

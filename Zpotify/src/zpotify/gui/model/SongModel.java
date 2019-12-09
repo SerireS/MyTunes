@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.util.Comparator;
 import zpotify.dal.DalException;
 import zpotify.dal.database.SongDBDAO;
+import zpotify.gui.FXMLDocumentController;
+import zpotify.gui.FXMLNewEditSongController;
 
 /**
  * @author jigzi
@@ -23,17 +25,21 @@ public class SongModel
 {
     private ObservableList<Song> allSongs;
     private SongManager songManager;
-    private SongDBDAO songDBDao;
+    private FXMLDocumentController mainController;
 
-    public SongModel() throws IOException
+    // Maincontroller har den oprindelige refresh metode, derfor skal den sættes
+    // i Constructor
+    public SongModel(FXMLDocumentController mainController) throws IOException
     {
+        this.mainController = mainController;
         songManager = new SongManager();
-        allSongs = FXCollections.observableArrayList();
-        allSongs.addAll(songManager.getAllSongs());
+        
     }
 
     public ObservableList<Song> getAllSongs()
     {
+        allSongs = FXCollections.observableArrayList();
+        allSongs.addAll(songManager.getAllSongs());
         return allSongs;
     }
     
@@ -50,10 +56,12 @@ public class SongModel
         }
     }
     
-     public Song createSong(String title, String place) throws DalException
+     public void createSong(String title, String place) throws DalException
     {
-        songManager.createSong(title, place);
-        return null;
+        boolean songIsCreated = songManager.createSong(title, place);
+        if (songIsCreated == true){
+            mainController.refreshSongs();
+        }
     }
 
     public void deleteSong(Song selectedSong) throws IOException, DalException

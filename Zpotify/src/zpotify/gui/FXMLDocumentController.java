@@ -98,6 +98,18 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            songModel = new SongModel(this);
+        } catch (IOException ex) {
+            System.out.println("Did not create new songmodel");
+        }
+        
+        try {
+            playlistModel = new PlaylistModel(this);
+        } catch (IOException ex) {
+            System.out.println("Did not create new playlistmodel");
+        }
+        
         txt_songs.setOnMouseClicked(click
                 -> {
             if (click.getClickCount() == 2) {
@@ -152,34 +164,24 @@ public class FXMLDocumentController implements Initializable {
 //            System.out.println("No Files In Folder");
 //        }
         try {
-            songModel = new SongModel();
+//            
 
-            ObservableList<Song> songs = songModel.getAllSongs();
+           /* ObservableList<Song> songs = songModel.getAllSongs();
             txt_songs.setItems(songs);
-            System.out.println(songs);
+            System.out.println(songs);*/
 
             setSongSelection();
         } catch (Exception ex) {
             System.out.println("does not work properly");
             ex.printStackTrace();
         }
-        try {
-            playlistModel = new PlaylistModel();
-
-            ObservableList<Playlist> playlists = playlistModel.getAllPlaylists();
-            txt_playlist.setItems(playlists);
-            System.out.println(playlists);
-
-            setPlaylistSelection();
-
-        } catch (Exception ex) {
-            System.out.println("Faulty Playlist, or something");
-            ex.printStackTrace();
-        }
+        refreshSongs();
     }
 
     private void setSongSelection() {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//        txt_playlist.getSelectionModel().clearSelection(txt_playlist.getSelectionModel().getSelectedIndex());
+//        System.out.println("we made it");
         /*txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
                 {
             @Override
@@ -196,6 +198,7 @@ public class FXMLDocumentController implements Initializable {
                 });*/
     }
 
+    
     private void setPlaylistSelection() {
         txt_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
@@ -272,6 +275,10 @@ public class FXMLDocumentController implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
+            FXMLNewEditPlaylistController editplaylistcontroller = fxmlLoader.getController();
+            // Her tildeles vigtige data objecter til edit controlleren, 
+            // Det sikre at der er fat på de korrekte udgaver af dem.
+            editplaylistcontroller.ApplyImportantData(playlistModel,this);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
@@ -302,12 +309,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     //Deletes playlist
-    private void handleButtonActionDeletePlaylist(ActionEvent event) {
+    private void handleButtonActionDeletePlaylist(ActionEvent event) throws IOException, DalException {
+        Playlist selectedPlaylist = txt_playlist.getSelectionModel().getSelectedItem();
+        txt_playlist.getItems().remove(selectedPlaylist);
+        playlistModel.deletePlaylist(selectedPlaylist);
+        System.out.println("Playlist succesfully deleted");
     }
 
     @FXML
     //Deletes song on playlist
     private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) {
+        
     }
 
     @FXML
@@ -315,7 +327,11 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonActionNewSong(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditSong.fxml"));
-            Parent root1 = fxmlLoader.load();
+            Parent root1 = (Parent)fxmlLoader.load();
+            FXMLNewEditSongController editsongcontroller = fxmlLoader.getController();
+            // Her tildeles vigtige data objecter til edit controlleren, 
+            // Det sikre at der er fat på de korrekte udgaver af dem.
+            editsongcontroller.ApplyImportantData(songModel,this);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
@@ -356,33 +372,36 @@ public class FXMLDocumentController implements Initializable {
         songPlaying.setText(txt_songs.getSelectionModel().getSelectedItem().getTitle());
     }
 
-    @FXML
-    private void refreshSongs(MouseEvent event) {
+    public void refreshSongs() {
         try {
-            songModel = new SongModel();
-
-            ObservableList<Song> songs = songModel.getAllSongs();
-            txt_songs.setItems(songs);
-            System.out.println(songs);
-
+            txt_songs.setItems(this.songModel.getAllSongs());
+            System.out.println("VI KKLAREDE DEN IND I REFRESH - Song del");
             setSongSelection();
         } catch (Exception ex) {
-            System.out.println("does not work properly");
+            System.out.println("does not work properly !!!");
             ex.printStackTrace();
         }
-        try {
-            playlistModel = new PlaylistModel();
-
-            ObservableList<Playlist> playlists = playlistModel.getAllPlaylists();
-            txt_playlist.setItems(playlists);
-            System.out.println(playlists);
-
-            setPlaylistSelection();
-
-        } catch (Exception ex) {
-            System.out.println("Faulty Playlist, or something");
-            ex.printStackTrace();
-        }
+        try
+        {
+            txt_playlist.setItems(this.playlistModel.getAllPlaylists());
+            System.out.println("Vi klarede den ind i refresh, playlist del");}
+            catch (Exception ex)
+                    {
+                    System.out.println("Vi klarede den IKKE i refresh playlist del");
+                    ex.printStackTrace();
+                    }
+        
+//        try {
+//            ObservableList<Playlist> playlists = playlistModel.getAllPlaylists();
+//            txt_playlist.setItems(playlists);
+//            System.out.println(playlists);
+//
+//            setPlaylistSelection();
+//
+//        } catch (Exception ex) {
+//            System.out.println("Faulty Playlist, or something");
+//            ex.printStackTrace();
+//        }
     }
 
     @FXML

@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -65,6 +66,7 @@ public class Zpotify extends Application
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/spotify (2).png")));
         stage.show();
         stage.setTitle("Zpotify");
     }

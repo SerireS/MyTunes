@@ -24,6 +24,7 @@ import zpotify.gui.model.SongModel;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Stop;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
@@ -48,6 +50,7 @@ public class FXMLDocumentController implements Initializable {
     private boolean playing = true;
     private PlaylistModel playlistModel;
     private SongModel songModel;
+    private int currentSongPlaying = 0;
     @FXML
     private ImageView btn_close;
     @FXML
@@ -103,7 +106,9 @@ public class FXMLDocumentController implements Initializable {
                     mediaPlayer.stop();
                     mediaPlayer.dispose();
                 } catch (Exception ignored) {
+                    
                 }
+                
 
                 System.out.println(txt_songs.getSelectionModel().getSelectedItem().getPlace());
 
@@ -112,6 +117,10 @@ public class FXMLDocumentController implements Initializable {
                 mediaPlayer.play();
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying();
+            }
+            else 
+            {
+                
             }
         });
 
@@ -225,12 +234,31 @@ public class FXMLDocumentController implements Initializable {
         } else {
             mediaPlayer.play();
             btn_playpause.setImage(new Image("/Image/pause1.png"));
+                
         }
+       
     }
 
     @FXML
     //skip to next song
-    private void nextSong(javafx.scene.input.MouseEvent event) {
+    private void nextSong(javafx.scene.input.MouseEvent event) 
+    {
+        if(txt_song_playlist.getSelectionModel().getSelectedIndex() !=-1)
+        {
+            mediaPlayer.pause();
+         if(currentSongPlaying + 1 == txt_song_playlist.getItems().size())
+         {
+             currentSongPlaying = 0;
+         }
+         else
+         {
+             currentSongPlaying++;
+         }
+            mediaPlayer.play();
+    }
+        
+        
+        
     }
 
     @FXML
@@ -365,6 +393,5 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-    
+    }    
 }

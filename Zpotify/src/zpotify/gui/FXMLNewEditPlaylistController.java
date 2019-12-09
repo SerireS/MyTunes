@@ -60,17 +60,15 @@ public class FXMLNewEditPlaylistController implements Initializable
     private void handleButtonActionSave(ActionEvent event) throws DalException
     {
         
-        System.out.println(txt_playlistName.getText());
+        
         
         String playlistName = txt_playlistName.getText().trim();
 
+        System.out.println(playlistName);
         
-        try {
+        
             this.playlistModel.createPlaylist(playlistName);
-        } catch (Exception ex)
-        {
-            System.out.println("Virkede ikke");
-        }
+        
         System.out.println("Vi nåede det");
         Stage stage = (Stage) btn_save.getScene().getWindow();
        // Tester om der er noget i playlistName felt, sætter en rød border for at indikere her mangles noget

@@ -72,7 +72,7 @@
                         <Image url="@Image/play-button%20(3).png" />
                     </image>
                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                <effect>
                   <DropShadow color="#231024" />

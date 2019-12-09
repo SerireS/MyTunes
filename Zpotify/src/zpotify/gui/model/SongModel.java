@@ -28,7 +28,7 @@ public class SongModel
     private ObservableList<Song> allSongs;
     private SongManager songManager;
     private FXMLDocumentController mainController;
-    private Iterator<String> songIterator;
+    private Iterator<Song> songIterator;
 
     // Maincontroller har den oprindelige refresh metode, derfor skal den sættes
     // i Constructor
@@ -89,13 +89,13 @@ public class SongModel
     public void nextSong(Stage primaryStage)
     {
         getAllSongs();
-        songIterator = allSongs.iterator();
+        songIterator = getAllSongs().iterator();
         Label songLabel = new Label(songIterator.next());
-        ListView<String> lv = new ListView(songs);
+        ListView<Song> lv = new ListView(getAllSongs());
 
-        MultipleSelectionModel<String> selectionModel = lv.getSelectionModel();
+        MultipleSelectionModel<Song> selectionModel = lv.getSelectionModel();
 
-        lv.setCellFactory(t -> new ListCell<String>()
+        lv.setCellFactory(t -> new ListCell<Song>()
         {
 
             {
@@ -107,17 +107,12 @@ public class SongModel
                         // update label
                         songLabel.setText(getItem());
                         // iterator should return next item next
-                        songIterator = songs.listIterator(selectionModel.getSelectedIndex() + 1);
+                        songIterator = allSongs.listIterator(selectionModel.getSelectedIndex() + 1);
                     }
                 });
             }
 
-            @Override
-            protected void updateItem(String item, boolean empty)
-            {
-                super.updateItem(item, empty);
-                setText(empty ? null : item);
-            }
+            
 
         });
     }

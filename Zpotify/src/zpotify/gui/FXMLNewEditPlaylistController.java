@@ -39,6 +39,10 @@ public class FXMLNewEditPlaylistController implements Initializable
     @FXML
     private void handleButtonActionSave(ActionEvent event)
     {
+        //insert save code
+        
+        Stage stage = (Stage) btn_save.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

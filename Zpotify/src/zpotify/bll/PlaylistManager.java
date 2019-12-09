@@ -6,13 +6,13 @@
 package zpotify.bll;
 
 import zpotify.be.Playlist;
-import zpotify.dal.PlaylistDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import zpotify.dal.DalException;
 import zpotify.dal.database.PlaylistDBDAO;
 
 /**
@@ -20,12 +20,11 @@ import zpotify.dal.database.PlaylistDBDAO;
  */
 public class PlaylistManager
 {
-    private PlaylistDAO playlistDao;
     private PlaylistDBDAO playlistDBDao;
 
     public PlaylistManager()
     {
-        playlistDao = new PlaylistDAO();
+        
         try {
             playlistDBDao = new PlaylistDBDAO();
         } catch (IOException ex) {
@@ -42,14 +41,15 @@ public class PlaylistManager
         }
         return null;
     }
+    
 
-    public void updatePlaylist(Playlist playlist)
-    {
-        playlistDao.updatePlaylist(playlist);
-    }
+//    public void updatePlaylist(Playlist playlist)
+//    {
+//        playlistDBDao.updatePlaylist(playlist);
+//    }
 
-    public void deletePlaylist(Playlist playlist) throws IOException
+    public void deletePlaylist(Playlist playlist) throws DalException
     {
-        playlistDao.deletePlaylist(playlist);
+        playlistDBDao.deletePlaylist(playlist);
     }
 }

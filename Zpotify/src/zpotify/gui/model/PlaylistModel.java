@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import zpotify.be.Playlist;
 import zpotify.bll.PlaylistManager;
+import zpotify.dal.DalException;
 import zpotify.dal.database.PlaylistDBDAO;
 
 /**
@@ -31,10 +32,12 @@ public class PlaylistModel {
 
     public ObservableList<Playlist> getAllPlaylists()
     {
+        allPlaylists = FXCollections.observableArrayList();
+        allPlaylists.addAll(playlistManager.getAllPlaylists());
         return allPlaylists;
     }
 
-    public void deletePlaylist(Playlist selectedPlaylist) throws IOException
+    public void deletePlaylist(Playlist selectedPlaylist) throws IOException, DalException
     {
         playlistManager.deletePlaylist(selectedPlaylist);
         if (allPlaylists.remove(selectedPlaylist))

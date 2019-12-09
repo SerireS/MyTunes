@@ -35,11 +35,10 @@ public class SongManager
         }
     }
     
-    public Song createSong(String title, String place) throws DalException
+    public boolean createSong(String title, String place) throws DalException
     {
         
-        songDBDao.createSong(title, place);
-        return null;
+        return songDBDao.createSong(title, place);
     }
     
     public List<Song> search(String query) throws DalException, SQLException

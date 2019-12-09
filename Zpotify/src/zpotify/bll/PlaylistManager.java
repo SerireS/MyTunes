@@ -42,6 +42,11 @@ public class PlaylistManager
         return null;
     }
     
+    public boolean createPlaylist(String playlistName) throws DalException
+    {
+        return playlistDBDao.createPlaylist(playlistName);
+    }
+    
 
 //    public void updatePlaylist(Playlist playlist)
 //    {

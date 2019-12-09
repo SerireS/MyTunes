@@ -37,7 +37,6 @@ public class SongManager
     
     public boolean createSong(String title, String place) throws DalException
     {
-        
         return songDBDao.createSong(title, place);
     }
     

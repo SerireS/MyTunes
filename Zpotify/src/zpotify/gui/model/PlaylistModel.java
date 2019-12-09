@@ -13,6 +13,7 @@ import zpotify.be.Playlist;
 import zpotify.bll.PlaylistManager;
 import zpotify.dal.DalException;
 import zpotify.dal.database.PlaylistDBDAO;
+import zpotify.gui.FXMLDocumentController;
 
 /**
  *
@@ -21,10 +22,11 @@ import zpotify.dal.database.PlaylistDBDAO;
 public class PlaylistModel {
     private ObservableList<Playlist> allPlaylists;
     private PlaylistManager playlistManager;
-    private PlaylistDBDAO playlistDBDao;
+    private FXMLDocumentController mainController;
 
-    public PlaylistModel() 
+    public PlaylistModel(FXMLDocumentController mainController) throws IOException
     {
+        this.mainController = mainController;
         playlistManager = new PlaylistManager();
         allPlaylists = FXCollections.observableArrayList();
         allPlaylists.addAll(playlistManager.getAllPlaylists());
@@ -35,6 +37,15 @@ public class PlaylistModel {
         allPlaylists = FXCollections.observableArrayList();
         allPlaylists.addAll(playlistManager.getAllPlaylists());
         return allPlaylists;
+    }
+    
+    public void createPlaylist(String playlistName) throws DalException
+    {
+        System.out.println(playlistName);
+        boolean playlistIsCreated = playlistManager.createPlaylist(playlistName);
+        if (playlistIsCreated == true){
+            mainController.refreshSongs();
+        }
     }
 
     public void deletePlaylist(Playlist selectedPlaylist) throws IOException, DalException

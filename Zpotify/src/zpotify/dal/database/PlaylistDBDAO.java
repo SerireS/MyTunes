@@ -64,4 +64,26 @@ public class PlaylistDBDAO {
             throw new DalException();
         }
     }
+    public boolean createPlaylist(String playlistName) throws DalException {
+        System.out.println(playlistName);
+        try ( Connection con = dbCon.getConnection()) {
+            String sql = "INSERT INTO Playlists (playlistName) VALUES (?);";
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(2, playlistName);
+            int affectedRows = ps.executeUpdate();
+        
+            if (affectedRows == 1) {
+                ResultSet rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    return true;
+                }
+            }
+            
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new DalException();
+        }
+        return false;
+    }
 }

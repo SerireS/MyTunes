@@ -101,7 +101,11 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Did not create new songmodel");
         }
         
-        playlistModel = new PlaylistModel();
+        try {
+            playlistModel = new PlaylistModel(this);
+        } catch (IOException ex) {
+            System.out.println("Did not create new playlistmodel");
+        }
         
         txt_songs.setOnMouseClicked(click
                 -> {

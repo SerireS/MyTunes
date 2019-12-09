@@ -23,6 +23,12 @@ public class Playlist
         this.playlistName = playlistName;
     }
 
+    public Playlist(String playlistName) {
+        this.playlistName = playlistName;
+    }
+    
+    
+
     public int getPlaylistId() {
         return playlistId;
     }

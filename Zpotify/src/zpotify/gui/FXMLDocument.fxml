@@ -63,14 +63,6 @@
                   <Glow />
                </effect>
                 </ImageView>
-            <ImageView fx:id="btn_refresh" fitHeight="20.0" fitWidth="25.0" layoutX="20.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Image/continuous.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
             </children>
         </Pane>
         <Pane layoutX="-34.0" layoutY="91.0" prefHeight="47.0" prefWidth="154.0">

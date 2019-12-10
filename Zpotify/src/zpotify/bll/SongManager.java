@@ -65,15 +65,6 @@ public class SongManager
         return null;
     }
 
-    public void updateSong(Song song) 
-    {
-//        try {
-//            songDao.updateSong(song);
-//        } catch (IOException ex) {
-//            Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }
-
     public void deleteSong(Song song) throws DalException 
     {
         songDBDao.deleteSong(song);

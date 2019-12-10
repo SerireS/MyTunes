@@ -243,14 +243,20 @@ public class FXMLDocumentController implements Initializable
     //play and pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
-        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+        try
         {
-            mediaPlayer.pause();
-            btn_playpause.setImage(new Image("Image/play-button (2).png"));
-        } else
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+            {
+                mediaPlayer.pause();
+                btn_playpause.setImage(new Image("Image/play-button (2).png"));
+            } else
+            {
+                mediaPlayer.play();
+                btn_playpause.setImage(new Image("/Image/pause1.png"));
+            }
+        } catch (Exception ex)
         {
-            mediaPlayer.play();
-            btn_playpause.setImage(new Image("/Image/pause1.png"));
+            System.out.println("No Song Selected");
         }
     }
 

@@ -6,76 +6,76 @@
 package zpotify.dal.database;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author jigzi
  */
-public class PlaylistSongDBDAO {
-    
+public class PlaylistSongDBDAO
+{
+
     private DatabaseConnector dbCon;
-    
-    public List<Song> getPlaylistSongs(int id) throws SQLException{
+
+    public List<Song> getPlaylistSongs(int id) throws SQLException
+    {
         List<Song> newSongList = new ArrayList();
-        try (Connection con = dbCon.getConnection()){
-        String query = "SELECT * FROM SongPlaylistRelation INNER JOIN Song ON SongPlaylistRelation.SongId = song.id WHERE SongPlaylistRelation.PlaylistId = ?;";
-        PreparedStatement preparedStmt = con.prepareStatement(query);
-        preparedStmt.setInt(1, id);
-        ResultSet rs = preparedStmt.executeQuery();
-        while (rs.next())
+        try (Connection con = dbCon.getConnection())
         {
-            Song song = new Song(rs.getString("title"), rs.getString("place"));
-            newSongList.add(song);
-        }
-        return newSongList;
-        }catch (SQLServerException ex){
-        System.out.println(ex);
-        return null;
-        } catch(SQLException ex)
+            String query = "SELECT * FROM SongPlaylistRelation INNER JOIN Song ON SongPlaylistRelation.SongId = song.id WHERE SongPlaylistRelation.PlaylistId = ?;";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setInt(1, id);
+            ResultSet rs = preparedStmt.executeQuery();
+            while (rs.next())
+            {
+                Song song = new Song(rs.getString("title"), rs.getString("place"));
+                newSongList.add(song);
+            }
+            return newSongList;
+        } catch (SQLServerException ex)
+        {
+            System.out.println(ex);
+            return null;
+        } catch (SQLException ex)
         {
             System.out.println(ex);
             return null;
         }
     }
-    
-    
-        
+
+
     public Song addToPlaylist(Playlist playlist, Song song) throws SQLException
-{
-String sql = "INSERT INTO SongPlaylistRelation(PlaylistId,SongId) VALUES (?,?);";
-int Id = -1;
-try (Connection con = dbCon.getConnection())
-{
-    PreparedStatement ps = con.prepareStatement(sql);
-    Id = getNewestSongInPlaylist(playlist.getPlaylistId()) +1;
-    ps.setInt(1, playlist.getPlaylistId());
-    ps.setInt(2, song.getId());
-    ps.addBatch();
-    ps.executeBatch();
-    return song;
-}catch (SQLServerException ex)
-{
-    System.out.println(ex);
-    return null;
-}catch (SQLException ex)
-{
-    System.out.println(ex);
-    return null;
-}
-}
-    
-    private int getNewestSongInPlaylist(int id) throws SQLServerException, SQLException
+    {
+        String sql = "INSERT INTO SongPlaylistRelation(PlaylistId,SongId) VALUES (?,?);";
+        int Id = -1;
+        try (Connection con = dbCon.getConnection())
+        {
+            PreparedStatement ps = con.prepareStatement(sql);
+            Id = getNewestSongInPlaylist(playlist.getPlaylistId()) + 1;
+            ps.setInt(1, playlist.getPlaylistId());
+            ps.setInt(2, song.getId());
+            ps.addBatch();
+            ps.executeBatch();
+            return song;
+        } catch (SQLServerException ex)
+        {
+            System.out.println(ex);
+            return null;
+        } catch (SQLException ex)
+        {
+            System.out.println(ex);
+            return null;
+        }
+    }
+
+    private int getNewestSongInPlaylist(int id) throws SQLException
     {
         int newestID = -1;
-        try ( Connection con = dbCon.getConnection())
+        try (Connection con = dbCon.getConnection())
         {
             String query = "SELECT TOP(1) * FROM SongPlaylistRelation WHERE PlaylistId = ?;";
             PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -87,13 +87,14 @@ try (Connection con = dbCon.getConnection())
             }
             System.out.println(newestID);
             return newestID;
-    } catch (SQLServerException ex) {
-        System.out.println(ex);
-        return newestID;
-}catch (SQLException ex)
-{
-    System.out.println(ex);
-    return newestID;
-}
-}
+        } catch (SQLServerException ex)
+        {
+            System.out.println(ex);
+            return newestID;
+        } catch (SQLException ex)
+        {
+            System.out.println(ex);
+            return newestID;
+        }
+    }
 }

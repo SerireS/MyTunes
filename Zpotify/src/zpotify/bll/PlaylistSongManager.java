@@ -22,14 +22,14 @@ public class PlaylistSongManager {
       playlistSongDBdao = new PlaylistSongDBDAO();
     }
     
-    public List<Song> getPlaylistSongs() 
+    public List<Song> getPlaylistSongs(int id) throws SQLException 
     {
-        return playlistSongDBdao.getPlaylistSongs(P);
+        return playlistSongDBdao.getPlaylistSongs(5);
     }
 
     public void deleteFromPlaylistSongEverything(Song selectedSong) throws DalException, SQLException 
     {
         playlistSongDBdao.deleteFromPlaylistSongEverything(selectedSong);
     }
-    
+   
 }

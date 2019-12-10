@@ -25,7 +25,6 @@ public class SongModel
     private ObservableList<Song> allSongs;
     private SongManager songManager;
     private FXMLDocumentController mainController;
-    private Iterator<Song> songIterator;
 
     // Maincontroller har den oprindelige refresh metode, derfor skal den sættes
     // i Constructor

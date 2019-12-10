@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import zpotify.gui.model.PlaylistSongModel;
 
 /**
  * @author Peder
@@ -42,6 +43,7 @@ public class FXMLDocumentController implements Initializable
     private boolean windowsState = true;
     private boolean playing = true;
     private PlaylistModel playlistModel;
+    private PlaylistSongModel playlistSongModel;
     private SongModel songModel;
     private int currentSongPlaying;
     @FXML
@@ -106,6 +108,14 @@ public class FXMLDocumentController implements Initializable
         } catch (IOException ex)
         {
             System.out.println("Did not create new playlistmodel");
+        }
+        
+        try
+        {
+            playlistSongModel = new PlaylistSongModel(this);
+        } catch (IOException ex)
+        {
+            System.out.println("Did not create new playlistSongModel");
         }
 
         txt_songs.setOnMouseClicked(click ->
@@ -179,7 +189,7 @@ public class FXMLDocumentController implements Initializable
             txt_songs.setItems(songs);
             System.out.println(songs);*/
 
-            setSongSelection();
+          //  setSongSelection();
         } catch (Exception ex)
         {
             System.out.println("does not work properly");
@@ -212,7 +222,7 @@ public class FXMLDocumentController implements Initializable
 
     private void setPlaylistSelection()
     {
-        txt_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+  //      txt_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     @FXML
@@ -469,6 +479,15 @@ public class FXMLDocumentController implements Initializable
         } catch (Exception ex)
         {
             System.out.println("Vi klarede den IKKE i refresh playlist del");
+            ex.printStackTrace();
+        }
+        try
+        {
+            txt_song_playlist.setItems(this.playlistSongModel.getPlaylistSongs());
+                    System.out.println("Vi klarede den ind i refresh, playlist-song del");
+        }catch (Exception ex)
+        {
+            System.out.println("Vi klarede den IKKE i refresh playlist-song del");
             ex.printStackTrace();
         }
 

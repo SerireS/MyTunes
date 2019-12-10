@@ -19,7 +19,7 @@ import zpotify.be.Song;
  *
  * @author jigzi
  */
-public class PlaylisSongDBDao {
+public class PlaylistSongDBDAO {
     
     private DatabaseConnector dbCon;
     

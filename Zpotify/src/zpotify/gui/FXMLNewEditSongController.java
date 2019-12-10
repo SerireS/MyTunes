@@ -82,7 +82,6 @@ public class FXMLNewEditSongController implements Initializable
 //        int length = Integer.parseInt(txt_time.getText().trim());
 //        String artist = txt_artist.getText().trim();
         String place = "musik/" + txt_MP3_File.getText().trim();
-        this.songModel.createSong(title, place);
         
         Stage stage = (Stage) btn_save.getScene().getWindow();
        // Tester om der er noget i title felt, sætter en rød border for at indikere her mangles noget
@@ -93,6 +92,7 @@ public class FXMLNewEditSongController implements Initializable
             
             txt_title.setBorder(warning);
         } else{
+        this.songModel.createSong(title, place);
         stage.close();
         }
     }

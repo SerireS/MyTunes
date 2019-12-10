@@ -66,9 +66,6 @@ public class FXMLNewEditPlaylistController implements Initializable
 
         System.out.println(playlistName);
         
-        
-            this.playlistModel.createPlaylist(playlistName);
-        
         System.out.println("Vi nåede det");
         Stage stage = (Stage) btn_save.getScene().getWindow();
        // Tester om der er noget i playlistName felt, sætter en rød border for at indikere her mangles noget
@@ -79,6 +76,7 @@ public class FXMLNewEditPlaylistController implements Initializable
             
             txt_playlistName.setBorder(warning);
         } else{
+        this.playlistModel.createPlaylist(playlistName);
         stage.close();
         }
     }

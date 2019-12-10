@@ -55,7 +55,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ListView<Playlist> txt_playlist;
     @FXML
-    private ListView<?> txt_song_playlist;
+    private ListView<Song> txt_song_playlist;
     @FXML
     private ListView<Song> txt_songs;
     @FXML
@@ -94,6 +94,17 @@ public class FXMLDocumentController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        buildModels();
+        loadPlaylist();
+        playSingleSong();
+        playPlaylistSong();
+        volumeControl();
+        refreshSongs();
+    }
+    
+    private void buildModels()
+    {
+        
         try
         {
             songModel = new SongModel(this);
@@ -117,11 +128,89 @@ public class FXMLDocumentController implements Initializable
         {
             System.out.println("Did not create new playlistSongModel");
         }
+    }
+    
+    private void volumeControl()
+    {
+        // providing functionality to volume slider 
+        volumeSlider.valueProperty().addListener(new InvalidationListener()
+        {
+            public void invalidated(Observable ov)
+            {
+                try
+                {
+                    if (volumeSlider.isPressed())
+                    {
+                        mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
+                        // as specified by user by pressing
+                    }
+                } catch (Exception ex)
+                {
+                    System.out.println("Play Song To Change Volume");
+                }
+            }
+        });
+    }
 
+    private void setSongSelection()
+    {
+        txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//        txt_playlist.getSelectionModel().clearSelection(txt_playlist.getSelectionModel().getSelectedIndex());
+//        System.out.println("we made it");
+        /*txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
+                {
+            @Override
+            public void changed(ObservableValue<? extends Song> arg0, Song oldValue, Song newValue)
+            {
+                if (newValue != null)
+                {
+                    txtSelectedMovieYear.setText(newValue.getId() + "");
+                    txtSelectedMovieTitle.setText(newValue.getTitle());
+                    txtSelectedMovieTitle.setText(newValue.getArtist());
+                    txtSelectedMovieYear.setText(newValue.getLength() + "");
+                }
+            }
+                });*/
+    }
+    
+    private void playPlaylistSong()
+    {
+        txt_song_playlist.setOnMouseClicked(click ->
+        {
+            if (click.getClickCount() == 2)
+            {
+                try
+                {
+                    mediaPlayer.stop();
+                    mediaPlayer.dispose();
+                } catch (Exception ignored)
+                {
+
+                }
+
+                currentSongPlaying = txt_song_playlist.getSelectionModel().getSelectedIndex();
+
+
+                media = new Media(new File(txt_song_playlist.getSelectionModel().getSelectedItem().getPlace()).toURI().toString());
+                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.play();
+                
+
+                btn_playpause.setImage(new Image("/Image/pause1.png"));
+                textPlaying(txt_song_playlist.getItems().get(currentSongPlaying).toString());
+            } else
+            {
+            }
+        });
+    }
+    
+    private void playSingleSong()
+    {
         txt_songs.setOnMouseClicked(click ->
         {
             if (click.getClickCount() == 2)
             {
+                
                 try
                 {
                     mediaPlayer.stop();
@@ -144,79 +233,6 @@ public class FXMLDocumentController implements Initializable
             {
             }
         });
-
-        // providing functionality to volume slider 
-        volumeSlider.valueProperty().addListener(new InvalidationListener()
-        {
-            public void invalidated(Observable ov)
-            {
-                try
-                {
-                    if (volumeSlider.isPressed())
-                    {
-                        mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
-                        // as specified by user by pressing
-                    }
-                } catch (Exception ex)
-                {
-                    System.out.println("Play Song To Change Volume");
-                }
-            }
-        });
-
-//        try
-//        {
-//            File folder = new File("musik");
-//            File[] listOfFiles = folder.listFiles();
-//            ObservableList<String> songList = FXCollections.observableArrayList();
-//            if (listOfFiles != null)
-//            {
-//                for (File file : listOfFiles)
-//                {
-//                    songList.add(file.getName());
-//                }
-//            }
-//            txt_songs.setItems(songList);
-//        } catch (Exception ignore)
-//        {
-//            System.out.println("No Files In Folder");
-//        }
-        try
-        {
-//            
-
-           /* ObservableList<Song> songs = songModel.getAllSongs();
-            txt_songs.setItems(songs);
-            System.out.println(songs);*/
-
-          //  setSongSelection();
-        } catch (Exception ex)
-        {
-            System.out.println("does not work properly");
-            ex.printStackTrace();
-        }
-        refreshSongs();
-    }
-
-    private void setSongSelection()
-    {
-        txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-//        txt_playlist.getSelectionModel().clearSelection(txt_playlist.getSelectionModel().getSelectedIndex());
-//        System.out.println("we made it");
-        /*txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
-                {
-            @Override
-            public void changed(ObservableValue<? extends Song> arg0, Song oldValue, Song newValue)
-            {
-                if (newValue != null)
-                {
-                    txtSelectedMovieYear.setText(newValue.getId() + "");
-                    txtSelectedMovieTitle.setText(newValue.getTitle());
-                    txtSelectedMovieTitle.setText(newValue.getArtist());
-                    txtSelectedMovieYear.setText(newValue.getLength() + "");
-                }
-            }
-                });*/
     }
 
 
@@ -338,6 +354,11 @@ public class FXMLDocumentController implements Initializable
         }
 
 
+    }
+    
+    private void playNextSong()
+    {
+        
     }
 
     @FXML
@@ -481,29 +502,25 @@ public class FXMLDocumentController implements Initializable
             System.out.println("Vi klarede den IKKE i refresh playlist del");
             ex.printStackTrace();
         }
-        try
-        {
-            txt_song_playlist.setItems(this.playlistSongModel.getPlaylistSongs());
-                    System.out.println("Vi klarede den ind i refresh, playlist-song del");
-        }catch (Exception ex)
-        {
-            System.out.println("Vi klarede den IKKE i refresh playlist-song del");
-            ex.printStackTrace();
-        }
-
-//        try {
-//            ObservableList<Playlist> playlists = playlistModel.getAllPlaylists();
-//            txt_playlist.setItems(playlists);
-//            System.out.println(playlists);
-//
-//            setPlaylistSelection();
-//
-//        } catch (Exception ex) {
-//            System.out.println("Faulty Playlist, or something");
-//            ex.printStackTrace();
-//        }
     }
 
+    public void loadPlaylist(){
+    txt_playlist.setOnMouseClicked(click ->
+        {
+            if (click.getClickCount() == 2)
+            {
+             int currentPlaylistSelected = txt_playlist.getSelectionModel().getSelectedItem().getPlaylistId();    
+            
+                try
+                {
+                    txt_song_playlist.setItems(this.playlistSongModel.getPlaylistSongs(currentPlaylistSelected));
+                } catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+        });            
+    }
     @FXML
     private void handleSearchSong(KeyEvent event) throws SQLException, DalException
     {

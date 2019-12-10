@@ -5,8 +5,10 @@
  */
 package zpotify.bll;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
 import zpotify.dal.database.PlaylistSongDBDAO;
@@ -18,18 +20,27 @@ import zpotify.dal.database.PlaylistSongDBDAO;
 public class PlaylistSongManager {
     private PlaylistSongDBDAO playlistSongDBdao;
 
-    public PlaylistSongManager() {
+    public PlaylistSongManager() throws IOException {
+        
       playlistSongDBdao = new PlaylistSongDBDAO();
     }
     
     public List<Song> getPlaylistSongs(int id) throws SQLException 
     {
-        return playlistSongDBdao.getPlaylistSongs(5);
+        
+        return playlistSongDBdao.getPlaylistSongs(id);
+        
     }
 
-    public void deleteFromPlaylistSongEverything(Song selectedSong) throws DalException, SQLException 
+    public void deleteFromPlaylistSongEverything(Playlist playlist, Song selectedSong) throws DalException, SQLException 
     {
-        playlistSongDBdao.deleteFromPlaylistSongEverything(selectedSong);
+        playlistSongDBdao.deleteFromPlaylistSongEverything(playlist, selectedSong);
+    }
+    
+    public void addToPlaylist(Playlist playlist, Song song) throws SQLException
+            
+    {
+        playlistSongDBdao.addToPlaylist(playlist, song);
     }
    
 }

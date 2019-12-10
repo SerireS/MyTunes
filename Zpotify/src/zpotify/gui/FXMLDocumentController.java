@@ -140,10 +140,16 @@ public class FXMLDocumentController implements Initializable
         {
             public void invalidated(Observable ov)
             {
-                if (volumeSlider.isPressed())
+                try
                 {
-                    mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume 
-                    // as specified by user by pressing 
+                    if (volumeSlider.isPressed())
+                    {
+                        mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
+                        // as specified by user by pressing
+                    }
+                } catch (Exception ex)
+                {
+                    System.out.println("Play Song To Change Volume");
                 }
             }
         });
@@ -243,14 +249,20 @@ public class FXMLDocumentController implements Initializable
     //play and pause the music
     private void play_pause(javafx.scene.input.MouseEvent event)
     {
-        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+        try
         {
-            mediaPlayer.pause();
-            btn_playpause.setImage(new Image("Image/play-button (2).png"));
-        } else
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+            {
+                mediaPlayer.pause();
+                btn_playpause.setImage(new Image("Image/play-button (2).png"));
+            } else
+            {
+                mediaPlayer.play();
+                btn_playpause.setImage(new Image("/Image/pause1.png"));
+            }
+        } catch (Exception ex)
         {
-            mediaPlayer.play();
-            btn_playpause.setImage(new Image("/Image/pause1.png"));
+            System.out.println("No Song Selected");
         }
     }
 

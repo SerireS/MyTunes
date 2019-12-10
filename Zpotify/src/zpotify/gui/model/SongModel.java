@@ -7,9 +7,6 @@ package zpotify.gui.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
-import javafx.stage.Stage;
 import zpotify.be.Song;
 import zpotify.bll.SongManager;
 import zpotify.dal.DalException;
@@ -84,36 +81,5 @@ public class SongModel
                 }
             });
         }
-    }
-
-    public void nextSong(Stage primaryStage)
-    {
-        getAllSongs();
-        songIterator = getAllSongs().iterator();
-        Label songLabel = new Label(songIterator.next());
-        ListView<Song> lv = new ListView(getAllSongs());
-
-        MultipleSelectionModel<Song> selectionModel = lv.getSelectionModel();
-
-        lv.setCellFactory(t -> new ListCell<Song>()
-        {
-
-            {
-                setOnMouseClicked(evt ->
-                {
-                    if (evt.getButton() == MouseButton.PRIMARY && evt.getClickCount() == 2)
-                    {
-                        evt.consume();
-                        // update label
-                        songLabel.setText(getItem());
-                        // iterator should return next item next
-                        songIterator = allSongs.listIterator(selectionModel.getSelectedIndex() + 1);
-                    }
-                });
-            }
-
-            
-
-        });
     }
 }

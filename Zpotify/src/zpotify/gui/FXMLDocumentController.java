@@ -140,10 +140,16 @@ public class FXMLDocumentController implements Initializable
         {
             public void invalidated(Observable ov)
             {
-                if (volumeSlider.isPressed())
+                try
                 {
-                    mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume 
-                    // as specified by user by pressing 
+                    if (volumeSlider.isPressed())
+                    {
+                        mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
+                        // as specified by user by pressing
+                    }
+                } catch (Exception ex)
+                {
+                    System.out.println("Play Song To Change Volume");
                 }
             }
         });

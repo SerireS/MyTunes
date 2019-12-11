@@ -59,23 +59,17 @@ public class FXMLNewEditPlaylistController implements Initializable
     @FXML
     private void handleButtonActionSave(ActionEvent event) throws DalException
     {
-        
-        
-        
         String playlistName = txt_playlistName.getText().trim();
-
-        System.out.println(playlistName);
-        
-        System.out.println("Vi nåede det");
         Stage stage = (Stage) btn_save.getScene().getWindow();
        // Tester om der er noget i playlistName felt, sætter en rød border for at indikere her mangles noget
        // Det er først muligt at lukke dialogen ned når der er noget i feltet
-        if(playlistName.length() == 0){
+        if(playlistName.length() == 0)
+        {
             Border warning = new Border(new BorderStroke(Color.RED, 
-            BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2)));
-            
+            BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2)));       
             txt_playlistName.setBorder(warning);
-        } else{
+        } else
+        {
         this.playlistModel.createPlaylist(playlistName);
         stage.close();
         }

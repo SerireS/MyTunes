@@ -17,11 +17,8 @@ import zpotify.dal.DalException;
 import zpotify.gui.model.SongModel;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
@@ -71,27 +68,25 @@ public class FXMLNewEditSongController implements Initializable
         this.controller = controller;
     }
 
+    /*
+    * 
+    */
     @FXML
     private void handleButtonActionSave(ActionEvent event) throws DalException
-    {
-        System.out.println("Vi nåede det");
-        System.out.println(txt_title.getText());
-        System.out.println(txt_MP3_File.getText());
-        
+    {   
         String title = txt_title.getText().trim();
-//        int length = Integer.parseInt(txt_time.getText().trim());
-//        String artist = txt_artist.getText().trim();
         String place = "musik/" + txt_MP3_File.getText().trim();
-        
         Stage stage = (Stage) btn_save.getScene().getWindow();
        // Tester om der er noget i title felt, sætter en rød border for at indikere her mangles noget
        // Det er først muligt at lukke dialogen ned når der er noget i feltet
-        if(title.length() == 0){
+        if(title.length() == 0)
+        {
             Border warning = new Border(new BorderStroke(Color.RED, 
             BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2)));
             
             txt_title.setBorder(warning);
-        } else{
+        } else
+        {
         this.songModel.createSong(title, place);
         stage.close();
         }

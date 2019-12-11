@@ -10,48 +10,46 @@ import java.util.List;
 /**
  * @author jigzi
  */
-public class Playlist
+public class Playlist 
 {
     private int playlistId;
-    //private List<Song> songs;
     private String playlistName;
 
-
-    public Playlist(int playlistId, String playlistName)
+    public Playlist(int playlistId, String playlistName) 
     {
         this.playlistId = playlistId;
         this.playlistName = playlistName;
     }
-
-    public Playlist(String playlistName) {
+    
+    public Playlist(String playlistName) 
+    {
         this.playlistName = playlistName;
     }
-    
-    
-
-    public int getPlaylistId() {
+    //Returns the id of the playlist
+    public int getPlaylistId() 
+    {
         return playlistId;
     }
-
-    public void setPlaylistId(int playlistId) {
+    //Sets the id of the playlist
+    public void setPlaylistId(int playlistId) 
+    {
         this.playlistId = playlistId;
     }
-
-    public String getPlaylistName()
+    //Returns the playlistname
+    public String getPlaylistName() 
     {
         return playlistName;
     }
-
-    public void setPlaylistName(String playlistName)
+    //Sets the id of the playlist
+    public void setPlaylistName(String playlistName) 
     {
         this.playlistName = playlistName;
     }
-    
-     @Override
-    public String toString()
+
+    @Override
+    public String toString() 
     {
         return playlistName;
     }
-
 
 }

@@ -206,6 +206,7 @@ public class FXMLDocumentController implements Initializable
 
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying(txt_songs.getItems().get(currentSongPlaying).toString());
+                playNextSong();
             } else
             {
             }
@@ -264,7 +265,7 @@ public class FXMLDocumentController implements Initializable
 
     @FXML
     //skip to next song
-    private void nextSong(javafx.scene.input.MouseEvent event)
+    private void nextSong()
     {
         try
         {
@@ -337,8 +338,27 @@ public class FXMLDocumentController implements Initializable
     
     private void playNextSong()
     {
-        
+        try
+        {
+            mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) ->
+            {
+                if (newValue.toMillis() > mediaPlayer.getMedia().getDuration().toMillis() - 199)
+                {
+                    try
+                    {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e)
+                    {
+                    }
+                    nextSong();
+                }
+            });
+        } catch (Exception ex)
+        {
+            System.out.println("rip");
+        }
     }
+
 
     @FXML
     //Opens new window to add playlist

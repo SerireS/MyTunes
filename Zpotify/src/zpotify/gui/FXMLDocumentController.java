@@ -513,7 +513,7 @@ public class FXMLDocumentController implements Initializable
     public void loadPlaylist(){
     txt_playlist.setOnMouseClicked(click ->
         {
-            if (click.getClickCount() == 2)
+            if (click.getClickCount() == 1)
             {
              int currentPlaylistSelected = txt_playlist.getSelectionModel().getSelectedItem().getPlaylistId();    
             

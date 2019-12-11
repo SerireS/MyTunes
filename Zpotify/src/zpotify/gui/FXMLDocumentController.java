@@ -81,15 +81,13 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private TextField txt_search;
     @FXML
-    private ImageView btn_window_mode;
-    @FXML
     private ImageView button_next;
     @FXML
     private Slider volumeSlider;
     @FXML
     private TextField songPlaying;
     @FXML
-    private ImageView btn_refresh;
+    private Button btn_add_song_to_playlist;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -104,7 +102,6 @@ public class FXMLDocumentController implements Initializable
     
     private void buildModels()
     {
-        
         try
         {
             songModel = new SongModel(this);
@@ -112,7 +109,6 @@ public class FXMLDocumentController implements Initializable
         {
             System.out.println("Did not create new songmodel");
         }
-
         try
         {
             playlistModel = new PlaylistModel(this);
@@ -256,7 +252,6 @@ public class FXMLDocumentController implements Initializable
         stage.setIconified(true);
     }
 
-    @FXML
     private void windowMode(javafx.scene.input.MouseEvent event)
     {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -352,9 +347,17 @@ public class FXMLDocumentController implements Initializable
             currentSongPlaying = currentSongPlaying + 1;
             System.out.println("Ingen Tidligere Sange");
         }
-
-
     }
+
+    @FXML
+    private void handleAddSongToPlaylist(ActionEvent event) throws SQLException {
+        Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
+        Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
+        txt_song_playlist.getItems().add(selectedSong);
+        playlistSongModel.addToPlaylist(playlist, selectedSong);
+        System.out.println("Song succesfully deleted from playlist");
+    }
+    
     
     private void playNextSong()
     {
@@ -423,7 +426,7 @@ public class FXMLDocumentController implements Initializable
         Song selectedSong = txt_song_playlist.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().remove(selectedSong);
         playlistSongModel.deleteFromPlaylistSong(playlist, selectedSong);
-        System.out.println("Playlist succesfully deleted");
+        System.out.println("Song succesfully deleted from playlist");
     }
 
     @FXML
@@ -490,7 +493,7 @@ public class FXMLDocumentController implements Initializable
         try
         {
             txt_songs.setItems(this.songModel.getAllSongs());
-            System.out.println("VI KKLAREDE DEN IND I REFRESH - Song del");
+            System.out.println("VI KLAREDE DEN IND I REFRESH - Song del");
             setSongSelection();
         } catch (Exception ex)
         {

@@ -44,7 +44,12 @@ public class PlaylistSongDBDAO {
             ResultSet rs = preparedStmt.executeQuery();
             System.out.println("almindeligt tekst" + rs);
             while (rs.next()) {
-                Song song = new Song(rs.getString("title"), rs.getString("place"));
+                int songId = rs.getInt("songId");
+                String title = rs.getString("title");
+                String artist = rs.getString("artist");
+                int length = rs.getInt("length");
+                String place = rs.getString("place");
+                Song song = new Song(songId, title, artist, length, place);
                 newSongList.add(song);
             }
             return newSongList;
@@ -72,6 +77,7 @@ public class PlaylistSongDBDAO {
             ps.setInt(2, song.getId());
             ps.addBatch();
             ps.executeBatch();
+            System.out.println(song.getId());
             return song;
         } catch (SQLServerException ex) {
             System.out.println(ex);
@@ -87,13 +93,14 @@ public class PlaylistSongDBDAO {
     * This query if given playlistId and songId will remove the songId's connection to the playlistId. 
     * Effectively removing the song from the playlist.
     */
-    public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws SQLServerException, SQLException {
+    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws SQLServerException, SQLException {
         try ( Connection con = dbCon.getConnection()) {
-            String query = "DELETE from SongPlaylistRelation WHERE songId =? AND playlistId =?;";
+            String query = "DELETE FROM SongPlaylistRelation WHERE songId =? AND playlistId =?;";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setInt(1, selectedSong.getId());
+            preparedStmt.setInt(1, song.getId());
             preparedStmt.setInt(2, playlist.getPlaylistId());
             preparedStmt.execute();
+            System.out.println("hm" + song.getId());
         } catch (SQLServerException ex) {
             System.out.println(ex);
         } catch (SQLException ex) {

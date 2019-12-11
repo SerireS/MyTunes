@@ -38,9 +38,9 @@ public class PlaylistSongModel {
             return this.songsInPlaylist;    
     }
     //This is what the controller calls when deleting a song from a playlist. This calls a method in the playlistsongmanager
-    public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws DalException, SQLException 
+    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws DalException, SQLException 
     {
-        playlistSongManager.deleteFromPlaylistSong(playlist, selectedSong);
+        playlistSongManager.deleteFromPlaylistSong(playlist, song);
     }
     //This is what the controller calls when adding a song to a playlist. This calls a method in the playlistsongmanager
     public void addToPlaylist(Playlist playlist, Song song) throws SQLException

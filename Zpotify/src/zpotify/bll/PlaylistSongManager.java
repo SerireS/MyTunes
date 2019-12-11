@@ -32,9 +32,9 @@ public class PlaylistSongManager {
         
     }
     //This is what the model calls when deleting a song from a playlist. This calls a method in the PlaylistSongDBdao
-    public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws DalException, SQLException 
+    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws DalException, SQLException 
     {
-        playlistSongDBdao.deleteFromPlaylistSong(playlist, selectedSong);
+        playlistSongDBdao.deleteFromPlaylistSong(playlist, song);
     }
     //This is what the model calls when adding a song to a playlist. This calls a method in the PlaylistSongDBdao
     public void addToPlaylist(Playlist playlist, Song song) throws SQLException

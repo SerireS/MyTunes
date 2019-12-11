@@ -149,6 +149,11 @@ public class FXMLDocumentController implements Initializable
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
+    
+    private void setSongInPlaylistSelection()
+    {
+        txt_song_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    }
     //plays a song on a playlist
     private void playPlaylistSong()
     {
@@ -166,6 +171,7 @@ public class FXMLDocumentController implements Initializable
                 }
 
                 currentSongPlaying = txt_song_playlist.getSelectionModel().getSelectedIndex();
+                System.out.println(currentSongPlaying);
 
 
                 media = new Media(new File(txt_song_playlist.getSelectionModel().getSelectedItem().getPlace()).toURI().toString());
@@ -332,7 +338,7 @@ public class FXMLDocumentController implements Initializable
         Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().add(selectedSong);
         playlistSongModel.addToPlaylist(playlist, selectedSong);
-        System.out.println("Song succesfully deleted from playlist");
+        System.out.println("Song succesfully added to playlist");
     }
     
     
@@ -418,11 +424,12 @@ public class FXMLDocumentController implements Initializable
     //Deletes song on playlist
     private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) throws DalException, SQLException
     {
+        setSongInPlaylistSelection();
         Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
         Song selectedSong = txt_song_playlist.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().remove(selectedSong);
         playlistSongModel.deleteFromPlaylistSong(playlist, selectedSong);
-        System.out.println("Song succesfully deleted from playlist");
+        System.out.println("Song succesfully deleted from playlist" + playlist + selectedSong);
     }
 
     @FXML

@@ -89,7 +89,7 @@ public class PlaylistSongDBDAO {
     */
     public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws SQLServerException, SQLException {
         try ( Connection con = dbCon.getConnection()) {
-            String query = "DELETE from SongPlaylistRelationship WHERE songId =? AND playlistId =?;";
+            String query = "DELETE from SongPlaylistRelation WHERE songId =? AND playlistId =?;";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, selectedSong.getId());
             preparedStmt.setInt(2, playlist.getPlaylistId());

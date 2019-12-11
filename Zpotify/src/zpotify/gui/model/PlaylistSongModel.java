@@ -37,9 +37,9 @@ public class PlaylistSongModel {
             return this.songsInPlaylist;    
     }
 
-    public void deleteFromPlaylistSongEverything(Playlist playlist, Song selectedSong) throws DalException, SQLException 
+    public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws DalException, SQLException 
     {
-        playlistSongManager.deleteFromPlaylistSongEverything(playlist, selectedSong);
+        playlistSongManager.deleteFromPlaylistSong(playlist, selectedSong);
     }
     
     public void addToPlaylist(Playlist playlist, Song song) throws SQLException

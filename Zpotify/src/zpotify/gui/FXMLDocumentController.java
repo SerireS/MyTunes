@@ -417,9 +417,13 @@ public class FXMLDocumentController implements Initializable
 
     @FXML
     //Deletes song on playlist
-    private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event)
+    private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) throws DalException, SQLException
     {
-
+        Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
+        Song selectedSong = txt_song_playlist.getSelectionModel().getSelectedItem();
+        txt_song_playlist.getItems().remove(selectedSong);
+        playlistSongModel.deleteFromPlaylistSong(playlist, selectedSong);
+        System.out.println("Playlist succesfully deleted");
     }
 
     @FXML

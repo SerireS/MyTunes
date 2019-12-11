@@ -32,9 +32,9 @@ public class PlaylistSongManager {
         
     }
 
-    public void deleteFromPlaylistSongEverything(Playlist playlist, Song selectedSong) throws DalException, SQLException 
+    public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws DalException, SQLException 
     {
-        playlistSongDBdao.deleteFromPlaylistSongEverything(playlist, selectedSong);
+        playlistSongDBdao.deleteFromPlaylistSong(playlist, selectedSong);
     }
     
     public void addToPlaylist(Playlist playlist, Song song) throws SQLException

@@ -22,15 +22,13 @@ import javafx.stage.StageStyle;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
-import zpotify.gui.model.PlaylistModel;
-import zpotify.gui.model.SongModel;
+import zpotify.gui.model.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import zpotify.gui.model.PlaylistSongModel;
 
 /**
  * @author Peder
@@ -350,7 +348,8 @@ public class FXMLDocumentController implements Initializable
     }
 
     @FXML
-    private void handleAddSongToPlaylist(ActionEvent event) throws SQLException {
+    private void handleAddSongToPlaylist() throws SQLException
+    {
         Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
         Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().add(selectedSong);

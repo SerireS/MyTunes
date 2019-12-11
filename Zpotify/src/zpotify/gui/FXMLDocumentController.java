@@ -97,7 +97,7 @@ public class FXMLDocumentController implements Initializable
         volumeControl();
         refreshSongs();
     }
-    
+    //Builds all Models necessary
     private void buildModels()
     {
         try
@@ -123,10 +123,9 @@ public class FXMLDocumentController implements Initializable
             System.out.println("Did not create new playlistSongModel");
         }
     }
-    
+    // providing functionality to volume slider 
     private void volumeControl()
     {
-        // providing functionality to volume slider 
         volumeSlider.valueProperty().addListener(new InvalidationListener()
         {
             public void invalidated(Observable ov)
@@ -145,28 +144,12 @@ public class FXMLDocumentController implements Initializable
             }
         });
     }
-
+    //Selects a single song entity in the list of songs
     private void setSongSelection()
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-//        txt_playlist.getSelectionModel().clearSelection(txt_playlist.getSelectionModel().getSelectedIndex());
-//        System.out.println("we made it");
-        /*txt_songs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>()
-                {
-            @Override
-            public void changed(ObservableValue<? extends Song> arg0, Song oldValue, Song newValue)
-            {
-                if (newValue != null)
-                {
-                    txtSelectedMovieYear.setText(newValue.getId() + "");
-                    txtSelectedMovieTitle.setText(newValue.getTitle());
-                    txtSelectedMovieTitle.setText(newValue.getArtist());
-                    txtSelectedMovieYear.setText(newValue.getLength() + "");
-                }
-            }
-                });*/
     }
-    
+    //plays a song on a playlist
     private void playPlaylistSong()
     {
         txt_song_playlist.setOnMouseClicked(click ->
@@ -197,7 +180,7 @@ public class FXMLDocumentController implements Initializable
             }
         });
     }
-    
+    // Plays a song from the list of songs.
     private void playSingleSong()
     {
         txt_songs.setOnMouseClicked(click ->
@@ -227,12 +210,6 @@ public class FXMLDocumentController implements Initializable
             {
             }
         });
-    }
-
-
-    private void setPlaylistSelection()
-    {
-  //      txt_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     @FXML
@@ -346,7 +323,7 @@ public class FXMLDocumentController implements Initializable
             System.out.println("Ingen Tidligere Sange");
         }
     }
-
+    //Adds the currently selected song to the currently selected playlist
     @FXML
     private void handleAddSongToPlaylist() throws SQLException
     {
@@ -480,13 +457,13 @@ public class FXMLDocumentController implements Initializable
         txt_songs.getItems().remove(selectedSong);
         songModel.deleteSong(selectedSong);
     }
-
+    //Puts the name of the song in a textfield. Effectively showing what song is being played
     private void textPlaying(String songName)
     {
         songPlaying.setText(songName);
         songPlaying.setAlignment(Pos.CENTER);
     }
-
+    //The refreshSongs method refresh the list of songs and playlists
     public void refreshSongs()
     {
         try
@@ -509,7 +486,7 @@ public class FXMLDocumentController implements Initializable
             ex.printStackTrace();
         }
     }
-
+    //This method loads the songs of the selected playlist, in the middle list.
     public void loadPlaylist(){
     txt_playlist.setOnMouseClicked(click ->
         {
@@ -527,6 +504,7 @@ public class FXMLDocumentController implements Initializable
             }
         });            
     }
+    //this is a search function
     @FXML
     private void handleSearchSong(KeyEvent event) throws SQLException, DalException
     {

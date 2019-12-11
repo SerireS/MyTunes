@@ -24,19 +24,19 @@ public class PlaylistSongManager {
         
       playlistSongDBdao = new PlaylistSongDBDAO();
     }
-    
+    //This is what the model calls when it tries to show the Songs in a single playlist. This calls a method in the PlaylistSongDBdao
     public List<Song> getPlaylistSongs(int id) throws SQLException 
     {
         
         return playlistSongDBdao.getPlaylistSongs(id);
         
     }
-
+    //This is what the model calls when deleting a song from a playlist. This calls a method in the PlaylistSongDBdao
     public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws DalException, SQLException 
     {
         playlistSongDBdao.deleteFromPlaylistSong(playlist, selectedSong);
     }
-    
+    //This is what the model calls when adding a song to a playlist. This calls a method in the PlaylistSongDBdao
     public void addToPlaylist(Playlist playlist, Song song) throws SQLException
             
     {

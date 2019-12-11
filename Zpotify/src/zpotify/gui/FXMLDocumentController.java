@@ -342,7 +342,7 @@ public class FXMLDocumentController implements Initializable
         {
             mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) ->
             {
-                if (newValue.toMillis() > mediaPlayer.getMedia().getDuration().toMillis() - 199)
+                if (newValue.toMillis() > mediaPlayer.getMedia().getDuration().toMillis() - 100)
                 {
                     try
                     {

@@ -504,7 +504,7 @@ public class FXMLDocumentController implements Initializable
             }
         });            
     }
-    //this is a search function
+    //This is a search function
     @FXML
     private void handleSearchSong(KeyEvent event) throws SQLException, DalException
     {

@@ -24,7 +24,7 @@ public class PlaylistSongModel {
     private ObservableList<Song> songsInPlaylist;
     private PlaylistSongManager playlistSongManager;
     private FXMLDocumentController mainController;
-
+    //Constructor. Giving model the controller and manager connection.
     public PlaylistSongModel(FXMLDocumentController mainController) throws IOException
     {
         this.mainController = mainController;

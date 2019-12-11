@@ -23,11 +23,17 @@ import zpotify.be.Song;
 public class PlaylistSongDBDAO {
 
     private DatabaseConnector dbCon;
-
+    //Constructor, creating a new object. The DatabaseConnector
     public PlaylistSongDBDAO() throws IOException   {
         dbCon = new DatabaseConnector();
     }
-    
+    /*
+    * If called this method tries to create a connection between the database and the program. 
+    * It creates a new ArrayList which is a list of songs
+    * If it creates the connection it will run the String query you see below.
+    * The query shows a list of songs on a playlist. The sent down Id will be the PlaylistId selected.
+    * Effectively returning the list of songs, in the selected playlist.
+    */
     public List<Song> getPlaylistSongs(int id) throws SQLException {
         System.out.println("Vi nåede ind i model Getall");
         List<Song> newSongList = new ArrayList();
@@ -52,10 +58,10 @@ public class PlaylistSongDBDAO {
         
     }
     /*
-    If called this method tries to create a connection between the database and the program. 
-    If it creates the connection it will run the String query you see below.
-    This query if given playlistId and songId will add the songId's connection to the playlistId. 
-    Effectively adding the song to the playlist.
+    * If called this method tries to create a connection between the database and the program. 
+    * If it creates the connection it will run the String query you see below.
+    * This query if given playlistId and songId will add the songId's connection to the playlistId. 
+    * Effectively adding the song to the playlist.
     */
     public Song addToPlaylist(Playlist playlist, Song song) throws SQLException {
         
@@ -76,10 +82,10 @@ public class PlaylistSongDBDAO {
         }
     }
     /*
-    If called this method tries to create a connection between the database and the program. 
-    If it creates the connection it will run the String query you see below.
-    This query if given playlistId and songId will remove the songId's connection to the playlistId. 
-    Effectively removing the song from the playlist.
+    * If called this method tries to create a connection between the database and the program. 
+    * If it creates the connection it will run the String query you see below.
+    * This query if given playlistId and songId will remove the songId's connection to the playlistId. 
+    * Effectively removing the song from the playlist.
     */
     public void deleteFromPlaylistSong(Playlist playlist, Song selectedSong) throws SQLServerException, SQLException {
         try ( Connection con = dbCon.getConnection()) {

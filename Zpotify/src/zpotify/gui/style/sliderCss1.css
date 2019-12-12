@@ -4,12 +4,12 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 12. dec. 2019, 11.51.35
+    Created on : 12. dec. 2019, 11.59.44
     Author     : Peter
 */
 
 .slider .track {
-    -fx-background-color: #222222;  /* Hide the track */
+    -fx-background-color: #white;  /* Hide the track */
     -fx-background-insets: 1 0 -1 0, 0, 1;
     -fx-background-radius: 2.5, 2.5, 1.5;
     -fx-padding: 0.208333em; /* 2.5 */

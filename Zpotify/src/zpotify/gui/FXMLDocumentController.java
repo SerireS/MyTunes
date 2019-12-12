@@ -8,6 +8,7 @@ package zpotify.gui;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.*;
@@ -15,10 +16,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
@@ -29,9 +32,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
 
 /**
  * @author Peder
@@ -578,8 +578,8 @@ public class FXMLDocumentController implements Initializable
             {
                 {
                     {
-                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toSeconds());
-                        seekSlider.setValue(newValue.toSeconds());
+                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toMillis());
+                        seekSlider.setValue(newValue.toMillis());
                     }
                 }
             });
@@ -587,14 +587,19 @@ public class FXMLDocumentController implements Initializable
         {
             System.out.println("rip");
         }
-        seekSlider.setOnMouseClicked(new EventHandler<MouseEvent>() 
+        seekSlider.setOnMouseClicked(new EventHandler<MouseEvent>()
         {
             @Override
             public void handle(MouseEvent mouseEvent)
             {
-                mediaPlayer.seek(Duration.seconds(seekSlider.getValue()));
+                seekSlider.setOnMouseClicked(click ->
+                {
+                    if (click.getClickCount() == 1)
+                        mediaPlayer.seek(Duration.millis(seekSlider.getValue()));
                         
-            }
-            
             });
-    }}
+
+            }
+        });
+    }
+}

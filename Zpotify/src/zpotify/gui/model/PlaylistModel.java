@@ -6,6 +6,7 @@
 package zpotify.gui.model;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Comparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -64,5 +65,8 @@ public class PlaylistModel {
                 }
             });
         }
+    }
+    public void updatePlaylist(String title, int id) throws SQLException{
+    playlistManager.updatePlaylist(title, id);
     }
 }

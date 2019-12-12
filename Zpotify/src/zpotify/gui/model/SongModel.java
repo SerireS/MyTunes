@@ -15,7 +15,6 @@ import zpotify.gui.FXMLDocumentController;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Comparator;
-import java.util.Iterator;
 
 /**
  * @author jigzi
@@ -70,15 +69,6 @@ public class SongModel
         if (allSongs.remove(selectedSong))
         {
             allSongs.remove(selectedSong);
-            allSongs.sort(new Comparator<Song>()
-            {
-                // Meningen er at sortere dem efter længde? Ved ikke omdet er meninge, revurder metode
-                @Override
-                public int compare(Song arg0, Song arg1)
-                {
-                    return arg0.getLength() - arg1.getLength();
-                }
-            });
         }
     }
 }

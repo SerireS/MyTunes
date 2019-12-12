@@ -42,10 +42,8 @@ public class SongDBDAO {
             {
                 int id = rs.getInt("songId");
                 String title = rs.getString("title");
-                String artist = rs.getString("artist");
-                int length = rs.getInt("length");
                 String place = rs.getString("place");
-                Song song = new Song(id, title, artist, length, place);
+                Song song = new Song(id, title, place);
                 allSongs.add(song);
             }
             return allSongs;

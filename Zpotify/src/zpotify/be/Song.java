@@ -10,18 +10,14 @@ public class Song implements Serializable
 
     private int id;
     private String title;
-    private int length;
-    private String artist;
     private String place;
     
 
-    public Song(int id, String title, String artist, int length, String place)
+    public Song(int id, String title, String place)
     {
         this.place = place;
         this.id = id;
         this.title = title;
-        this.artist = artist;
-        this.length = length;
     }
 
     public Song(String title, String place) {
@@ -37,26 +33,6 @@ public class Song implements Serializable
 
     public void setPlace(String place) {
         this.place = place;
-    }
-
-    public int getLength()
-    {
-        return length;
-    }
-
-    public void setLength(int length)
-    {
-        this.length = length;
-    }
-
-    public String getArtist()
-    {
-        return artist;
-    }
-
-    public void setArtist(String artist)
-    {
-        this.artist = artist;
     }
 
     /**

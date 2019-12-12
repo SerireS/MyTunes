@@ -25,18 +25,21 @@ public class SongDBDAO {
 
     private DatabaseConnector dbCon;
 
-    public SongDBDAO() throws IOException {
+    public SongDBDAO() throws IOException   {
         dbCon = new DatabaseConnector();
     }
 
-    public List<Song> getAllSongs() throws SQLServerException, SQLException {
-        try ( Connection con = dbCon.getConnection()) {
+    public List<Song> getAllSongs() throws SQLServerException, SQLException 
+    {
+        try ( Connection con = dbCon.getConnection())
+        {
             String sql = "SELECT * FROM Songs;";
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             ArrayList<Song> allSongs = new ArrayList<>();
             System.out.println(rs + "tekst så vi kan genkende");
-            while (rs.next()) {
+            while (rs.next())
+            {
                 int id = rs.getInt("songId");
                 String title = rs.getString("title");
                 String place = rs.getString("place");
@@ -44,10 +47,8 @@ public class SongDBDAO {
                 allSongs.add(song);
             }
             return allSongs;
-
-        }
-    }
-
+        
+    }    }
     //Deletes the song from SQL database
     public void deleteSong(Song song) throws DalException {
         try ( Connection con = dbCon.getConnection()) {
@@ -64,7 +65,7 @@ public class SongDBDAO {
             throw new DalException();
         }
     }
-
+        
     public boolean createSong(String title, String place) throws DalException {
         System.out.println(title + place);
         try ( Connection con = dbCon.getConnection()) {
@@ -75,13 +76,14 @@ public class SongDBDAO {
 //            ps.setString(3, artist);
             ps.setString(2, place);
             int affectedRows = ps.executeUpdate();
-
+        
             if (affectedRows == 1) {
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
                     return true;
                 }
             }
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -90,17 +92,6 @@ public class SongDBDAO {
         return false;
     }
 
-    public void updateSong(String title, int id) throws SQLServerException, SQLException {
-        try ( Connection con = dbCon.getConnection()) {
-            String sql = "UPDATE Songs SET title = '?' WHERE songId = ?;";
-            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, title);
-            ps.setInt(2, id);
-            ps.executeUpdate();
-            System.out.println("It worked or atleast I think it does");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
+   
 
 }

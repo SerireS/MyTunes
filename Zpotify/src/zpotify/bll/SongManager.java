@@ -70,11 +70,6 @@ public class SongManager
         songDBDao.deleteSong(song);
     }
     
-    public void updateSong(String title, int id) throws SQLException
-    {
-        songDBDao.updateSong(title, id);
-    }
-    
     
     /*
 

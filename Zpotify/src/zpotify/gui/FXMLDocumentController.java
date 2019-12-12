@@ -302,6 +302,7 @@ public class FXMLDocumentController implements Initializable
             currentSongPlaying = currentSongPlaying - 1;
             System.out.println("Ingen Næste Sange");
         }
+        songSlider();
     }
 
     @FXML
@@ -574,8 +575,8 @@ public class FXMLDocumentController implements Initializable
             {
                 {
                     {
-                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toSeconds());
-                        seekSlider.setValue(newValue.toSeconds());
+                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toMillis());
+                        seekSlider.setValue(newValue.toMillis());
                     }
                 }
             });

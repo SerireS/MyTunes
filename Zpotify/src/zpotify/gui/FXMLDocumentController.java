@@ -153,10 +153,6 @@ public class FXMLDocumentController implements Initializable
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
     
-    private void setSongInPlaylistSelection()
-    {
-        txt_song_playlist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-    }
     //plays a song on a playlist
     private void playPlaylistSong()
     {
@@ -385,6 +381,7 @@ public class FXMLDocumentController implements Initializable
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
+            stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.show();
 
         } catch (Exception e)
@@ -405,6 +402,7 @@ public class FXMLDocumentController implements Initializable
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
+            stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.show();
 
         } catch (Exception e)
@@ -427,7 +425,6 @@ public class FXMLDocumentController implements Initializable
     //Deletes song on playlist
     private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) throws DalException, SQLException
     {
-        setSongInPlaylistSelection();
         Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
         Song selectedSong = txt_song_playlist.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().remove(selectedSong);

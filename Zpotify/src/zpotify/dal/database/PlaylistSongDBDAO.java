@@ -46,10 +46,8 @@ public class PlaylistSongDBDAO {
             while (rs.next()) {
                 int songId = rs.getInt("songId");
                 String title = rs.getString("title");
-                String artist = rs.getString("artist");
-                int length = rs.getInt("length");
                 String place = rs.getString("place");
-                Song song = new Song(songId, title, artist, length, place);
+                Song song = new Song(songId, title, place);
                 newSongList.add(song);
             }
             return newSongList;

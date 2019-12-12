@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #222222;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLNewPlaylistController">
+<AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #222222;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLNewEditPlaylistController">
     <stylesheets>
         <URL value="@fxmlneweditplaylist.css" />
     </stylesheets>

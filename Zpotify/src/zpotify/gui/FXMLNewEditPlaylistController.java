@@ -28,7 +28,7 @@ import zpotify.gui.model.PlaylistModel;
  *
  * @author Peter
  */
-public class FXMLNewPlaylistController implements Initializable
+public class FXMLNewEditPlaylistController implements Initializable
 {
     
     private PlaylistModel playlistModel;

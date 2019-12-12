@@ -371,9 +371,9 @@ public class FXMLDocumentController implements Initializable
     {
         try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewPlaylist.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
-            FXMLNewPlaylistController editplaylistcontroller = fxmlLoader.getController();
+            FXMLNewEditPlaylistController editplaylistcontroller = fxmlLoader.getController();
             // Her tildeles vigtige data objecter til edit controlleren, 
             // Det sikre at der er fat på de korrekte udgaver af dem.
             editplaylistcontroller.ApplyImportantData(playlistModel, this);
@@ -438,9 +438,9 @@ public class FXMLDocumentController implements Initializable
     {
         try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewSong.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditSong.fxml"));
             Parent root1 = fxmlLoader.load();
-            FXMLNewSongController editsongcontroller = fxmlLoader.getController();
+            FXMLNewEditSongController editsongcontroller = fxmlLoader.getController();
             // Her tildeles vigtige data objecter til edit controlleren, 
             // Det sikre at der er fat på de korrekte udgaver af dem.
             editsongcontroller.ApplyImportantData(songModel, this);

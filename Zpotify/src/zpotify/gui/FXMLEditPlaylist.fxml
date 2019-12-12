@@ -20,7 +20,7 @@
             <Font name="Lato Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txt_playlistName" layoutX="92.0" layoutY="105.0" prefHeight="25.0" prefWidth="268.0" style="-fx-background-color: #333333;" stylesheets="@style/textFieldCss.css" />
+      <TextField fx:id="txt_playlistName" layoutX="92.0" layoutY="105.0" prefHeight="25.0" prefWidth="268.0" promptText="Enter text" style="-fx-background-color: #333333;" stylesheets="@style/textFieldCss.css" />
       <Button fx:id="btn_cancel" layoutX="241.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleButtonActionCancel" stylesheets="@style/buttonCss.css" text="Cancel" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

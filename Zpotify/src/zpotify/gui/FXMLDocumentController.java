@@ -447,6 +447,7 @@ public class FXMLDocumentController implements Initializable
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
+            stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.setScene(new Scene(root1));
             stage.show();
 
@@ -462,11 +463,12 @@ public class FXMLDocumentController implements Initializable
     {
         try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewEditSong.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLEditSong.fxml"));
             Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
+            stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.setScene(new Scene(root1));
             stage.show();
 

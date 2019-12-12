@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import zpotify.gui.model.PlaylistModel;
 
 /**
  * FXML Controller class
@@ -20,6 +21,9 @@ import javafx.stage.Stage;
  * @author Peter
  */
 public class FXMLEditPlaylistController implements Initializable {
+    
+    private PlaylistModel playlistModel;
+    private FXMLDocumentController controller;
 
     @FXML
     private TextField txt_playlistName;
@@ -35,7 +39,10 @@ public class FXMLEditPlaylistController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+void ApplyImportantData(PlaylistModel playlistModel, FXMLDocumentController controller) {
+        this.playlistModel = playlistModel;
+        this.controller = controller;
+    }
     @FXML
     private void handleButtonActionCancel(ActionEvent event) 
     {

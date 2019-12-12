@@ -398,6 +398,10 @@ public class FXMLDocumentController implements Initializable
         {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLEditPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
+            FXMLEditPlaylistController editplaylistcontroller = fxmlLoader.getController();
+            // Her tildeles vigtige data objecter til edit controlleren, 
+            // Det sikre at der er fat på de korrekte udgaver af dem.
+            editplaylistcontroller.ApplyImportantData(playlistModel, this);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");

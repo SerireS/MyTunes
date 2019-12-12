@@ -213,7 +213,7 @@
             <Image url="@Image/magnifying-glass%20(1).png" />
          </image>
       </ImageView>
-        <Slider layoutX="128.0" layoutY="179.0" prefHeight="44.0" prefWidth="748.0"/>
+        <Slider fx:id="seekSlider" layoutX="128.0" layoutY="179.0" prefHeight="44.0" prefWidth="748.0"/>
     </children>
    <effect>
       <DropShadow />

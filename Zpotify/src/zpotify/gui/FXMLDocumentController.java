@@ -19,7 +19,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
@@ -84,7 +83,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private Slider volumeSlider;
     @FXML
-    private Duration seekSlider;
+    private Slider seekSlider;
     @FXML
     private TextField songPlaying;
     @FXML
@@ -100,6 +99,7 @@ public class FXMLDocumentController implements Initializable
         volumeControl();
         refreshSongs();
     }
+
     //Builds all Models necessary
     private void buildModels()
     {
@@ -117,7 +117,7 @@ public class FXMLDocumentController implements Initializable
         {
             System.out.println("Did not create new playlistmodel");
         }
-        
+
         try
         {
             playlistSongModel = new PlaylistSongModel(this);
@@ -126,7 +126,8 @@ public class FXMLDocumentController implements Initializable
             System.out.println("Did not create new playlistSongModel");
         }
     }
-    // providing functionality to volume slider 
+
+    // providing functionality to volume slider
     private void volumeControl()
     {
         volumeSlider.valueProperty().addListener(new InvalidationListener()
@@ -147,12 +148,13 @@ public class FXMLDocumentController implements Initializable
             }
         });
     }
+
     //Selects a single song entity in the list of songs
     private void setSongSelection()
     {
         txt_songs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
-    
+
     //plays a song on a playlist
     private void playPlaylistSong()
     {
@@ -176,7 +178,7 @@ public class FXMLDocumentController implements Initializable
                 media = new Media(new File(txt_song_playlist.getSelectionModel().getSelectedItem().getPlace()).toURI().toString());
                 mediaPlayer = new MediaPlayer(media);
                 mediaPlayer.play();
-                
+
 
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying(txt_song_playlist.getItems().get(currentSongPlaying).toString());
@@ -185,6 +187,7 @@ public class FXMLDocumentController implements Initializable
             }
         });
     }
+
     // Plays a song from the list of songs.
     private void playSingleSong()
     {
@@ -192,7 +195,7 @@ public class FXMLDocumentController implements Initializable
         {
             if (click.getClickCount() == 2)
             {
-                
+
                 try
                 {
                     mediaPlayer.stop();
@@ -212,6 +215,8 @@ public class FXMLDocumentController implements Initializable
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying(txt_songs.getItems().get(currentSongPlaying).toString());
                 playNextSong();
+                songSlider();
+
             } else
             {
             }
@@ -329,6 +334,7 @@ public class FXMLDocumentController implements Initializable
             System.out.println("Ingen Tidligere Sange");
         }
     }
+
     //Adds the currently selected song to the currently selected playlist
     @FXML
     private void handleAddSongToPlaylist() throws SQLException
@@ -339,8 +345,8 @@ public class FXMLDocumentController implements Initializable
         playlistSongModel.addToPlaylist(playlist, selectedSong);
         System.out.println("Song succesfully added to playlist");
     }
-    
-    
+
+
     private void playNextSong()
     {
         try
@@ -490,12 +496,14 @@ public class FXMLDocumentController implements Initializable
         txt_songs.getItems().remove(selectedSong);
         songModel.deleteSong(selectedSong);
     }
+
     //Puts the name of the song in a textfield. Effectively showing what song is being played
     private void textPlaying(String songName)
     {
         songPlaying.setText(songName);
         songPlaying.setAlignment(Pos.CENTER);
     }
+
     //The refreshSongs method refresh the list of songs and playlists
     public void refreshSongs()
     {
@@ -519,14 +527,16 @@ public class FXMLDocumentController implements Initializable
             ex.printStackTrace();
         }
     }
+
     //This method loads the songs of the selected playlist, in the middle list.
-    public void loadPlaylist(){
-    txt_playlist.setOnMouseClicked(click ->
+    public void loadPlaylist()
+    {
+        txt_playlist.setOnMouseClicked(click ->
         {
             if (click.getClickCount() == 1)
             {
-             int currentPlaylistSelected = txt_playlist.getSelectionModel().getSelectedItem().getPlaylistId();    
-            
+                int currentPlaylistSelected = txt_playlist.getSelectionModel().getSelectedItem().getPlaylistId();
+
                 try
                 {
                     txt_song_playlist.setItems(this.playlistSongModel.getPlaylistSongs(currentPlaylistSelected));
@@ -535,8 +545,9 @@ public class FXMLDocumentController implements Initializable
                     ex.printStackTrace();
                 }
             }
-        });            
+        });
     }
+
     //This is a search function
     @FXML
     private void handleSearchSong(KeyEvent event) throws SQLException, DalException
@@ -557,6 +568,20 @@ public class FXMLDocumentController implements Initializable
 
     private void songSlider()
     {
+        try
+        {
+            mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) ->
+            {
+                {
+                    {
+                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toSeconds());
+                        seekSlider.setValue(newValue.toSeconds());
+                    }
+                }
+            });
+        } catch (Exception ex)
+        {
+            System.out.println("rip");
+        }
     }
-
 }

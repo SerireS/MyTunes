@@ -264,7 +264,7 @@ public class FXMLDocumentController implements Initializable
             if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
             {
                 mediaPlayer.pause();
-                btn_playpause.setImage(new Image("Image/play-button (2).png"));
+                btn_playpause.setImage(new Image("Image/play-button (3).png"));
             } else
             {
                 mediaPlayer.play();

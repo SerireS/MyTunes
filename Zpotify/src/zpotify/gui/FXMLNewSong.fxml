@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLNewEditSongController">
+<AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zpotify.gui.FXMLNewSongController">
    <children>
       <Label layoutX="178.0" layoutY="14.0" text="New/Edit Song" textFill="WHITE">
          <font>

@@ -378,6 +378,7 @@ public class FXMLDocumentController implements Initializable
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
+            stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.show();
 
         } catch (Exception e)
@@ -398,6 +399,7 @@ public class FXMLDocumentController implements Initializable
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Zpotify");
             stage.setScene(new Scene(root1));
+            stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.show();
 
         } catch (Exception e)

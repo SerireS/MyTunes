@@ -19,6 +19,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import zpotify.be.Playlist;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
@@ -82,6 +83,8 @@ public class FXMLDocumentController implements Initializable
     private ImageView button_next;
     @FXML
     private Slider volumeSlider;
+    @FXML
+    private Duration seekSlider;
     @FXML
     private TextField songPlaying;
     @FXML
@@ -541,4 +544,13 @@ public class FXMLDocumentController implements Initializable
             ex.printStackTrace();
         }
     }
+
+//     mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) ->
+//    {
+//        if (newValue.toMillis() > mediaPlayer.getMedia().getDuration().toMillis() - 100)
+
+    private void songSlider()
+    {
+    }
+
 }

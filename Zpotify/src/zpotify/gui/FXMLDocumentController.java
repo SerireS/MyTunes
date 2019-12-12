@@ -29,9 +29,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
 
 /**
  * @author Peder
@@ -578,8 +575,8 @@ public class FXMLDocumentController implements Initializable
             {
                 {
                     {
-                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toSeconds());
-                        seekSlider.setValue(newValue.toSeconds());
+                        seekSlider.setMax(mediaPlayer.getMedia().getDuration().toMillis());
+                        seekSlider.setValue(newValue.toMillis());
                     }
                 }
             });
@@ -587,16 +584,5 @@ public class FXMLDocumentController implements Initializable
         {
             System.out.println("rip");
         }
-        seekSlider.setOnMouseClicked(new EventHandler<MouseEvent>() 
-        {
-            @Override
-            public void handle(MouseEvent mouseEvent)
-            {
-                mediaPlayer.seek(Duration.seconds(seekSlider.getValue()));
-                        
-            }
-            
-            });
     }
-    
 }

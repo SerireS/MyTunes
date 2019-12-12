@@ -31,7 +31,7 @@ import javafx.scene.paint.Color;
  *
  * @author Peter
  */
-public class FXMLNewEditSongController implements Initializable
+public class FXMLNewSongController implements Initializable
 {
     private SongModel songModel;
     private FXMLDocumentController controller;
@@ -46,12 +46,6 @@ public class FXMLNewEditSongController implements Initializable
     private Button btn_cancel;
     @FXML
     private TextField txt_title;
-    @FXML
-    private TextField txt_artist;
-    @FXML
-    private TextField txt_category;
-    @FXML
-    private TextField txt_time;
     @FXML
     private TextField txt_MP3_File;
 

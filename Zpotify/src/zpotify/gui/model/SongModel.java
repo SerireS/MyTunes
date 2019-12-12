@@ -71,4 +71,8 @@ public class SongModel
             allSongs.remove(selectedSong);
         }
     }
+    
+    public void updateSong(String title, int id) throws SQLException{
+    songManager.updateSong(title, id);
+    }
 }

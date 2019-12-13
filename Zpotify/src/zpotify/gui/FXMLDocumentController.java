@@ -5,6 +5,7 @@
  */
 package zpotify.gui;
 
+import java.awt.Desktop;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
@@ -27,9 +28,11 @@ import zpotify.gui.model.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
 
 /**
  * @author Peder
@@ -88,7 +91,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private TextField songPlaying;
     @FXML
-    private Button btn_add_song_to_playlist;
+    private ImageView imv_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -592,5 +595,18 @@ public class FXMLDocumentController implements Initializable
             System.out.println("rip");
         }
         seekSlider.setOnMousePressed(event1 -> mediaPlayer.seek(Duration.millis(seekSlider.getValue())));
+    }
+
+    @FXML
+    //Hmmmmmmmm
+    private void Rick(javafx.scene.input.MouseEvent event) 
+    {
+        try 
+        {
+              Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
+        } 
+        catch (IOException | URISyntaxException e) 
+        {
+        }
     }
 }

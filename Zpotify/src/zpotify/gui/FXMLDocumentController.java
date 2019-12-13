@@ -71,10 +71,6 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private Button btn_delete_song_playlist;
     @FXML
-    private ImageView btn_move_up;
-    @FXML
-    private ImageView btn_move_down;
-    @FXML
     private Button btn_new_song;
     @FXML
     private Button btn_edit_song;

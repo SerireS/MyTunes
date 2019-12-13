@@ -91,7 +91,7 @@
         <Pane layoutX="18.0" layoutY="240.0" prefHeight="389.0" prefWidth="964.0">
             <children>
             <ListView fx:id="txt_playlist" layoutX="14.0" layoutY="14.0" prefHeight="358.0" prefWidth="200.0" stylesheets="@style/listViewCss.css" />
-                <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="482.0" layoutY="228.0" onMouseClicked="#handleAddSongToPlaylist" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="btn_move_song" fitHeight="25.0" fitWidth="25.0" layoutX="488.0" layoutY="181.0" onMouseClicked="#handleAddSongToPlaylist" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Image/arrowhead-thin-outline-to-the-left.png" />
                     </image>
@@ -148,22 +148,6 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <ImageView fx:id="btn_move_up" fitHeight="25.0" fitWidth="25.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Image/navigate-up-arrow.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ImageView>
-                <ImageView fx:id="btn_move_down" fitHeight="25.0" fitWidth="25.0" layoutX="34.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Image/arrow-down-sign-to-navigate.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ImageView>
             </children>
         </Pane>
         <Pane layoutX="553.0" layoutY="623.0" prefHeight="34.0" prefWidth="401.0">

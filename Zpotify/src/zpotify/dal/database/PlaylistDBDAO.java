@@ -87,16 +87,18 @@ public class PlaylistDBDAO {
         return false;
     }
     
-    public void updatePlaylist(String title, int id) throws SQLServerException, SQLException {
+    public boolean updatePlaylist(String title, int id) throws SQLServerException, SQLException {
         try ( Connection con = dbCon.getConnection()) {
-            String sql = "UPDATE Playlists SET playlistName = '?' WHERE PlaylistId = ?;";
+            String sql = "UPDATE Playlists SET playlistName = ? WHERE PlaylistId = ?;";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
             ps.setInt(2, id);
             ps.executeUpdate();
             System.out.println("It worked or atleast I think it does");
+            return true;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return false;
         }
     }
 }

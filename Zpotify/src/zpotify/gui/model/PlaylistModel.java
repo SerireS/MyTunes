@@ -29,8 +29,6 @@ public class PlaylistModel {
     {
         this.mainController = mainController;
         playlistManager = new PlaylistManager();
-        allPlaylists = FXCollections.observableArrayList();
-        allPlaylists.addAll(playlistManager.getAllPlaylists());
     }
 
     public ObservableList<Playlist> getAllPlaylists()
@@ -67,6 +65,10 @@ public class PlaylistModel {
         }
     }
     public void updatePlaylist(String title, int id) throws SQLException{
-    playlistManager.updatePlaylist(title, id);
+    boolean playlistIsUpdated = playlistManager.updatePlaylist(title, id);
+        if (playlistIsUpdated == true)
+        {
+            mainController.refreshSongs();
+        }
     }
 }

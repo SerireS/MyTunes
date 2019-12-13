@@ -60,8 +60,8 @@ public class PlaylistManager
         playlistDBDao.deletePlaylist(playlist);
     }
      
-    public void updatePlaylist(String title, int id) throws SQLException
+    public boolean updatePlaylist(String title, int id) throws SQLException
     {
-        playlistDBDao.updatePlaylist(title, id);
+        return playlistDBDao.updatePlaylist(title, id);
     }
 }

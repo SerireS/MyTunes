@@ -8,7 +8,6 @@ package zpotify.gui;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.*;
@@ -16,7 +15,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -101,6 +99,7 @@ public class FXMLDocumentController implements Initializable
         playPlaylistSong();
         volumeControl();
         refreshSongs();
+        songSlider();
     }
 
     //Builds all Models necessary
@@ -305,7 +304,6 @@ public class FXMLDocumentController implements Initializable
             currentSongPlaying = currentSongPlaying - 1;
             System.out.println("Ingen Næste Sange");
         }
-        songSlider();
     }
 
     @FXML
@@ -570,7 +568,7 @@ public class FXMLDocumentController implements Initializable
 //    {
 //        if (newValue.toMillis() > mediaPlayer.getMedia().getDuration().toMillis() - 100)
 
-     private void songSlider()
+    private void songSlider()
     {
         try
         {
@@ -587,19 +585,6 @@ public class FXMLDocumentController implements Initializable
         {
             System.out.println("rip");
         }
-        seekSlider.setOnMouseClicked(new EventHandler<MouseEvent>()
-        {
-            @Override
-            public void handle(MouseEvent mouseEvent)
-            {
-                seekSlider.setOnMouseClicked(click ->
-                {
-                    if (click.getClickCount() == 1)
-                        mediaPlayer.seek(Duration.millis(seekSlider.getValue()));
-                        
-            });
-
-            }
-        });
+        seekSlider.setOnMousePressed(event1 -> mediaPlayer.seek(Duration.millis(seekSlider.getValue())));
     }
 }

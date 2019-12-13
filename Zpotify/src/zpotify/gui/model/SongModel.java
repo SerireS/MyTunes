@@ -31,7 +31,6 @@ public class SongModel
     {
         this.mainController = mainController;
         songManager = new SongManager();
-
     }
 
     public ObservableList<Song> getAllSongs()
@@ -73,6 +72,10 @@ public class SongModel
     }
     
     public void updateSong(String title, int id) throws SQLException{
-    songManager.updateSong(title, id);
+    boolean songIsUpdated = songManager.updateSong(title, id);
+        if (songIsUpdated == true)
+        {
+            mainController.refreshSongs();
+        }
     }
 }

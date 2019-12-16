@@ -11,7 +11,7 @@ public class Song implements Serializable
     private int id;
     private String title;
     private String place;
-    
+
 
     public Song(int id, String title, String place)
     {
@@ -20,18 +20,20 @@ public class Song implements Serializable
         this.title = title;
     }
 
-    public Song(String title, String place) {
+    public Song(String title, String place)
+    {
         this.title = title;
         this.place = place;
     }
-    
-    
 
-    public String getPlace() {
+
+    public String getPlace()
+    {
         return place;
     }
 
-    public void setPlace(String place) {
+    public void setPlace(String place)
+    {
         this.place = place;
     }
 

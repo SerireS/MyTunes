@@ -5,42 +5,46 @@
  */
 package zpotify.bll;
 
+import zpotify.be.Playlist;
+import zpotify.be.Song;
+import zpotify.dal.database.PlaylistSongDBDAO;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import zpotify.be.Playlist;
-import zpotify.be.Song;
-import zpotify.dal.DalException;
-import zpotify.dal.database.PlaylistSongDBDAO;
 
 /**
- *
  * @author jigzi
  */
-public class PlaylistSongManager {
+public class PlaylistSongManager
+{
     private PlaylistSongDBDAO playlistSongDBdao;
 
-    public PlaylistSongManager() throws IOException {
-        
-      playlistSongDBdao = new PlaylistSongDBDAO();
-    }
-    //This is what the model calls when it tries to show the Songs in a single playlist. This calls a method in the PlaylistSongDBdao
-    public List<Song> getPlaylistSongs(int id) throws SQLException 
+    public PlaylistSongManager() throws IOException
     {
-        
-        return playlistSongDBdao.getPlaylistSongs(id);
-        
+
+        playlistSongDBdao = new PlaylistSongDBDAO();
     }
+
+    //This is what the model calls when it tries to show the Songs in a single playlist. This calls a method in the PlaylistSongDBdao
+    public List<Song> getPlaylistSongs(int id) throws SQLException
+    {
+
+        return playlistSongDBdao.getPlaylistSongs(id);
+
+    }
+
     //This is what the model calls when deleting a song from a playlist. This calls a method in the PlaylistSongDBdao
-    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws DalException, SQLException 
+    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws SQLException
     {
         playlistSongDBdao.deleteFromPlaylistSong(playlist, song);
     }
+
     //This is what the model calls when adding a song to a playlist. This calls a method in the PlaylistSongDBdao
     public void addToPlaylist(Playlist playlist, Song song) throws SQLException
-            
+
     {
         playlistSongDBdao.addToPlaylist(playlist, song);
     }
-   
+
 }

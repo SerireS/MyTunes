@@ -6,14 +6,14 @@
 package zpotify.bll;
 
 import zpotify.be.Playlist;
+import zpotify.dal.DalException;
+import zpotify.dal.database.PlaylistDBDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import zpotify.dal.DalException;
-import zpotify.dal.database.PlaylistDBDAO;
 
 /**
  * @author jigzi
@@ -21,36 +21,39 @@ import zpotify.dal.database.PlaylistDBDAO;
 public class PlaylistManager
 {
     private PlaylistDBDAO playlistDBDao;
+
     //Constructor
     public PlaylistManager()
     {
-        try 
+        try
         {
             playlistDBDao = new PlaylistDBDAO();
-        } catch (IOException ex) 
+        } catch (IOException ex)
         {
             Logger.getLogger(PlaylistManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     //This is what the model calls when it is trying to show the list of playlists.
     public List<Playlist> getAllPlaylists()
     {
-        try 
+        try
         {
             return playlistDBDao.getAllPlaylists();
-        } catch (SQLException ex) 
+        } catch (SQLException ex)
         {
             Logger.getLogger(PlaylistManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
+
     //This is what the model calls when creating a playlist. This calls a method in the PlaylistDBDao
     public boolean createPlaylist(String playlistName) throws DalException
     {
         return playlistDBDao.createPlaylist(playlistName);
     }
 
-//    public void updatePlaylist(Playlist playlist)
+    //    public void updatePlaylist(Playlist playlist)
 //    {
 //        playlistDBDao.updatePlaylist(playlist);
 //    }
@@ -59,7 +62,7 @@ public class PlaylistManager
     {
         playlistDBDao.deletePlaylist(playlist);
     }
-     
+
     public boolean updatePlaylist(String title, int id) throws SQLException
     {
         return playlistDBDao.updatePlaylist(title, id);

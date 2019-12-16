@@ -5,49 +5,51 @@
  */
 package zpotify.be;
 
-import java.util.List;
-
 /**
  * @author jigzi
  */
-public class Playlist 
+public class Playlist
 {
     private int playlistId;
     private String playlistName;
 
-    public Playlist(int playlistId, String playlistName) 
+    public Playlist(int playlistId, String playlistName)
     {
         this.playlistId = playlistId;
         this.playlistName = playlistName;
     }
-    
-    public Playlist(String playlistName) 
+
+    public Playlist(String playlistName)
     {
         this.playlistName = playlistName;
     }
+
     //Returns the id of the playlist
-    public int getPlaylistId() 
+    public int getPlaylistId()
     {
         return playlistId;
     }
+
     //Sets the id of the playlist
-    public void setPlaylistId(int playlistId) 
+    public void setPlaylistId(int playlistId)
     {
         this.playlistId = playlistId;
     }
+
     //Returns the playlistname
-    public String getPlaylistName() 
+    public String getPlaylistName()
     {
         return playlistName;
     }
+
     //Sets the id of the playlist
-    public void setPlaylistName(String playlistName) 
+    public void setPlaylistName(String playlistName)
     {
         this.playlistName = playlistName;
     }
 
     @Override
-    public String toString() 
+    public String toString()
     {
         return playlistName;
     }

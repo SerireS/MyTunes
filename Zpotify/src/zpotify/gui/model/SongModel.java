@@ -12,9 +12,7 @@ import zpotify.bll.SongManager;
 import zpotify.dal.DalException;
 import zpotify.gui.FXMLDocumentController;
 
-import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Comparator;
 
 /**
  * @author jigzi
@@ -27,7 +25,7 @@ public class SongModel
 
     // Maincontroller har den oprindelige refresh metode, derfor skal den sættes
     // i Constructor
-    public SongModel(FXMLDocumentController mainController) throws IOException
+    public SongModel(FXMLDocumentController mainController)
     {
         this.mainController = mainController;
         songManager = new SongManager();
@@ -40,7 +38,7 @@ public class SongModel
         return allSongs;
     }
 
-    public void search(String query) throws IOException, DalException, SQLException
+    public void search(String query) throws DalException, SQLException
     {
         if (query.isEmpty())
         {
@@ -56,13 +54,13 @@ public class SongModel
     public void createSong(String title, String place) throws DalException
     {
         boolean songIsCreated = songManager.createSong(title, place);
-        if (songIsCreated == true)
+        if (songIsCreated)
         {
             mainController.refreshSongs();
         }
     }
 
-    public void deleteSong(Song selectedSong) throws IOException, DalException
+    public void deleteSong(Song selectedSong) throws DalException
     {
         songManager.deleteSong(selectedSong);
         if (allSongs.remove(selectedSong))
@@ -70,10 +68,11 @@ public class SongModel
             allSongs.remove(selectedSong);
         }
     }
-    
-    public void updateSong(String title, int id) throws SQLException{
-    boolean songIsUpdated = songManager.updateSong(title, id);
-        if (songIsUpdated == true)
+
+    public void updateSong(String title, int id) throws SQLException
+    {
+        boolean songIsUpdated = songManager.updateSong(title, id);
+        if (songIsUpdated)
         {
             mainController.refreshSongs();
         }

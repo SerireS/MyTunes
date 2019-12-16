@@ -103,13 +103,7 @@ public class FXMLDocumentController implements Initializable
     //Builds all Models necessary
     private void buildModels()
     {
-        try
-        {
-            songModel = new SongModel(this);
-        } catch (IOException ex)
-        {
-            System.out.println("Did not create new songmodel");
-        }
+        songModel = new SongModel(this);
         try
         {
             playlistModel = new PlaylistModel(this);
@@ -489,7 +483,7 @@ public class FXMLDocumentController implements Initializable
 
     @FXML
     //Deletes song
-    private void handleButtonActionDeleteSong(ActionEvent event) throws IOException, DalException
+    private void handleButtonActionDeleteSong(ActionEvent event) throws DalException
     {
         Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
         txt_songs.getItems().remove(selectedSong);
@@ -551,14 +545,8 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private void handleSearchSong(KeyEvent event) throws SQLException, DalException
     {
-        try
-        {
-            String query = txt_search.getText().trim();
-            songModel.search(query);
-        } catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
+        String query = txt_search.getText().trim();
+        songModel.search(query);
     }
 
 //     mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) ->

@@ -104,13 +104,7 @@ public class FXMLDocumentController implements Initializable
     private void buildModels()
     {
         songModel = new SongModel(this);
-        try
-        {
-            playlistModel = new PlaylistModel(this);
-        } catch (IOException ex)
-        {
-            System.out.println("Did not create new playlistmodel");
-        }
+        playlistModel = new PlaylistModel(this);
 
         try
         {
@@ -411,7 +405,7 @@ public class FXMLDocumentController implements Initializable
 
     @FXML
     //Deletes playlist
-    private void handleButtonActionDeletePlaylist(ActionEvent event) throws IOException, DalException
+    private void handleButtonActionDeletePlaylist(ActionEvent event) throws DalException
     {
         Playlist selectedPlaylist = txt_playlist.getSelectionModel().getSelectedItem();
         txt_playlist.getItems().remove(selectedPlaylist);

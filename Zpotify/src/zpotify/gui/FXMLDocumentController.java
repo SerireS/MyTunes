@@ -5,13 +5,12 @@
  */
 package zpotify.gui;
 
-import java.awt.Desktop;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,13 +25,13 @@ import zpotify.be.Song;
 import zpotify.dal.DalException;
 import zpotify.gui.model.*;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.scene.input.MouseEvent;
 
 /**
  * @author Peder
@@ -131,21 +130,18 @@ public class FXMLDocumentController implements Initializable
     // providing functionality to volume slider
     private void volumeControl()
     {
-        volumeSlider.valueProperty().addListener(new InvalidationListener()
+        volumeSlider.valueProperty().addListener(ov ->
         {
-            public void invalidated(Observable ov)
+            try
             {
-                try
+                if (volumeSlider.isPressed())
                 {
-                    if (volumeSlider.isPressed())
-                    {
-                        mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
-                        // as specified by user by pressing
-                    }
-                } catch (Exception ex)
-                {
-                    System.out.println("Play Song To Change Volume");
+                    mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
+                    // as specified by user by pressing
                 }
+            } catch (Exception ex)
+            {
+                System.out.println("Play Song To Change Volume");
             }
         });
     }
@@ -183,8 +179,6 @@ public class FXMLDocumentController implements Initializable
 
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying(txt_song_playlist.getItems().get(currentSongPlaying).toString());
-            } else
-            {
             }
         });
     }
@@ -218,8 +212,6 @@ public class FXMLDocumentController implements Initializable
                 playNextSong();
                 songSlider();
 
-            } else
-            {
             }
         });
     }
@@ -359,7 +351,7 @@ public class FXMLDocumentController implements Initializable
                     try
                     {
                         Thread.sleep(1000);
-                    } catch (InterruptedException e)
+                    } catch (InterruptedException ignored)
                     {
                     }
                     nextSong();
@@ -536,7 +528,7 @@ public class FXMLDocumentController implements Initializable
     }
 
     //This method loads the songs of the selected playlist, in the middle list.
-    public void loadPlaylist()
+    private void loadPlaylist()
     {
         txt_playlist.setOnMouseClicked(click ->
         {
@@ -595,13 +587,12 @@ public class FXMLDocumentController implements Initializable
 
     @FXML
     //Hmmmmmmmm
-    private void Rick(javafx.scene.input.MouseEvent event) 
+    private void Rick(javafx.scene.input.MouseEvent event)
     {
-        try 
+        try
         {
-              Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
-        } 
-        catch (IOException | URISyntaxException e) 
+            Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
+        } catch (IOException | URISyntaxException ignored)
         {
         }
     }

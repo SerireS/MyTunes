@@ -17,13 +17,12 @@ import zpotify.be.Playlist;
 import zpotify.gui.model.PlaylistModel;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
  *
- * @author Peter
+ * @author Den Gode Gruppe
  */
 public class FXMLEditPlaylistController implements Initializable
 {
@@ -63,7 +62,7 @@ public class FXMLEditPlaylistController implements Initializable
     }
 
     @FXML
-    private void handleButtonActionEdit(ActionEvent event) throws SQLException
+    private void handleButtonActionEdit(ActionEvent event)
     {
         String title = txt_playlistName.getText().trim();
         int id = this.selectedPlaylist.getPlaylistId();

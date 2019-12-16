@@ -16,13 +16,12 @@ import zpotify.be.Song;
 import zpotify.gui.model.SongModel;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
  *
- * @author Peter
+ * @author Den Gode Gruppe
  */
 public class FXMLEditSongController extends FXMLDocumentController
 {
@@ -64,7 +63,7 @@ public class FXMLEditSongController extends FXMLDocumentController
     }
 
     @FXML
-    private void handleButtonActionSave(ActionEvent event) throws SQLException
+    private void handleButtonActionSave(ActionEvent event)
     {
         String title = txt_title.getText().trim();
         int id = this.SelectedSong.getId();

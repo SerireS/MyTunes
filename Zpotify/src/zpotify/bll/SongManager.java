@@ -17,23 +17,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author jigzi
+ * @author Den Gode Gruppe
  */
 public class SongManager
 {
-    
+
     private SongDBDAO songDBDao;
 
-    public SongManager() 
+    public SongManager()
     {
-        
-        try {
+
+        try
+        {
             songDBDao = new SongDBDAO();
-        } catch (IOException ex) {
+        } catch (IOException ex)
+        {
             Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public boolean createSong(String title, String place) throws DalException
     {
         return songDBDao.createSong(title, place);
@@ -43,7 +45,7 @@ public class SongManager
     {
         List<Song> searchBase = songDBDao.getAllSongs();
         List<Song> result = new ArrayList<>();
-        
+
         for (Song song : searchBase)
         {
             if (song.getTitle().toLowerCase().contains(query.toLowerCase()))
@@ -54,22 +56,24 @@ public class SongManager
         return result;
     }
 
-    public List<Song> getAllSongs() 
+    public List<Song> getAllSongs()
     {
-        try {
+        try
+        {
             return songDBDao.getAllSongs();
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             Logger.getLogger(SongManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
-    public void deleteSong(Song song) throws DalException 
+    public void deleteSong(Song song) throws DalException
     {
         songDBDao.deleteSong(song);
     }
-    
-    public boolean updateSong(String title, int id) throws SQLException
+
+    public boolean updateSong(String title, int id)
     {
         return songDBDao.updateSong(title, id);
     }

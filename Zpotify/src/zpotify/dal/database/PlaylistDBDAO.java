@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jigzi
+ * @author Den Gode Gruppe
  */
 public class PlaylistDBDAO
 {
@@ -34,7 +34,6 @@ public class PlaylistDBDAO
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             ArrayList<Playlist> allPlaylists = new ArrayList<>();
-            System.out.println(rs);
             while (rs.next())
             {
                 int playlistId = rs.getInt("playlistId");
@@ -70,7 +69,6 @@ public class PlaylistDBDAO
 
     public boolean createPlaylist(String playlistName) throws DalException
     {
-        //System.out.println(playlistName);
         try (Connection con = dbCon.getConnection())
         {
             String sql = "INSERT INTO Playlists (playlistName) VALUES (?);";
@@ -86,7 +84,6 @@ public class PlaylistDBDAO
                     return true;
                 }
             }
-            System.out.println("Tried creating playlist");
 
         } catch (SQLException ex)
         {
@@ -105,7 +102,6 @@ public class PlaylistDBDAO
             ps.setString(1, title);
             ps.setInt(2, id);
             ps.executeUpdate();
-            System.out.println("It worked or atleast I think it does");
             return true;
         } catch (SQLException ex)
         {

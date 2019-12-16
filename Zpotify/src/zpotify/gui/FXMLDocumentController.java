@@ -33,7 +33,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
- * @author Peder
+ * @author Den Gode Gruppe
  */
 public class FXMLDocumentController implements Initializable
 {
@@ -84,9 +84,8 @@ public class FXMLDocumentController implements Initializable
         try
         {
             playlistSongModel = new PlaylistSongModel(this);
-        } catch (IOException ex)
+        } catch (IOException ignored)
         {
-            System.out.println("Did not create new playlistSongModel");
         }
     }
 
@@ -102,9 +101,8 @@ public class FXMLDocumentController implements Initializable
                     mediaPlayer.setVolume(volumeSlider.getValue() / 100); // It would set the volume
                     // as specified by user by pressing
                 }
-            } catch (Exception ex)
+            } catch (Exception ignored)
             {
-                System.out.println("Play Song To Change Volume");
             }
         });
     }
@@ -132,7 +130,6 @@ public class FXMLDocumentController implements Initializable
                 }
 
                 currentSongPlaying = txt_song_playlist.getSelectionModel().getSelectedIndex();
-                System.out.println(currentSongPlaying);
 
 
                 media = new Media(new File(txt_song_playlist.getSelectionModel().getSelectedItem().getPlace()).toURI().toString());
@@ -223,9 +220,8 @@ public class FXMLDocumentController implements Initializable
                 mediaPlayer.play();
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
             }
-        } catch (Exception ex)
+        } catch (Exception ignored)
         {
-            System.out.println("No Song Selected");
         }
     }
 
@@ -256,7 +252,6 @@ public class FXMLDocumentController implements Initializable
         } catch (Exception ex)
         {
             currentSongPlaying = currentSongPlaying - 1;
-            System.out.println("Ingen Næste Sange");
         }
     }
 
@@ -287,19 +282,17 @@ public class FXMLDocumentController implements Initializable
         } catch (Exception ex)
         {
             currentSongPlaying = currentSongPlaying + 1;
-            System.out.println("Ingen Tidligere Sange");
         }
     }
 
     //Adds the currently selected song to the currently selected playlist
     @FXML
-    private void handleAddSongToPlaylist() throws SQLException
+    private void handleAddSongToPlaylist()
     {
         Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
         Song selectedSong = txt_songs.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().add(selectedSong);
         playlistSongModel.addToPlaylist(playlist, selectedSong);
-        System.out.println("Song succesfully added to playlist");
     }
 
 
@@ -320,9 +313,8 @@ public class FXMLDocumentController implements Initializable
                     nextSong();
                 }
             });
-        } catch (Exception ex)
+        } catch (Exception ignored)
         {
-            System.out.println("rip");
         }
     }
 
@@ -336,7 +328,7 @@ public class FXMLDocumentController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
             FXMLNewPlaylistController editplaylistcontroller = fxmlLoader.getController();
-            // Her tildeles vigtige data objecter til edit controlleren, 
+            // Her tildeles vigtige data objecter til edit controlleren,
             // Det sikre at der er fat på de korrekte udgaver af dem.
             editplaylistcontroller.ApplyImportantData(playlistModel, this);
             Stage stage = new Stage();
@@ -346,9 +338,8 @@ public class FXMLDocumentController implements Initializable
             stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.show();
 
-        } catch (Exception e)
+        } catch (Exception ignored)
         {
-            System.out.println("Cant load new Window");
         }
     }
 
@@ -362,7 +353,7 @@ public class FXMLDocumentController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLEditPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
             FXMLEditPlaylistController editplaylistcontroller = fxmlLoader.getController();
-            // Her tildeles vigtige data objecter til edit controlleren, 
+            // Her tildeles vigtige data objecter til edit controlleren,
             // Det sikre at der er fat på de korrekte udgaver af dem.
             editplaylistcontroller.ApplyImportantData(playlistModel, this, selectedPlaylist);
             Stage stage = new Stage();
@@ -372,9 +363,8 @@ public class FXMLDocumentController implements Initializable
             stage.getIcons().add(new Image(Zpotify.class.getResourceAsStream("Image/wind (1).png")));
             stage.show();
 
-        } catch (Exception e)
+        } catch (Exception ignored)
         {
-            System.out.println("Cant load new Window");
         }
     }
 
@@ -385,18 +375,16 @@ public class FXMLDocumentController implements Initializable
         Playlist selectedPlaylist = txt_playlist.getSelectionModel().getSelectedItem();
         txt_playlist.getItems().remove(selectedPlaylist);
         playlistModel.deletePlaylist(selectedPlaylist);
-        System.out.println("Playlist succesfully deleted");
     }
 
     @FXML
     //Deletes song on playlist
-    private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event) throws DalException, SQLException
+    private void handleButtonActionDeleteSongOnPlaylist(ActionEvent event)
     {
         Playlist playlist = txt_playlist.getSelectionModel().getSelectedItem();
         Song selectedSong = txt_song_playlist.getSelectionModel().getSelectedItem();
         txt_song_playlist.getItems().remove(selectedSong);
         playlistSongModel.deleteFromPlaylistSong(playlist, selectedSong);
-        System.out.println("Song succesfully deleted from playlist" + playlist + selectedSong);
     }
 
     @FXML
@@ -418,9 +406,8 @@ public class FXMLDocumentController implements Initializable
             stage.setScene(new Scene(root1));
             stage.show();
 
-        } catch (Exception e)
+        } catch (Exception ignored)
         {
-            System.out.println("Cant load new Window");
         }
     }
 
@@ -444,9 +431,8 @@ public class FXMLDocumentController implements Initializable
             stage.setScene(new Scene(root1));
             stage.show();
 
-        } catch (Exception e)
+        } catch (Exception ignored)
         {
-            System.out.println("Cant load new Window");
         }
     }
 
@@ -472,20 +458,16 @@ public class FXMLDocumentController implements Initializable
         try
         {
             txt_songs.setItems(this.songModel.getAllSongs());
-            System.out.println("VI KLAREDE DEN IND I REFRESH - Song del");
             setSongSelection();
         } catch (Exception ex)
         {
-            System.out.println("does not work properly !!!");
             ex.printStackTrace();
         }
         try
         {
             txt_playlist.setItems(this.playlistModel.getAllPlaylists());
-            System.out.println("Vi klarede den ind i refresh, playlist del");
         } catch (Exception ex)
         {
-            System.out.println("Vi klarede den IKKE i refresh playlist del");
             ex.printStackTrace();
         }
     }
@@ -512,7 +494,7 @@ public class FXMLDocumentController implements Initializable
 
     //This is a search function
     @FXML
-    private void handleSearchSong(KeyEvent event) throws SQLException, DalException
+    private void handleSearchSong(KeyEvent event) throws SQLException
     {
         String query = txt_search.getText().trim();
         songModel.search(query);
@@ -532,9 +514,8 @@ public class FXMLDocumentController implements Initializable
                     }
                 }
             });
-        } catch (Exception ex)
+        } catch (Exception ignored)
         {
-            System.out.println("rip");
         }
         seekSlider.setOnMousePressed(event1 -> mediaPlayer.seek(Duration.millis(seekSlider.getValue())));
     }

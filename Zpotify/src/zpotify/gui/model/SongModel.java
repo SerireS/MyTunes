@@ -15,7 +15,7 @@ import zpotify.gui.FXMLDocumentController;
 import java.sql.SQLException;
 
 /**
- * @author jigzi
+ * @author Den Gode Gruppe
  */
 public class SongModel
 {
@@ -38,7 +38,7 @@ public class SongModel
         return allSongs;
     }
 
-    public void search(String query) throws DalException, SQLException
+    public void search(String query) throws SQLException
     {
         if (query.isEmpty())
         {
@@ -69,7 +69,7 @@ public class SongModel
         }
     }
 
-    public void updateSong(String title, int id) throws SQLException
+    public void updateSong(String title, int id)
     {
         boolean songIsUpdated = songManager.updateSong(title, id);
         if (songIsUpdated)

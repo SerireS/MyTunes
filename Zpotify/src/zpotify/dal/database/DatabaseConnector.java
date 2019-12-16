@@ -14,8 +14,7 @@ import java.sql.Connection;
 import java.util.Properties;
 
 /**
- *
- * @author nbruu
+ * @author Den Gode Gruppe
  */
 class DatabaseConnector
 {

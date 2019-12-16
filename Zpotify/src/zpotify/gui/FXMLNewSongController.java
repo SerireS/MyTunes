@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 /**
  * FXML Controller class
  *
- * @author Peter
+ * @author Den Gode Gruppe
  */
 public class FXMLNewSongController implements Initializable
 {

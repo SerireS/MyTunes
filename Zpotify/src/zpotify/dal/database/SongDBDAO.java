@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author nbruu
+ * @author Den Gode Gruppe
  */
 public class SongDBDAO
 {
@@ -34,7 +34,6 @@ public class SongDBDAO
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             ArrayList<Song> allSongs = new ArrayList<>();
-            System.out.println(rs + "tekst så vi kan genkende");
             while (rs.next())
             {
                 int id = rs.getInt("songId");
@@ -71,7 +70,6 @@ public class SongDBDAO
 
     public boolean createSong(String title, String place) throws DalException
     {
-        System.out.println(title + place);
         try (Connection con = dbCon.getConnection())
         {
             String sql = "INSERT INTO Songs (title, place) VALUES (?,?);";
@@ -99,18 +97,15 @@ public class SongDBDAO
         return false;
     }
 
-    public boolean updateSong(String title, int id) throws SQLException
+    public boolean updateSong(String title, int id)
     {
         try (Connection con = dbCon.getConnection())
         {
             String sql = "UPDATE Songs SET title = ? WHERE songId = ?;";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            System.out.println(id);
-            System.out.println(title);
             ps.setString(1, title);
             ps.setInt(2, id);
             ps.executeUpdate();
-            System.out.println("It worked or atleast I think it does");
             return true;
         } catch (SQLException ex)
         {

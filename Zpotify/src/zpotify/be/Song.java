@@ -3,7 +3,7 @@ package zpotify.be;
 import java.io.Serializable;
 
 /**
- * @author Jonas
+ * @author Den Gode Gruppe
  */
 public class Song implements Serializable
 {

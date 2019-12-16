@@ -6,7 +6,7 @@
 package zpotify.be;
 
 /**
- * @author jigzi
+ * @author Den Gode Gruppe
  */
 public class Playlist
 {

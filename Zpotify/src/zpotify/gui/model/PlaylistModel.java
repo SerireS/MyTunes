@@ -12,14 +12,13 @@ import zpotify.bll.PlaylistManager;
 import zpotify.dal.DalException;
 import zpotify.gui.FXMLDocumentController;
 
-import java.sql.SQLException;
 import java.util.Comparator;
 
 /**
- *
- * @author jigzi
+ * @author Den Gode Gruppe
  */
-public class PlaylistModel {
+public class PlaylistModel
+{
     private ObservableList<Playlist> allPlaylists;
     private PlaylistManager playlistManager;
     private FXMLDocumentController mainController;
@@ -39,7 +38,6 @@ public class PlaylistModel {
 
     public void createPlaylist(String playlistName) throws DalException
     {
-        System.out.println(playlistName);
         boolean playlistIsCreated = playlistManager.createPlaylist(playlistName);
         if (!playlistIsCreated)
         {
@@ -58,8 +56,10 @@ public class PlaylistModel {
             allPlaylists.sort(Comparator.comparingInt(Playlist::getPlaylistId));
         }
     }
-    public void updatePlaylist(String title, int id) throws SQLException{
-    boolean playlistIsUpdated = playlistManager.updatePlaylist(title, id);
+
+    public void updatePlaylist(String title, int id)
+    {
+        boolean playlistIsUpdated = playlistManager.updatePlaylist(title, id);
         if (playlistIsUpdated)
         {
             mainController.refreshSongs();

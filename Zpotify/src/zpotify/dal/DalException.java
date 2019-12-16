@@ -7,7 +7,7 @@ package zpotify.dal;
 
 /**
  *
- * @author nbruu
+ * @author Den Gode Gruppe
  */
 public class DalException extends Exception
 {

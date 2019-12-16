@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author jigzi
+ * @author Den Gode Gruppe
  */
 public class PlaylistManager
 {
@@ -63,7 +63,7 @@ public class PlaylistManager
         playlistDBDao.deletePlaylist(playlist);
     }
 
-    public boolean updatePlaylist(String title, int id) throws SQLException
+    public boolean updatePlaylist(String title, int id)
     {
         return playlistDBDao.updatePlaylist(title, id);
     }

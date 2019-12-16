@@ -13,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- * @author jigzi
+ * @author Den Gode Gruppe
  */
 public class PlaylistSongDBDAO
 {
@@ -35,7 +35,6 @@ public class PlaylistSongDBDAO
      */
     public ArrayList getPlaylistSongs(int id)
     {
-        System.out.println("Vi nåede ind i model Getall");
         ArrayList newSongList = new ArrayList();
         try (Connection con = dbCon.getConnection())
         {
@@ -43,7 +42,6 @@ public class PlaylistSongDBDAO
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setInt(1, id);
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println("almindeligt tekst" + rs);
             while (rs.next())
             {
                 int songId = rs.getInt("songId");
@@ -77,7 +75,6 @@ public class PlaylistSongDBDAO
             ps.setInt(2, song.getId());
             ps.addBatch();
             ps.executeBatch();
-            System.out.println(song.getId());
             return song;
         } catch (SQLException ex)
         {
@@ -100,8 +97,7 @@ public class PlaylistSongDBDAO
             preparedStmt.setInt(1, song.getId());
             preparedStmt.setInt(2, playlist.getPlaylistId());
             preparedStmt.execute();
-            System.out.println("hm" + song.getId());
-        } catch (SQLException ex)
+        } catch (SQLException ignored)
         {
         }
     }

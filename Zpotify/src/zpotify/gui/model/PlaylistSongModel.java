@@ -5,9 +5,6 @@
  */
 package zpotify.gui.model;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import zpotify.be.Playlist;
@@ -15,6 +12,9 @@ import zpotify.be.Song;
 import zpotify.bll.PlaylistSongManager;
 import zpotify.dal.DalException;
 import zpotify.gui.FXMLDocumentController;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  *
@@ -38,7 +38,7 @@ public class PlaylistSongModel {
             return this.songsInPlaylist;    
     }
     //This is what the controller calls when deleting a song from a playlist. This calls a method in the playlistsongmanager
-    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws DalException, SQLException 
+    public void deleteFromPlaylistSong(Playlist playlist, Song song) throws DalException, SQLException
     {
         playlistSongManager.deleteFromPlaylistSong(playlist, song);
     }

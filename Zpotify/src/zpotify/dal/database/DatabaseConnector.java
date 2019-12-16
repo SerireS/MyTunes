@@ -7,7 +7,7 @@ package zpotify.dal.database;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -17,11 +17,11 @@ import java.util.Properties;
  *
  * @author nbruu
  */
-public class DatabaseConnector
+class DatabaseConnector
 {
     private SQLServerDataSource dataSource;
 
-    public DatabaseConnector() throws IOException 
+    DatabaseConnector() throws IOException
     {
         Properties props = new Properties();
         props.load(new FileReader("DBSettings.txt"));
@@ -31,7 +31,8 @@ public class DatabaseConnector
         dataSource.setPassword(props.getProperty("password"));
         dataSource.setServerName(props.getProperty("server"));
     }
-    public Connection getConnection() throws SQLServerException 
+
+    Connection getConnection() throws SQLServerException
     {
         return dataSource.getConnection();
     }

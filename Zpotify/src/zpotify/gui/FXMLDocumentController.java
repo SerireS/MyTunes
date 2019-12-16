@@ -518,9 +518,6 @@ public class FXMLDocumentController implements Initializable
         songModel.search(query);
     }
 
-//     mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) ->
-//    {
-//        if (newValue.toMillis() > mediaPlayer.getMedia().getDuration().toMillis() - 100)
 
     private void songSlider()
     {

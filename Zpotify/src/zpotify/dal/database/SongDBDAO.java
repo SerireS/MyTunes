@@ -5,38 +5,38 @@
  */
 package zpotify.dal.database;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import zpotify.be.Song;
 import zpotify.dal.DalException;
 
+import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author nbruu
  */
-public class SongDBDAO {
+public class SongDBDAO
+{
 
     private DatabaseConnector dbCon;
 
-    public SongDBDAO() throws IOException {
+    public SongDBDAO() throws IOException
+    {
         dbCon = new DatabaseConnector();
     }
 
-    public List<Song> getAllSongs() throws SQLServerException, SQLException {
-        try ( Connection con = dbCon.getConnection()) {
+    public List<Song> getAllSongs() throws SQLException
+    {
+        try (Connection con = dbCon.getConnection())
+        {
             String sql = "SELECT * FROM Songs;";
             Statement statement = con.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             ArrayList<Song> allSongs = new ArrayList<>();
             System.out.println(rs + "tekst så vi kan genkende");
-            while (rs.next()) {
+            while (rs.next())
+            {
                 int id = rs.getInt("songId");
                 String title = rs.getString("title");
                 String place = rs.getString("place");
@@ -49,25 +49,31 @@ public class SongDBDAO {
     }
 
     //Deletes the song from SQL database
-    public void deleteSong(Song song) throws DalException {
-        try ( Connection con = dbCon.getConnection()) {
+    public void deleteSong(Song song) throws DalException
+    {
+        try (Connection con = dbCon.getConnection())
+        {
             int id = song.getId();
             String sql = "DELETE FROM songs WHERE SongId=?;";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             int affectedRows = ps.executeUpdate();
-            if (affectedRows != 1) {
+            if (affectedRows != 1)
+            {
                 throw new DalException();
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             ex.printStackTrace();
             throw new DalException();
         }
     }
 
-    public boolean createSong(String title, String place) throws DalException {
+    public boolean createSong(String title, String place) throws DalException
+    {
         System.out.println(title + place);
-        try ( Connection con = dbCon.getConnection()) {
+        try (Connection con = dbCon.getConnection())
+        {
             String sql = "INSERT INTO Songs (title, place) VALUES (?,?);";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
@@ -76,22 +82,27 @@ public class SongDBDAO {
             ps.setString(2, place);
             int affectedRows = ps.executeUpdate();
 
-            if (affectedRows == 1) {
+            if (affectedRows == 1)
+            {
                 ResultSet rs = ps.getGeneratedKeys();
-                if (rs.next()) {
+                if (rs.next())
+                {
                     return true;
                 }
             }
 
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             ex.printStackTrace();
             throw new DalException();
         }
         return false;
     }
 
-    public boolean updateSong(String title, int id) throws SQLServerException, SQLException {
-        try ( Connection con = dbCon.getConnection()) {
+    public boolean updateSong(String title, int id) throws SQLException
+    {
+        try (Connection con = dbCon.getConnection())
+        {
             String sql = "UPDATE Songs SET title = ? WHERE songId = ?;";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             System.out.println(id);
@@ -101,7 +112,8 @@ public class SongDBDAO {
             ps.executeUpdate();
             System.out.println("It worked or atleast I think it does");
             return true;
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             ex.printStackTrace();
             return false;
         }

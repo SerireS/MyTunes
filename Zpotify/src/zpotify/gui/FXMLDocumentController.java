@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -48,11 +47,7 @@ public class FXMLDocumentController implements Initializable
     private SongModel songModel;
     private int currentSongPlaying;
     @FXML
-    private ImageView btn_close;
-    @FXML
     private ImageView btn_playpause;
-    @FXML
-    private ImageView btn_previous;
     @FXML
     private ListView<Playlist> txt_playlist;
     @FXML
@@ -60,33 +55,13 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ListView<Song> txt_songs;
     @FXML
-    private ImageView btn_move_song;
-    @FXML
-    private Button btn_new_playlist;
-    @FXML
-    private Button btn_edit_playlist;
-    @FXML
-    private Button btn_delete_playlist;
-    @FXML
-    private Button btn_delete_song_playlist;
-    @FXML
-    private Button btn_new_song;
-    @FXML
-    private Button btn_edit_song;
-    @FXML
-    private Button btn_delete_song;
-    @FXML
     private TextField txt_search;
-    @FXML
-    private ImageView button_next;
     @FXML
     private Slider volumeSlider;
     @FXML
     private Slider seekSlider;
     @FXML
     private TextField songPlaying;
-    @FXML
-    private ImageView imv_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)

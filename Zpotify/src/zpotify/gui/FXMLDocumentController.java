@@ -282,7 +282,7 @@ public class FXMLDocumentController implements Initializable
         playlistSongModel.addToPlaylist(playlist, selectedSong);
     }
 
-    // Playing the next song
+    // Playing the next song if current song is finish 
     private void playNextSong()
     {
         try

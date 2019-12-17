@@ -170,6 +170,7 @@ public class FXMLDocumentController implements Initializable
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying(txt_songs.getItems().get(currentSongPlaying).toString());
                 songSlider();
+                playNextSong();
 
             }
         });

@@ -169,7 +169,6 @@ public class FXMLDocumentController implements Initializable
 
                 btn_playpause.setImage(new Image("/Image/pause1.png"));
                 textPlaying(txt_songs.getItems().get(currentSongPlaying).toString());
-                playNextSong();
                 songSlider();
 
             }
@@ -191,19 +190,6 @@ public class FXMLDocumentController implements Initializable
         stage.setIconified(true);
     }
 
-    private void windowMode(javafx.scene.input.MouseEvent event)
-    {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        if (windowsState)
-        {
-            stage.setFullScreen(true);
-            windowsState = false;
-        } else
-        {
-            stage.setFullScreen(false);
-            windowsState = true;
-        }
-    }
 
     @FXML
     //play and pause the music

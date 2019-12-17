@@ -295,7 +295,7 @@ public class FXMLDocumentController implements Initializable
         playlistSongModel.addToPlaylist(playlist, selectedSong);
     }
 
-
+    // Playing the next song
     private void playNextSong()
     {
         try
@@ -500,7 +500,7 @@ public class FXMLDocumentController implements Initializable
         songModel.search(query);
     }
 
-
+    // Shows how long we are into the song
     private void songSlider()
     {
         try
@@ -517,6 +517,7 @@ public class FXMLDocumentController implements Initializable
         } catch (Exception ignored)
         {
         }
+        // Jumps to time in the media when pressed.
         seekSlider.setOnMousePressed(event1 -> mediaPlayer.seek(Duration.millis(seekSlider.getValue())));
     }
 

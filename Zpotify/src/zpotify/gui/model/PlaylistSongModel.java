@@ -45,7 +45,7 @@ public class PlaylistSongModel
         playlistSongManager.deleteFromPlaylistSong(playlist, song);
     }
 
-    //This is what the controller calls whe                                                 n adding a song to a playlist. This calls a method in the playlistsongmanager
+    //This is what the controller calls when adding a song to a playlist. This calls a method in the playlistsongmanager
     public void addToPlaylist(Playlist playlist, Song song)
     {
         playlistSongManager.addToPlaylist(playlist, song);

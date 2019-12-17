@@ -29,6 +29,7 @@ public class PlaylistModel
         playlistManager = new PlaylistManager();
     }
 
+    //This is what the controller calls when it is trying to show a list of all playlist. This calls a method in the PlaylistManager
     public ObservableList<Playlist> getAllPlaylists()
     {
         allPlaylists = FXCollections.observableArrayList();
@@ -36,6 +37,7 @@ public class PlaylistModel
         return allPlaylists;
     }
 
+    //This is what the controller calls when creating a playlist. This calls a method in the PlaylistManager
     public void createPlaylist(String playlistName) throws DalException
     {
         boolean playlistIsCreated = playlistManager.createPlaylist(playlistName);
@@ -46,17 +48,18 @@ public class PlaylistModel
         mainController.refreshSongs();
     }
 
+    //This is what the controller calls when deleting a playlist. This calls a method in the PlaylistManager
     public void deletePlaylist(Playlist selectedPlaylist) throws DalException
     {
         playlistManager.deletePlaylist(selectedPlaylist);
         if (allPlaylists.remove(selectedPlaylist))
         {
             allPlaylists.remove(selectedPlaylist);
-            // Meningen er at sortere dem efter længde? Ved ikke omdet er meninge, revurder metode
             allPlaylists.sort(Comparator.comparingInt(Playlist::getPlaylistId));
         }
     }
 
+    //This is what the controller calls when updating a playlist. This calls a method in the PlaylistManager
     public void updatePlaylist(String title, int id)
     {
         boolean playlistIsUpdated = playlistManager.updatePlaylist(title, id);

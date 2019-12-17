@@ -31,6 +31,7 @@ public class SongModel
         songManager = new SongManager();
     }
 
+    //This is what the controller calls when trying to show a list of all Songs. This calls a method in the SongManager
     public ObservableList<Song> getAllSongs()
     {
         allSongs = FXCollections.observableArrayList();
@@ -38,6 +39,7 @@ public class SongModel
         return allSongs;
     }
 
+    //This method checks if the String query, which is the saerch text field, is empty. If it isnt, it calls the methods in songManager
     public void search(String query) throws SQLException
     {
         if (query.isEmpty())
@@ -51,6 +53,7 @@ public class SongModel
         }
     }
 
+    //This is what the controller calls when creating a Song. This calls a method in the SongManager
     public void createSong(String title, String place) throws DalException
     {
         boolean songIsCreated = songManager.createSong(title, place);
@@ -60,6 +63,7 @@ public class SongModel
         }
     }
 
+    //This is what the controller calls when deleting a song. This calls a method in the SongManager
     public void deleteSong(Song selectedSong) throws DalException
     {
         songManager.deleteSong(selectedSong);
@@ -69,6 +73,7 @@ public class SongModel
         }
     }
 
+    //This is what the controller calls when updating the name of a song. This calls a method in the SongManager
     public void updateSong(String title, int id)
     {
         boolean songIsUpdated = songManager.updateSong(title, id);

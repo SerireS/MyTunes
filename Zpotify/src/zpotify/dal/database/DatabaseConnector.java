@@ -19,7 +19,9 @@ import java.util.Properties;
 class DatabaseConnector
 {
     private SQLServerDataSource dataSource;
-
+    /*This method reads a file in our github folder, the file consists of data needed to get on our database.
+    * It then inserts the data
+    */
     DatabaseConnector() throws IOException
     {
         Properties props = new Properties();
@@ -31,6 +33,7 @@ class DatabaseConnector
         dataSource.setServerName(props.getProperty("server"));
     }
 
+    //This method returns the data created in the constructor above
     Connection getConnection() throws SQLServerException
     {
         return dataSource.getConnection();

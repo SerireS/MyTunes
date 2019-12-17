@@ -46,7 +46,7 @@ public class FXMLEditSongController extends FXMLDocumentController
         // TODO
     }
 
-    // Denne metode sikre vi har fat i den samme SongModel og Controller hele tiden.
+    //This method makes sure that we get the correct data object when editing a song
     void ApplyImportantData(SongModel songModel, FXMLDocumentController controller, Song selectedSong)
     {
 
@@ -55,6 +55,7 @@ public class FXMLEditSongController extends FXMLDocumentController
         this.SelectedSong = selectedSong;
     }
 
+    //This method cancels the editing of a playlist
     @FXML
     private void handleButtonActionCancel(ActionEvent event)
     {
@@ -62,14 +63,15 @@ public class FXMLEditSongController extends FXMLDocumentController
         stage.close();
     }
 
+    //This method handles the editing part, calling the updateSong method in the model
     @FXML
     private void handleButtonActionSave(ActionEvent event)
     {
         String title = txt_title.getText().trim();
         int id = this.SelectedSong.getId();
         Stage stage = (Stage) btn_save.getScene().getWindow();
-        // Tester om der er noget i title felt, sætter en rød border for at indikere her mangles noget
-        // Det er først muligt at lukke dialogen ned når der er noget i feltet
+        // Tests if field is empty, if it is. Sets border to red
+        // It is only possible to close the window if there is anything in the field
         if (title.length() == 0)
         {
             Border warning = new Border(new BorderStroke(Color.RED,

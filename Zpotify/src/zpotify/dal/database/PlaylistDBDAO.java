@@ -26,6 +26,11 @@ public class PlaylistDBDAO
         dbCon = new DatabaseConnector();
     }
 
+    /* 
+    * If called this method will create a connection between the database and the program
+    * The SQL statement will be run.
+    * The method will return an ArrayList of playlists, which will be the list of all playlists in the database.
+    */
     public List<Playlist> getAllPlaylists() throws SQLException
     {
         try (Connection con = dbCon.getConnection())
@@ -66,7 +71,12 @@ public class PlaylistDBDAO
             throw new DalException();
         }
     }
-
+    
+    /* 
+    * If called this method will create a connection between the database and the program
+    * The SQL statement will be run.
+    * A new playlist will be given with the name chosen.
+    */
     public boolean createPlaylist(String playlistName) throws DalException
     {
         try (Connection con = dbCon.getConnection())
@@ -93,6 +103,11 @@ public class PlaylistDBDAO
         return false;
     }
 
+    /* 
+    * If called this method will create a connection between the database and the program
+    * The SQL statement will be run.
+    * the playlist with the chosen playlistId will have its name changed, to the chosen name.
+    */
     public boolean updatePlaylist(String title, int id)
     {
         try (Connection con = dbCon.getConnection())

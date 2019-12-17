@@ -53,16 +53,13 @@ public class PlaylistManager
         return playlistDBDao.createPlaylist(playlistName);
     }
 
-    //    public void updatePlaylist(Playlist playlist)
-//    {
-//        playlistDBDao.updatePlaylist(playlist);
-//    }
     //This is what the model calls when deleting a playlist. This calls a method in the PlaylistDBDao
     public void deletePlaylist(Playlist playlist) throws DalException
     {
         playlistDBDao.deletePlaylist(playlist);
     }
 
+    //This is what the model calls when updating a playlist. This calls a method in the PlaylistDBDao
     public boolean updatePlaylist(String title, int id)
     {
         return playlistDBDao.updatePlaylist(title, id);

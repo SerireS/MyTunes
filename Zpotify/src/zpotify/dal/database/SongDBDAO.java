@@ -26,6 +26,13 @@ public class SongDBDAO
         dbCon = new DatabaseConnector();
     }
 
+    /*
+     * If called this method tries to create a connection between the database and the program.
+     * It creates a new ArrayList which is a list of songs
+     * If it creates the connection it will run the String query you see below.
+     * The query shows a list of songs.
+     * Effectively returning the list of songs, in the selected playlist.
+     */
     public List<Song> getAllSongs() throws SQLException
     {
         try (Connection con = dbCon.getConnection())
@@ -68,6 +75,11 @@ public class SongDBDAO
         }
     }
 
+    /* 
+    * If called this method will create a connection between the database and the program
+    * The SQL statement will be run.
+    * A new song will be given with the name chosen.
+    */
     public boolean createSong(String title, String place) throws DalException
     {
         try (Connection con = dbCon.getConnection())
@@ -75,8 +87,6 @@ public class SongDBDAO
             String sql = "INSERT INTO Songs (title, place) VALUES (?,?);";
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, title);
-//            ps.setInt(2, length);
-//            ps.setString(3, artist);
             ps.setString(2, place);
             int affectedRows = ps.executeUpdate();
 
@@ -97,6 +107,11 @@ public class SongDBDAO
         return false;
     }
 
+    /* 
+    * If called this method will create a connection between the database and the program
+    * The SQL statement will be run.
+    * the song with the chosen songId will have its name changed, to the chosen name.
+    */
     public boolean updateSong(String title, int id)
     {
         try (Connection con = dbCon.getConnection())

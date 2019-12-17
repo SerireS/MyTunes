@@ -53,24 +53,22 @@ public class FXMLNewSongController implements Initializable
     {
     }
 
-    // Denne metode sikre vi har fat i den samme SongModel og Controller hele tiden.
+    //This method makes sure that we get the correct data object when Creating a song
     void ApplyImportantData(SongModel songModel, FXMLDocumentController controller)
     {
         this.songModel = songModel;
         this.controller = controller;
     }
 
-    /*
-     *
-     */
+    //This method handles the creating of a new song. It calls the method createSong in the model class.
     @FXML
     private void handleButtonActionSave(ActionEvent event) throws DalException
     {
         String title = txt_title.getText().trim();
         String place = "musik/" + txt_MP3_File.getText().trim();
         Stage stage = (Stage) btn_save.getScene().getWindow();
-        // Tester om der er noget i title felt, sætter en rød border for at indikere her mangles noget
-        // Det er først muligt at lukke dialogen ned når der er noget i feltet
+        // Tests if field is empty, if it is. Sets border to red
+        // It is only possible to close the window if there is anything in the field
         if (title.length() == 0)
         {
             Border warning = new Border(new BorderStroke(Color.RED,
@@ -103,6 +101,7 @@ public class FXMLNewSongController implements Initializable
     }
 
     @FXML
+    //Closes the stage
     private void handleButtonActionCancel(ActionEvent event)
     {
         Stage stage = (Stage) btn_cancel.getScene().getWindow();

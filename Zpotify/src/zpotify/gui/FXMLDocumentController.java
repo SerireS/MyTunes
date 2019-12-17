@@ -328,8 +328,8 @@ public class FXMLDocumentController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
             FXMLNewPlaylistController editplaylistcontroller = fxmlLoader.getController();
-            // Her tildeles vigtige data objecter til edit controlleren,
-            // Det sikre at der er fat på de korrekte udgaver af dem.
+            // Here the edit controller is given important data objects,
+            // This secures that it is the correct ones we are working with.
             editplaylistcontroller.ApplyImportantData(playlistModel, this);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
@@ -353,8 +353,8 @@ public class FXMLDocumentController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLEditPlaylist.fxml"));
             Parent root1 = fxmlLoader.load();
             FXMLEditPlaylistController editplaylistcontroller = fxmlLoader.getController();
-            // Her tildeles vigtige data objecter til edit controlleren,
-            // Det sikre at der er fat på de korrekte udgaver af dem.
+            // Here the edit controller is given important data objects,
+            // This secures that it is the correct ones we are working with.
             editplaylistcontroller.ApplyImportantData(playlistModel, this, selectedPlaylist);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
@@ -396,8 +396,8 @@ public class FXMLDocumentController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLNewSong.fxml"));
             Parent root1 = fxmlLoader.load();
             FXMLNewSongController editsongcontroller = fxmlLoader.getController();
-            // Her tildeles vigtige data objecter til edit controlleren, 
-            // Det sikre at der er fat på de korrekte udgaver af dem.
+            // Here the edit controller is given important data objects,
+            // This secures that it is the correct ones we are working with.
             editsongcontroller.ApplyImportantData(songModel, this);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
@@ -421,8 +421,8 @@ public class FXMLDocumentController implements Initializable
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLEditSong.fxml"));
             Parent root1 = fxmlLoader.load();
             FXMLEditSongController editsongcontroller = fxmlLoader.getController();
-            // Her tildeles vigtige data objecter til edit controlleren, 
-            // Det sikre at der er fat på de korrekte udgaver af dem.
+            // Here the edit controller is given important data objects,
+            // This secures that it is the correct ones we are working with.
             editsongcontroller.ApplyImportantData(songModel, this, selectedSong);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
